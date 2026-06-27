@@ -11,4 +11,9 @@ class AppRoutes {
   static const String coursesPath = '/courses';
   static const String courseDetailsPath = '/course-details/:courseId';
   static const String lessonPlayerPath = '/lesson/:lessonId';
+  static const String aiTutorPath = '/ai-tutor';
+  static const String aiChatPath = '/ai-chat';
+  static const String promptEngineeringPath = '/prompt-engineering';
+  static const String ragEnginePath = '/rag-engine';
+  static const String aiMemoryPath = '/ai-memory';
 }

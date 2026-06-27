@@ -15,4 +15,8 @@ class StorageKeys {
   static const String coursesCatalog = 'courses_catalog';
   static const String lessonContentPrefix = 'lesson_content_';
   static const String lessonProgressPrefix = 'lesson_progress_';
+  static const String aiChatThreads = 'ai_chat_threads';
+  static const String aiMemoryProfile = 'ai_memory_profile';
+  static const String promptTemplates = 'prompt_templates';
+  static const String ragChunkCache = 'rag_chunk_cache';
 }

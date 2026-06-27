@@ -4,6 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:lexmastery_mobile/core/analytics/analytics_controller.dart';
 import 'package:lexmastery_mobile/core/analytics/analytics_event.dart';
 import 'package:lexmastery_mobile/core/navigation/app_routes.dart';
+import 'package:lexmastery_mobile/features/ai_chat/routes/ai_chat_routes.dart';
+import 'package:lexmastery_mobile/features/ai_memory/routes/ai_memory_routes.dart';
+import 'package:lexmastery_mobile/features/ai_tutor/routes/ai_tutor_routes.dart';
 import 'package:lexmastery_mobile/features/authentication/presentation/controllers/auth_controller.dart';
 import 'package:lexmastery_mobile/features/authentication/presentation/state/auth_state.dart';
 import 'package:lexmastery_mobile/features/authentication/routes/authentication_routes.dart';
@@ -13,7 +16,9 @@ import 'package:lexmastery_mobile/features/dashboard/routes/dashboard_routes.dar
 import 'package:lexmastery_mobile/features/notifications/routes/notifications_routes.dart';
 import 'package:lexmastery_mobile/features/app_shell/presentation/screens/app_shell_screen.dart';
 import 'package:lexmastery_mobile/features/lesson_player/routes/lesson_player_routes.dart';
+import 'package:lexmastery_mobile/features/prompt_engineering/routes/prompt_engineering_routes.dart';
 import 'package:lexmastery_mobile/features/profile/routes/profile_routes.dart';
+import 'package:lexmastery_mobile/features/rag_engine/routes/rag_engine_routes.dart';
 import 'package:lexmastery_mobile/features/settings/routes/settings_routes.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
@@ -32,6 +37,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       ...CoursesRoutes.routes,
       ...CourseDetailsRoutes.routes,
       ...LessonPlayerRoutes.routes,
+      ...AiTutorRoutes.routes,
+      ...AiChatRoutes.routes,
+      ...PromptEngineeringRoutes.routes,
+      ...RagEngineRoutes.routes,
+      ...AiMemoryRoutes.routes,
       ...ProfileRoutes.routes,
       ...SettingsRoutes.routes,
       ...NotificationsRoutes.routes,
