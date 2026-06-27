@@ -19,4 +19,7 @@ class StorageKeys {
   static const String aiMemoryProfile = 'ai_memory_profile';
   static const String promptTemplates = 'prompt_templates';
   static const String ragChunkCache = 'rag_chunk_cache';
+  static const String quizSessionState = 'quiz_session_state';
+  static const String mockExamSessionState = 'mock_exam_session_state';
+  static const String flashcardDeckState = 'flashcard_deck_state';
 }

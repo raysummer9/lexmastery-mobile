@@ -8,7 +8,10 @@ import 'package:lexmastery_mobile/features/authentication/presentation/controlle
 import 'package:lexmastery_mobile/features/authentication/routes/authentication_routes.dart';
 import 'package:lexmastery_mobile/features/courses/routes/courses_routes.dart';
 import 'package:lexmastery_mobile/features/dashboard/routes/dashboard_routes.dart';
+import 'package:lexmastery_mobile/features/flashcards/routes/flashcards_routes.dart';
+import 'package:lexmastery_mobile/features/mock_exam/routes/mock_exam_routes.dart';
 import 'package:lexmastery_mobile/features/prompt_engineering/routes/prompt_engineering_routes.dart';
+import 'package:lexmastery_mobile/features/quiz_engine/routes/quiz_engine_routes.dart';
 import 'package:lexmastery_mobile/features/rag_engine/routes/rag_engine_routes.dart';
 import 'package:lexmastery_mobile/features/notifications/routes/notifications_routes.dart';
 import 'package:lexmastery_mobile/features/profile/routes/profile_routes.dart';
@@ -50,6 +53,21 @@ class AppShellScreen extends ConsumerWidget {
                 FilledButton(
                   onPressed: () => context.go(CoursesRoutes.coursesPath),
                   child: const Text('Open Courses'),
+                ),
+                SizedBox(height: context.spacing.sm),
+                FilledButton(
+                  onPressed: () => context.go(QuizEngineRoutes.quizPath),
+                  child: const Text('Open Quiz Engine'),
+                ),
+                SizedBox(height: context.spacing.sm),
+                FilledButton(
+                  onPressed: () => context.go(MockExamRoutes.mockExamPath),
+                  child: const Text('Open Mock Exam'),
+                ),
+                SizedBox(height: context.spacing.sm),
+                FilledButton(
+                  onPressed: () => context.go(FlashcardsRoutes.flashcardsPath),
+                  child: const Text('Open Flashcards'),
                 ),
                 SizedBox(height: context.spacing.sm),
                 FilledButton(

@@ -16,4 +16,7 @@ class AppRoutes {
   static const String promptEngineeringPath = '/prompt-engineering';
   static const String ragEnginePath = '/rag-engine';
   static const String aiMemoryPath = '/ai-memory';
+  static const String quizEnginePath = '/quiz-engine';
+  static const String mockExamPath = '/mock-exam';
+  static const String flashcardsPath = '/flashcards';
 }
