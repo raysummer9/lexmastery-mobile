@@ -1,0 +1,295 @@
+---
+description:
+Defines the Lesson Player system for LexMastery including content rendering, progress tracking, notes, AI assistance, offline playback, and interactive learning behavior.
+
+alwaysApply: true
+---
+
+# Lesson Player System
+
+The Lesson Player is where actual learning happens.
+
+It is the most critical execution environment in LexMastery.
+
+---
+
+# Product Vision
+
+The Lesson Player must:
+
+- Deliver content clearly and progressively
+- Track learning in real-time
+- Enable active engagement
+- Support AI-assisted explanations
+- Work fully offline (when downloaded)
+
+It is not a reader.
+
+It is an interactive learning engine.
+
+---
+
+# Lesson Types
+
+Supported formats:
+
+- Text Lessons
+- Video Lessons (future-ready)
+- Mixed Media Lessons
+- Interactive Lessons
+- Quiz Embedded Lessons
+
+Each lesson must declare its type explicitly.
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+LessonPlayerController (Riverpod)
+
+↓
+
+LessonPlayerState
+
+↓
+
+LessonsRepository
+
+↓
+
+Local Cache + Remote API
+
+---
+
+# State Management
+
+LessonPlayerState includes:
+
+- loading
+- error
+- ready
+- playing
+- paused
+- completed
+- offline
+
+Core Data:
+
+- lessonContent
+- currentProgress
+- lastPosition
+- bookmarks
+- notes
+- AIContext
+
+Never use boolean flags like isPlaying or isLoading.
+
+---
+
+# Progress Tracking
+
+Progress must be tracked:
+
+- per paragraph
+- per section
+- per lesson completion
+
+Updates must be:
+
+- real-time
+- debounced
+- synced to server
+
+---
+
+# Navigation Rules
+
+Lesson Player supports:
+
+- next lesson
+- previous lesson
+- module exit
+- resume last position
+
+Back navigation must preserve state.
+
+---
+
+# AI Integration
+
+AI supports:
+
+- instant explanations of paragraphs
+- legal concept breakdown
+- example generation
+- clarification on demand
+
+AI responses must be contextual to lesson position.
+
+---
+
+# Offline Behaviour
+
+Lesson must be fully functional offline if downloaded:
+
+- content readable
+- progress tracked
+- notes available
+- bookmarks usable
+
+AI features disabled offline.
+
+---
+
+# Notes System
+
+Users can:
+
+- highlight text
+- attach notes
+- save key points
+
+Notes must be:
+
+- synced
+- searchable
+- linked to lesson position
+
+---
+
+# Bookmarks
+
+Users can bookmark:
+
+- paragraphs
+- sections
+- full lessons
+
+Bookmarks must persist across devices.
+
+---
+
+# API Contracts
+
+GET /lessons/{id}
+
+GET /lessons/{id}/content
+
+POST /lessons/progress
+
+POST /lessons/notes
+
+POST /lessons/bookmarks
+
+---
+
+# Analytics Events
+
+lesson_open
+
+lesson_progress_update
+
+lesson_complete
+
+lesson_note_created
+
+lesson_bookmark_added
+
+lesson_ai_query
+
+---
+
+# UI Composition Rules
+
+Lesson Player must include:
+
+- Progress indicator
+- Scroll-based navigation
+- Sticky AI assistant button
+- Notes panel
+- Bookmark action
+- Next/Previous controls
+
+---
+
+# UX Rules
+
+- Never overwhelm user with AI prompts
+- Keep reading flow uninterrupted
+- AI must be optional, not intrusive
+- Progress feedback must be subtle
+
+---
+
+# Error Handling
+
+If lesson fails:
+
+- fallback to cached version
+- allow retry
+- preserve last position
+
+Never reset progress unexpectedly.
+
+---
+
+# Performance
+
+- Content must render instantly (<200ms shell load)
+- Lazy load sections
+- Avoid full rebuilds on scroll
+
+---
+
+# Accessibility
+
+Must support:
+
+- screen readers
+- reading focus mode
+- font scaling
+- distraction-free mode
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+LessonPlayerController
+
+Progress tracking logic
+
+Notes system
+
+Widget Tests:
+
+Lesson rendering
+
+Progress UI
+
+Notes UI
+
+Integration Tests:
+
+Full lesson flow
+
+Offline lesson usage
+
+AI interaction flow
+
+---
+
+# Cursor Instructions
+
+When generating lesson features:
+
+- Always preserve reading position
+- Always implement progress tracking
+- Always support offline mode
+- Always integrate AI context-aware assistance
+- Never break reading flow with intrusive UI

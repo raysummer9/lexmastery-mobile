@@ -1,0 +1,159 @@
+---
+description:
+Defines the Security and Privacy system including data protection, encryption rules, AI data boundaries, user consent management, and secure storage policies.
+
+alwaysApply: true
+---
+
+# Security & Privacy System
+
+Security ensures trust in LexMastery.
+
+Privacy ensures user control.
+
+---
+
+# Product Vision
+
+System must:
+
+- protect user data
+- enforce encryption standards
+- isolate AI data access
+- ensure consent-based tracking
+- comply with privacy expectations
+
+---
+
+# Architecture
+
+SecurityController
+
+↓
+
+PrivacyController
+
+↓
+
+EncryptionService
+
+↓
+
+AccessControl Layer
+
+↓
+
+Secure Storage System
+
+---
+
+# Data Protection Rules
+
+- encrypt sensitive data at rest
+- secure API communication (HTTPS only)
+- isolate user data per account
+- no cross-user data leakage
+
+---
+
+# AI Privacy Rules
+
+AI must NOT:
+
+- store sensitive raw prompts permanently
+- expose memory without permission
+- infer private attributes
+- share data across users
+
+---
+
+# Consent Management
+
+Users must control:
+
+- analytics tracking
+- AI memory usage
+- data sharing permissions
+
+---
+
+# Secure Storage
+
+- encrypted local storage
+- secure key management
+- no plaintext sensitive data
+
+---
+
+# Offline Security
+
+- local data encrypted
+- sync requires authentication
+- no unauthenticated access
+
+---
+
+# API Security
+
+- token-based authentication
+- refresh token rotation
+- request validation
+
+---
+
+# Threat Protection
+
+- prevent injection attacks
+- sanitize inputs
+- validate AI outputs
+
+---
+
+# Logging Rules
+
+- no sensitive data in logs
+- anonymize user identifiers
+- secure log storage
+
+---
+
+# Error Handling
+
+- security errors must fail safely
+- no system exposure on failure
+
+---
+
+# Performance Rules
+
+- encryption must be lightweight
+- security checks must not block UI
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Encryption logic
+
+Access control rules
+
+Consent handling
+
+Integration Tests:
+
+Secure API flow
+
+Privacy enforcement flow
+
+---
+
+# Cursor Instructions
+
+When generating features:
+
+- always enforce encryption rules
+- always respect user consent
+- always isolate user data
+- never expose sensitive data in logs or UI

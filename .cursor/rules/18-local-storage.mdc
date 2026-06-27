@@ -1,0 +1,130 @@
+---
+description:
+Local persistence architecture.
+
+alwaysApply: true
+---
+
+# Local Storage
+
+Hive is the primary local database.
+
+Repositories control persistence.
+
+Widgets never access Hive directly.
+
+---
+
+# Storage Categories
+
+Cache
+
+Downloaded Content
+
+Bookmarks
+
+Study Progress
+
+Flashcards
+
+Recent Searches
+
+Settings
+
+Each category owns its own storage model.
+
+---
+
+# Data Ownership
+
+Never store domain models directly.
+
+Persist storage models.
+
+Map between:
+
+Storage Model
+
+↓
+
+Domain Model
+
+---
+
+# Cache
+
+Repositories decide:
+
+Save
+
+Read
+
+Update
+
+Delete
+
+Expire
+
+Widgets never control caching.
+
+---
+
+# Versioning
+
+Every storage schema requires versioning.
+
+Support migrations.
+
+Never silently discard existing user data.
+
+---
+
+# Encryption
+
+Sensitive data should never be stored in Hive.
+
+Use Secure Storage.
+
+---
+
+# Cleanup
+
+Automatically remove:
+
+Expired cache
+
+Temporary downloads
+
+Obsolete migrations
+
+---
+
+# Testing
+
+Test:
+
+Migration
+
+Upgrade
+
+Corruption
+
+Recovery
+
+Deletion
+
+---
+
+# Cursor Instructions
+
+Generate:
+
+Storage Model
+
+Adapter
+
+Repository Integration
+
+Migration Strategy
+
+Tests

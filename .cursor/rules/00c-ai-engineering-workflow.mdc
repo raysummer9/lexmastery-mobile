@@ -1,0 +1,401 @@
+---
+description: Defines the mandatory engineering workflow Cursor must follow before generating any code.
+
+alwaysApply: true
+---
+
+# AI Engineering Workflow
+
+This file defines HOW Cursor should think before generating code.
+
+Do not immediately start coding.
+
+Always complete the reasoning process first.
+
+---
+
+# Primary Objective
+
+Every implementation should prioritize:
+
+1. Product Value
+2. User Experience
+3. Code Quality
+4. Scalability
+5. Maintainability
+
+Never optimize for speed of implementation.
+
+Optimize for long-term quality.
+
+---
+
+# Before Writing Code
+
+Always answer these questions internally before generating code.
+
+## Product
+
+Why does this feature exist?
+
+What user problem does it solve?
+
+How does it support LexMastery's mission?
+
+---
+
+## Architecture
+
+Does this feature already exist?
+
+Can existing widgets be reused?
+
+Can existing controllers be reused?
+
+Can an existing repository be extended?
+
+Never duplicate functionality.
+
+---
+
+## Design
+
+Does this screen follow the Design System?
+
+Does it reduce cognitive load?
+
+Does it use existing components?
+
+Is spacing consistent?
+
+Is typography consistent?
+
+---
+
+## Engineering
+
+Where should this code live?
+
+Which feature owns it?
+
+Which layer owns it?
+
+presentation?
+
+domain?
+
+data?
+
+shared?
+
+core?
+
+Never guess.
+
+Always follow the architecture.
+
+---
+
+## API
+
+Does an endpoint already exist?
+
+What DTO is required?
+
+What Repository should expose it?
+
+What Use Case should execute it?
+
+Never call APIs directly from UI.
+
+---
+
+## State
+
+What state does this screen need?
+
+Loading?
+
+Success?
+
+Error?
+
+Empty?
+
+Offline?
+
+Always model every state explicitly.
+
+---
+
+## Offline
+
+Should this data be cached?
+
+Can this feature work offline?
+
+Should requests be queued?
+
+---
+
+## Accessibility
+
+Can this screen be used with:
+
+Screen Reader?
+
+Large Text?
+
+Reduced Motion?
+
+Keyboard Navigation?
+
+Voice Control?
+
+---
+
+# Planning
+
+Before generating implementation,
+
+produce a mental plan.
+
+The plan should identify
+
+Widgets
+
+Controllers
+
+Repositories
+
+Models
+
+Routes
+
+API Calls
+
+Reusable Components
+
+Dependencies
+
+Only after the plan is complete
+
+should implementation begin.
+
+---
+
+# Reuse First
+
+Never create something new until searching for existing implementations.
+
+Priority
+
+1 Existing Widget
+
+↓
+
+2 Existing Component
+
+↓
+
+3 Existing Service
+
+↓
+
+4 Existing Repository
+
+↓
+
+5 Create New
+
+---
+
+# Screen Development Process
+
+Every screen follows this order.
+
+Design
+
+↓
+
+Layout
+
+↓
+
+Components
+
+↓
+
+Controller
+
+↓
+
+Repository
+
+↓
+
+API
+
+↓
+
+Testing
+
+Never build UI without considering data.
+
+Never build data without considering UI.
+
+---
+
+# Feature Development Process
+
+Every feature must include:
+
+Presentation
+
+Domain
+
+Data
+
+Routing
+
+Analytics
+
+Error Handling
+
+Loading States
+
+Offline Strategy
+
+Accessibility
+
+Testing Strategy
+
+Documentation
+
+---
+
+# API Development Process
+
+Every endpoint requires:
+
+DTO
+
+↓
+
+Repository
+
+↓
+
+Use Case
+
+↓
+
+Controller
+
+↓
+
+UI
+
+Never skip layers.
+
+---
+
+# Refactoring
+
+After generating code,
+
+review it.
+
+Ask
+
+Can this become smaller?
+
+Can this become reusable?
+
+Can this become faster?
+
+Can this become clearer?
+
+If yes,
+
+refactor before finishing.
+
+---
+
+# Performance Checklist
+
+Avoid unnecessary rebuilds.
+
+Prefer const constructors.
+
+Use Riverpod efficiently.
+
+Use select() where appropriate.
+
+Lazy-load expensive screens.
+
+Avoid synchronous heavy work.
+
+Dispose resources correctly.
+
+---
+
+# Design Checklist
+
+Every screen should contain
+
+One Primary CTA
+
+Clear hierarchy
+
+Consistent spacing
+
+Readable typography
+
+Accessible controls
+
+Meaningful empty states
+
+Friendly error states
+
+Loading indicators
+
+Premium appearance
+
+---
+
+# Product Checklist
+
+Does this improve learning?
+
+Does this reduce anxiety?
+
+Does this improve retention?
+
+Does this improve exam performance?
+
+If not,
+
+question the implementation.
+
+---
+
+# AI Instructions
+
+Never rush implementation.
+
+Think.
+
+Plan.
+
+Reuse.
+
+Build.
+
+Review.
+
+Refactor.
+
+Only then consider the task complete.
+
+Cursor should behave like a Senior Staff Engineer responsible for the long-term health of the LexMastery codebase.

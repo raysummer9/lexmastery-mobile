@@ -1,0 +1,214 @@
+---
+description:
+Defines the RAG (Retrieval Augmented Generation) Engine including knowledge retrieval, vector search, grounding rules, citation enforcement, and AI context injection.
+
+alwaysApply: true
+---
+
+# RAG Engine System
+
+The RAG Engine is the truth layer of LexMastery AI.
+
+It ensures AI responses are grounded in real course content.
+
+---
+
+# Product Vision
+
+RAG must:
+
+- retrieve relevant learning content
+- prevent hallucinations
+- ground AI Tutor responses
+- improve legal accuracy
+- enforce citation-based reasoning
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+RAGController (Riverpod)
+
+↓
+
+RAGState
+
+↓
+
+Retriever Service
+
+↓
+
+Vector Database + Document Store
+
+↓
+
+Ranking Engine
+
+---
+
+# State Management
+
+RAGState includes:
+
+- loading
+- retrieved
+- merged
+- error
+
+Core Data:
+
+- retrievedChunks
+- embeddings
+- sourceReferences
+- rankedResults
+
+---
+
+# Retrieval Strategy
+
+Hybrid retrieval:
+
+1. Semantic vector search
+2. Keyword fallback search
+3. Metadata filtering
+4. AI ranking layer
+
+---
+
+# Knowledge Sources
+
+RAG pulls from:
+
+- Courses
+- Lessons
+- Notes
+- AI Tutor memory
+- Bookmarked content
+
+---
+
+# Grounding Rules
+
+AI must:
+
+- always cite retrieved content when applicable
+- never invent legal rules
+- prefer course material over external knowledge
+- clearly separate inference vs fact
+
+---
+
+# Context Injection
+
+RAG injects:
+
+- relevant lesson snippets
+- course definitions
+- prior user interactions
+- jurisdiction context
+
+---
+
+# Ranking System
+
+Results ranked by:
+
+- semantic similarity
+- user progress relevance
+- recency of access
+- difficulty alignment
+
+---
+
+# Offline Behaviour
+
+- cached embeddings available
+- limited retrieval offline
+- no vector search offline
+
+---
+
+# API Contracts
+
+POST /rag/query
+
+POST /rag/feedback
+
+GET /rag/history
+
+---
+
+# Analytics Events
+
+rag_query
+
+rag_result_retrieved
+
+rag_used_in_ai_response
+
+rag_cache_hit
+
+---
+
+# Performance
+
+- retrieval <300ms target
+- ranked results streamed progressively
+
+---
+
+# Error Handling
+
+- fallback to cached results
+- degrade gracefully to keyword search
+
+---
+
+# UX Rules
+
+- RAG is invisible to user
+- only reflected in AI Tutor responses
+- never exposed directly in UI
+
+---
+
+# Accessibility
+
+Must ensure:
+
+- readable AI citations
+- structured explanation output
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Retrieval logic
+
+Ranking system
+
+Embedding pipeline
+
+Integration Tests:
+
+AI Tutor + RAG flow
+
+Offline fallback behavior
+
+---
+
+# Cursor Instructions
+
+When generating RAG features:
+
+- always prioritize course content
+- always enforce grounding rules
+- always prevent hallucination
+- never expose raw embeddings to UI

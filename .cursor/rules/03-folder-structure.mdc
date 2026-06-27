@@ -1,0 +1,577 @@
+---
+description: Defines the official folder and file organization for the LexMastery Flutter application.
+
+alwaysApply: true
+---
+
+# Folder Structure
+
+The LexMastery Flutter application follows a Feature-First Modular Clean Architecture.
+
+Every file must have a single, obvious home.
+
+Never create new top-level folders without explicit approval.
+
+---
+
+# Root Structure
+
+lib/
+
+app/
+
+core/
+
+shared/
+
+features/
+
+main.dart
+
+No additional top-level folders are allowed.
+
+---
+
+# app/
+
+The app folder contains application bootstrapping.
+
+Responsible for:
+
+Application initialization
+
+App widget
+
+Router configuration
+
+Global providers
+
+Dependency registration
+
+Theme registration
+
+Environment selection
+
+App lifecycle
+
+Allowed folders:
+
+app/
+
+config/
+
+router/
+
+theme/
+
+bootstrap/
+
+startup/
+
+Do not place business logic here.
+
+---
+
+# core/
+
+Core contains infrastructure used across the application.
+
+Allowed folders:
+
+analytics/
+
+constants/
+
+environment/
+
+errors/
+
+extensions/
+
+logging/
+
+network/
+
+services/
+
+storage/
+
+utils/
+
+exceptions/
+
+mixins/
+
+Core must never contain business logic.
+
+---
+
+# shared/
+
+Shared contains reusable UI and design system resources.
+
+Allowed folders:
+
+components/
+
+tokens/
+
+typography/
+
+icons/
+
+animations/
+
+layouts/
+
+validators/
+
+widgets/
+
+extensions/
+
+A component belongs in Shared only if it is reused by three or more features.
+
+Otherwise, keep it inside the owning feature.
+
+---
+
+# features/
+
+Every business capability belongs inside features/.
+
+Each feature is independent.
+
+Example:
+
+features/
+
+authentication/
+
+onboarding/
+
+dashboard/
+
+courses/
+
+learning/
+
+flashcards/
+
+quizzes/
+
+mock_exams/
+
+ai_tutor/
+
+ai_instructor/
+
+diagnostics/
+
+comparative_law/
+
+analytics/
+
+notifications/
+
+profile/
+
+settings/
+
+accessibility/
+
+---
+
+# Feature Structure
+
+Each feature must follow the same internal structure.
+
+feature/
+
+presentation/
+
+domain/
+
+data/
+
+routes/
+
+assets/
+
+tests/
+
+---
+
+# Presentation
+
+Responsible for UI.
+
+presentation/
+
+screens/
+
+widgets/
+
+controllers/
+
+providers/
+
+state/
+
+dialogs/
+
+bottom_sheets/
+
+forms/
+
+animations/
+
+Presentation must never contain business logic.
+
+---
+
+# Domain
+
+Responsible for business rules.
+
+domain/
+
+entities/
+
+repositories/
+
+usecases/
+
+value_objects/
+
+services/
+
+policies/
+
+Domain must remain pure Dart.
+
+Never import Flutter.
+
+---
+
+# Data
+
+Responsible for persistence.
+
+data/
+
+datasources/
+
+repositories/
+
+dto/
+
+mappers/
+
+models/
+
+cache/
+
+remote/
+
+local/
+
+Never expose DTOs outside Data.
+
+---
+
+# Routes
+
+Each feature owns its routes.
+
+routes/
+
+feature_routes.dart
+
+Global routing is composed from feature routes.
+
+---
+
+# Assets
+
+Feature-specific assets remain inside the feature.
+
+Examples:
+
+Empty illustrations
+
+Lottie files
+
+Icons
+
+Do not duplicate assets already available globally.
+
+---
+
+# Tests
+
+Every feature owns its own tests.
+
+tests/
+
+unit/
+
+widget/
+
+golden/
+
+integration/
+
+Keep tests close to the feature.
+
+---
+
+# Naming Rules
+
+Folders:
+
+snake_case
+
+Examples:
+
+study_plan
+
+ai_tutor
+
+mock_exams
+
+Files:
+
+snake_case.dart
+
+Examples:
+
+login_screen.dart
+
+dashboard_controller.dart
+
+course_repository.dart
+
+Classes:
+
+PascalCase
+
+Examples:
+
+LoginScreen
+
+DashboardController
+
+CourseRepository
+
+Variables:
+
+camelCase
+
+Methods:
+
+camelCase
+
+Constants:
+
+lowerCamelCase unless compile-time constants require Dart's `lowerCamelCase` convention.
+
+---
+
+# One Class Per File
+
+Every public class belongs in its own file.
+
+Avoid multiple unrelated classes in one file.
+
+---
+
+# Widget Rules
+
+Do not place reusable widgets inside screens/.
+
+Place them in:
+
+presentation/widgets/
+
+Large screens should be composed from many smaller widgets.
+
+---
+
+# Controller Rules
+
+Controllers live only in:
+
+presentation/controllers/
+
+Never place controllers inside widgets.
+
+---
+
+# State Rules
+
+State classes belong in:
+
+presentation/state/
+
+Keep state immutable.
+
+---
+
+# Provider Rules
+
+Riverpod providers belong in:
+
+presentation/providers/
+
+Avoid placing providers in arbitrary folders.
+
+---
+
+# Repository Rules
+
+Repository interfaces:
+
+domain/repositories/
+
+Repository implementations:
+
+data/repositories/
+
+Never combine both.
+
+---
+
+# Use Case Rules
+
+Every business action becomes one Use Case.
+
+Examples:
+
+login_user.dart
+
+submit_assessment.dart
+
+generate_study_plan.dart
+
+Never place multiple unrelated use cases in one file.
+
+---
+
+# DTO Rules
+
+DTOs belong only in:
+
+data/dto/
+
+Never expose DTOs to the UI.
+
+---
+
+# Mapper Rules
+
+Every DTO should have a mapper.
+
+Location:
+
+data/mappers/
+
+Mapping logic should never appear inside controllers.
+
+---
+
+# Network Rules
+
+Networking belongs only in:
+
+core/network/
+
+Features never configure Dio directly.
+
+---
+
+# Storage Rules
+
+Hive
+
+Secure Storage
+
+Shared Preferences
+
+must all be abstracted through:
+
+core/storage/
+
+---
+
+# Environment Rules
+
+Environment configuration belongs in:
+
+core/environment/
+
+Never hardcode URLs.
+
+Never hardcode API keys.
+
+---
+
+# Shared Components
+
+Examples:
+
+PrimaryButton
+
+SecondaryButton
+
+AppCard
+
+ProgressRing
+
+Avatar
+
+SearchBar
+
+LegalReferenceCard
+
+Only create shared components after proving reuse.
+
+---
+
+# Documentation
+
+Every feature should contain a README.md explaining:
+
+Purpose
+
+Architecture
+
+Dependencies
+
+API endpoints
+
+Known limitations
+
+Future improvements
+
+---
+
+# Cursor Instructions
+
+Before creating a file:
+
+Identify its feature.
+
+Identify its layer.
+
+Verify ownership.
+
+Verify naming.
+
+Verify dependencies.
+
+Only then generate the file.
+
+Never invent new folder structures.
+
+Always follow this hierarchy.

@@ -1,0 +1,227 @@
+---
+description:
+Defines the Mock Exam system including full exam simulation, timing enforcement, grading engine, review system, and performance analytics.
+
+alwaysApply: true
+---
+
+# Mock Exam System
+
+Mock Exams simulate real-world legal examinations.
+
+They are high-stakes assessments.
+
+---
+
+# Product Vision
+
+Mock Exams must:
+
+- replicate real exam conditions
+- enforce strict timing
+- simulate pressure conditions
+- evaluate readiness
+- identify weak areas
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+MockExamController (Riverpod)
+
+↓
+
+MockExamState
+
+↓
+
+MockExamRepository
+
+↓
+
+Exam Engine Service
+
+---
+
+# State Management
+
+MockExamState includes:
+
+- loading
+- ready
+- inProgress
+- paused
+- submitted
+- reviewing
+- error
+
+Core Data:
+
+- questions
+- answers
+- timeRemaining
+- score
+- sectionProgress
+- examRules
+
+---
+
+# Exam Types
+
+- Full Mock Exam
+- Sectional Exam
+- Timed Practice Exam
+- Adaptive Mock Exam
+
+---
+
+# Timing Rules
+
+Strict enforcement:
+
+- countdown timer
+- auto-submit on expiry
+- no pause (unless allowed mode)
+- warning alerts
+
+---
+
+# Grading System
+
+- raw score
+- percentage
+- band classification
+- topic breakdown
+- improvement suggestions
+
+---
+
+# Review System
+
+After submission:
+
+- question-by-question review
+- correct vs incorrect breakdown
+- explanations per question
+- AI feedback summary
+
+---
+
+# Offline Behaviour
+
+- exams can be pre-downloaded
+- submission requires sync when online
+- partial offline support allowed
+
+---
+
+# API Contracts
+
+GET /exams
+
+GET /exams/{id}
+
+POST /exams/submit
+
+GET /exams/results/{id}
+
+---
+
+# Analytics Events
+
+mock_exam_start
+
+mock_exam_pause
+
+mock_exam_submit
+
+mock_exam_complete
+
+mock_exam_review
+
+---
+
+# UI Composition Rules
+
+Exam UI must include:
+
+- timer header
+- question navigation panel
+- progress tracker
+- answer sheet
+- submit confirmation modal
+
+---
+
+# UX Rules
+
+- zero distractions
+- strict focus mode
+- prevent accidental exit
+- confirm submission
+
+---
+
+# Error Handling
+
+- preserve answers
+- recover session if possible
+- sync results later
+
+---
+
+# Performance
+
+- must handle large question sets efficiently
+- lazy load questions
+
+---
+
+# Accessibility
+
+Must support:
+
+- readable exam layout
+- screen reader compatibility
+- keyboard navigation
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Scoring engine
+
+Timing logic
+
+Submission rules
+
+Widget Tests:
+
+Exam UI
+
+Timer behavior
+
+Navigation panel
+
+Integration Tests:
+
+Full exam lifecycle
+
+Offline submission flow
+
+---
+
+# Cursor Instructions
+
+When generating mock exams:
+
+- always enforce strict timing rules
+- always implement review system
+- always preserve session state
+- never allow UI distractions

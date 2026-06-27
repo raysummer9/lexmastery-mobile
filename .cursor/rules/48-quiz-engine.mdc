@@ -1,0 +1,240 @@
+---
+description:
+Defines the Quiz Engine system including MCQ generation, scoring, explanations, adaptive difficulty, and timed assessments.
+
+alwaysApply: true
+---
+
+# Quiz Engine
+
+The Quiz Engine is the active assessment system of LexMastery.
+
+It tests knowledge in real time.
+
+---
+
+# Product Vision
+
+The Quiz Engine must:
+
+- Reinforce learning through testing
+- Provide instant feedback
+- Adapt difficulty dynamically
+- Explain every answer
+- Track performance over time
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+QuizController (Riverpod)
+
+↓
+
+QuizState
+
+↓
+
+QuizRepository
+
+↓
+
+Question Engine (API + Local)
+
+---
+
+# State Management
+
+QuizState includes:
+
+- loading
+- active
+- submitting
+- completed
+- reviewing
+- error
+
+Core Data:
+
+- questions
+- currentQuestionIndex
+- score
+- answers
+- timeRemaining
+- difficultyLevel
+
+---
+
+# Quiz Types
+
+1. Practice Quiz
+2. Timed Quiz
+3. Topic Quiz
+4. Adaptive Quiz
+5. Revision Quiz
+
+---
+
+# Question Types
+
+- Multiple Choice (MCQ)
+- True/False
+- Scenario-based (Legal reasoning)
+- Case application questions
+
+---
+
+# Scoring System
+
+- Correct answer = full score
+- Partial scoring (future)
+- Time bonus (optional)
+- Difficulty weighting
+
+---
+
+# Adaptive Logic
+
+AI adjusts:
+
+- difficulty
+- question type
+- topic focus
+
+based on performance history.
+
+---
+
+# Timing Rules
+
+Timed quizzes:
+
+- strict countdown
+- auto-submit on expiry
+- pause only in allowed mode
+
+---
+
+# Offline Behaviour
+
+Quizzes can be:
+
+- preloaded
+- taken offline
+- synced after completion
+
+AI adaptive mode requires internet.
+
+---
+
+# API Contracts
+
+GET /quizzes
+
+GET /quizzes/{id}
+
+POST /quizzes/submit
+
+GET /quizzes/results/{id}
+
+---
+
+# Analytics Events
+
+quiz_start
+
+quiz_answer_selected
+
+quiz_submit
+
+quiz_complete
+
+quiz_review_open
+
+---
+
+# UI Composition Rules
+
+Quiz UI must include:
+
+- question card
+- options list
+- timer (if timed)
+- progress indicator
+- explanation panel
+
+---
+
+# UX Rules
+
+- one question per screen
+- no distractions
+- immediate feedback in practice mode
+- delayed feedback in exam mode
+
+---
+
+# Error Handling
+
+- preserve answers on failure
+- allow retry submission
+- fallback to cached questions
+
+---
+
+# Performance
+
+- question load <200ms
+- smooth transitions between questions
+
+---
+
+# Accessibility
+
+Must support:
+
+- screen readers for questions
+- keyboard navigation
+- readable option grouping
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Quiz scoring logic
+
+Adaptive engine
+
+State transitions
+
+Widget Tests:
+
+Quiz screen
+
+Question rendering
+
+Timer UI
+
+Integration Tests:
+
+Full quiz lifecycle
+
+Offline quiz flow
+
+---
+
+# Cursor Instructions
+
+When generating quiz features:
+
+- always enforce one-question-per-screen rule
+- always implement scoring logic
+- always include explanation system
+- always support offline quizzes
+- never skip result review flow

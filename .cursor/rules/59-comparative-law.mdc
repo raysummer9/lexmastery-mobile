@@ -1,0 +1,227 @@
+---
+description:
+Defines the Comparative Law system including jurisdiction comparison, legal system mapping, AI-driven legal differences, and structured cross-country analysis.
+
+alwaysApply: true
+---
+
+# Comparative Law System
+
+This is LexMastery's differentiator.
+
+It enables cross-jurisdiction legal understanding.
+
+---
+
+# Product Vision
+
+Comparative Law must:
+
+- compare legal systems across jurisdictions
+- explain differences clearly
+- support exam preparation
+- simplify complex legal contrasts
+- provide AI-driven legal mapping
+
+---
+
+# Core Concept
+
+Users must be able to:
+
+- compare laws between countries
+- understand procedural differences
+- analyze legal frameworks side-by-side
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+ComparativeLawController (Riverpod)
+
+↓
+
+ComparativeLawState
+
+↓
+
+ComparativeLawRepository
+
+↓
+
+AI Legal Comparison Engine
+
+---
+
+# State Management
+
+ComparativeLawState includes:
+
+- loading
+- comparing
+- resultReady
+- error
+
+Core Data:
+
+- jurisdictionA
+- jurisdictionB
+- comparisonTopics
+- structuredDifferences
+- AIInsights
+
+---
+
+# Comparison Dimensions
+
+- Constitutional law
+- Criminal law
+- Civil procedure
+- Contract law
+- Evidence rules
+- Court hierarchy
+- Legal education systems
+
+---
+
+# AI Integration
+
+AI must:
+
+- generate structured comparisons
+- simplify legal complexity
+- highlight exam-relevant differences
+- avoid hallucinated legal claims
+
+---
+
+# Output Format
+
+Comparisons must include:
+
+- side-by-side structure
+- summary section
+- key differences
+- exam relevance notes
+
+---
+
+# Navigation Rules
+
+Comparative Law connects to:
+
+- Courses
+- AI Tutor
+- Search System
+- Notes
+
+---
+
+# Offline Behaviour
+
+- cached comparisons available
+- AI comparison disabled offline
+- static comparison view allowed
+
+---
+
+# API Contracts
+
+POST /compare/law
+
+GET /compare/history
+
+GET /compare/jurisdictions
+
+---
+
+# Analytics Events
+
+comparison_started
+
+comparison_completed
+
+comparison_saved
+
+comparison_shared
+
+---
+
+# UX Rules
+
+- comparisons must be structured
+- avoid long unstructured AI text
+- highlight key differences visually
+
+---
+
+# UI Composition Rules
+
+Must include:
+
+- dual-panel layout
+- highlight differences
+- summary panel
+- AI explanation toggle
+
+---
+
+# Error Handling
+
+- fallback to cached comparisons
+- retry AI comparison safely
+
+---
+
+# Performance
+
+- comparison generation <2s target
+- UI must render partial results progressively
+
+---
+
+# Accessibility
+
+Must support:
+
+- screen reader structured comparison navigation
+- clear headings per jurisdiction
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Comparison engine logic
+
+Data structuring
+
+AI prompt handling
+
+Widget Tests:
+
+Comparison UI
+
+Side-by-side layout
+
+Integration Tests:
+
+Full comparison flow
+
+Offline comparison view
+
+---
+
+# Cursor Instructions
+
+When generating comparative law features:
+
+- always enforce structured output
+- always use side-by-side format
+- always ensure exam relevance
+- never output unstructured legal text

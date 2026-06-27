@@ -1,0 +1,262 @@
+---
+description:
+Defines the Course Details system for LexMastery including module breakdown, AI previews, enrollment context, navigation, and deep learning structure.
+
+alwaysApply: true
+---
+
+# Course Details System
+
+The Course Details screen is the **decision-making layer** between discovery and learning.
+
+It must convert intent into enrollment.
+
+---
+
+# Product Vision
+
+Course Details must:
+
+- Clearly explain course value
+- Break down learning structure
+- Show progress expectations
+- Preview learning outcomes
+- Enable enrollment or continuation
+
+It is both informational and motivational.
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+CourseDetailsController (Riverpod)
+
+↓
+
+CourseDetailsState
+
+↓
+
+CoursesRepository
+
+↓
+
+API + Cache Layer
+
+---
+
+# State Management
+
+CourseDetailsState includes:
+
+- loading
+- error
+- loaded
+- refreshing
+
+Core Data:
+
+- courseInfo
+- modules
+- lessonsPreview
+- prerequisites
+- userProgress
+- AIInsights
+
+Never use boolean flags.
+
+---
+
+# Course Structure Display
+
+Must render hierarchy:
+
+Course
+
+→ Modules
+
+→ Lessons
+
+→ Topics (optional)
+
+Each level must be collapsible.
+
+---
+
+# Enrollment Logic
+
+If user is not enrolled:
+
+- Show "Enroll" CTA
+
+If enrolled:
+
+- Show "Continue Learning"
+
+AI may adjust CTA label dynamically.
+
+---
+
+# AI Integration
+
+AI provides:
+
+- Course difficulty explanation
+- Readiness assessment
+- Suggested starting point
+- Weakness indicators
+
+AI insights must be explainable.
+
+---
+
+# Navigation Rules
+
+Course Details leads to:
+
+- Lesson Player
+- Module View
+- Quiz Entry Points
+- Bookmarking
+
+Back navigation returns to:
+
+- Courses list or Dashboard
+
+---
+
+# Offline Behaviour
+
+Course structure must be cached.
+
+Offline:
+
+- Allow browsing
+- Disable enrollment
+- Allow continue learning if already enrolled
+
+---
+
+# API Contracts
+
+GET /courses/{id}
+
+GET /courses/{id}/details
+
+GET /courses/{id}/progress
+
+POST /courses/{id}/enroll
+
+---
+
+# Analytics Events
+
+course_details_view
+
+course_preview_expand
+
+course_enroll_click
+
+course_continue_click
+
+course_ai_insight_view
+
+---
+
+# UI Composition Rules
+
+Course Details must include:
+
+Header with course title
+
+Progress summary (if enrolled)
+
+Module breakdown
+
+AI insight panel
+
+Prerequisites section
+
+CTA section
+
+---
+
+# UX Rules
+
+- Avoid information overload
+- Prioritize clarity over density
+- Use progressive disclosure for modules
+- Keep CTA always visible on scroll
+
+---
+
+# Error Handling
+
+If course fails to load:
+
+- fallback to cached version
+- show retry option
+- preserve navigation integrity
+
+---
+
+# Performance
+
+Course details must render shell instantly (<200ms)
+
+Modules should lazy load.
+
+---
+
+# Accessibility
+
+Must support:
+
+- screen reader navigation
+- collapsible sections accessibility labels
+- proper heading hierarchy
+- keyboard navigation
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+CourseDetailsController
+
+Module parsing logic
+
+Enrollment logic
+
+Widget Tests:
+
+Course header
+
+Module tree
+
+AI insight panel
+
+Integration Tests:
+
+Course detail load
+
+Enrollment flow
+
+Offline browsing
+
+---
+
+# Cursor Instructions
+
+When generating course detail features:
+
+- Always include hierarchical structure rendering
+- Always support AI insights panel
+- Always support offline browsing
+- Always include enrollment state switching
+- Never flatten course structure into a single list

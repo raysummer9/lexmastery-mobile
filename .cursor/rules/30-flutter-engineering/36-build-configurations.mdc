@@ -1,0 +1,56 @@
+---
+description:
+Build flavors and environment configuration.
+
+alwaysApply: true
+---
+
+# Build Flavors
+
+Support:
+
+Development
+
+Staging
+
+Production
+
+---
+
+# Environment Variables
+
+Never hardcode:
+
+API URLs
+
+Keys
+
+Secrets
+
+Feature Flags
+
+---
+
+# Configuration
+
+Use environment configuration providers.
+
+---
+
+# Logging
+
+Verbose
+
+Development only.
+
+Minimal
+
+Production.
+
+---
+
+# Cursor Instructions
+
+Generate flavor-aware code.
+
+Avoid environment-specific conditionals throughout the app.

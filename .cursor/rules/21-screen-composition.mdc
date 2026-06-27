@@ -1,0 +1,186 @@
+---
+description:
+Defines how every screen in LexMastery should be composed.
+
+alwaysApply: true
+---
+
+# Screen Composition
+
+Every screen follows a predictable layout.
+
+Consistency reduces cognitive load.
+
+---
+
+# Screen Hierarchy
+
+SafeArea
+
+↓
+
+Scaffold
+
+↓
+
+AppBar
+
+↓
+
+Body
+
+↓
+
+Bottom Action
+
+↓
+
+Snackbar/Dialog
+
+Avoid deeply nested layouts.
+
+---
+
+# App Bar
+
+Every screen should define:
+
+Title
+
+Back behavior
+
+Primary action
+
+Overflow actions
+
+Avoid clutter.
+
+---
+
+# Body
+
+Prefer:
+
+Header
+
+↓
+
+Primary Content
+
+↓
+
+Supporting Content
+
+↓
+
+Primary CTA
+
+Maintain generous spacing.
+
+---
+
+# Sections
+
+Long pages should be divided into sections.
+
+Every section should have:
+
+Heading
+
+Content
+
+Optional action
+
+---
+
+# Scroll Behavior
+
+Use CustomScrollView when combining:
+
+Lists
+
+Headers
+
+Cards
+
+Avoid nested scrolling.
+
+---
+
+# Empty Space
+
+Whitespace improves comprehension.
+
+Do not compress layouts.
+
+---
+
+# Primary Action
+
+Every screen should have one obvious primary action.
+
+Avoid competing CTAs.
+
+---
+
+# Floating Action Button
+
+Only use FAB when it represents the primary action.
+
+Otherwise prefer inline buttons.
+
+---
+
+# Bottom Sheets
+
+Use for contextual actions.
+
+Never replace entire screens with bottom sheets.
+
+---
+
+# Dialogs
+
+Use dialogs only for:
+
+Confirmation
+
+Critical information
+
+Irreversible actions
+
+---
+
+# Navigation
+
+Every screen must define:
+
+Entry point
+
+Exit point
+
+Back behavior
+
+---
+
+# Error Recovery
+
+Every screen should support:
+
+Loading
+
+Empty
+
+Error
+
+Offline
+
+Retry
+
+---
+
+# Cursor Instructions
+
+Generate screens using consistent layout hierarchy.
+
+Avoid inventing new layouts unless justified.

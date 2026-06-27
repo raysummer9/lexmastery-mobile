@@ -1,0 +1,251 @@
+---
+description:
+Defines the Search system including global search, semantic AI search, cross-module indexing, ranking, filters, and learning-aware discovery.
+
+alwaysApply: true
+---
+
+# Search System
+
+Search is the discovery engine of LexMastery.
+
+It is not just a query tool.
+
+It is a learning navigation system.
+
+---
+
+# Product Vision
+
+Search must:
+
+- help users find any learning resource instantly
+- understand semantic intent
+- connect across all modules
+- improve learning discovery
+- reduce friction in navigation
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+SearchController (Riverpod)
+
+↓
+
+SearchState
+
+↓
+
+SearchRepository
+
+↓
+
+Search Engine (Hybrid)
+
+- Keyword Search
+- Semantic Vector Search
+- AI Ranking Layer
+
+---
+
+# State Management
+
+SearchState includes:
+
+- idle
+- loading
+- results
+- error
+
+Core Data:
+
+- query
+- filters
+- results
+- suggestions
+- recentSearches
+
+---
+
+# Search Scope
+
+Search must include:
+
+- Courses
+- Lessons
+- AI Tutor responses
+- AI Chat history
+- Notes
+- Bookmarks
+- Quiz questions
+- Mock exams
+
+---
+
+# Search Modes
+
+1. Keyword Search
+2. Semantic Search
+3. AI Answer Search
+4. Learning Path Search
+
+---
+
+# Ranking System
+
+Results ranked by:
+
+- relevance score
+- user progress
+- recent activity
+- difficulty match
+- AI prediction of usefulness
+
+---
+
+# AI Integration
+
+AI enhances search by:
+
+- rewriting queries
+- expanding intent
+- suggesting next actions
+- summarizing results
+
+---
+
+# Filters
+
+- course type
+- difficulty level
+- jurisdiction
+- content type
+- progress status
+
+---
+
+# Navigation Rules
+
+Search results must route to:
+
+- Course Details
+- Lesson Player
+- Quiz Engine
+- AI Tutor
+- Notes Viewer
+
+---
+
+# Offline Behaviour
+
+- cached search results available
+- no semantic AI search offline
+- keyword search only offline
+
+---
+
+# API Contracts
+
+GET /search?q=
+
+POST /search/suggest
+
+GET /search/history
+
+---
+
+# Analytics Events
+
+search_query
+
+search_result_click
+
+search_no_results
+
+search_filter_used
+
+---
+
+# UX Rules
+
+- results must appear instantly
+- suggestions must guide user intent
+- avoid empty states where possible
+
+---
+
+# UI Composition Rules
+
+Search UI must include:
+
+- search bar
+- filters panel
+- categorized results
+- recent searches
+- AI suggestions
+
+---
+
+# Error Handling
+
+- fallback to cached results
+- show helpful suggestions on no results
+
+---
+
+# Performance
+
+- search response <300ms target
+- debounce input queries
+
+---
+
+# Accessibility
+
+Must support:
+
+- voice input (future-ready)
+- screen reader result navigation
+- keyboard search navigation
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Search ranking logic
+
+Filter system
+
+Query parsing
+
+Widget Tests:
+
+Search UI
+
+Results rendering
+
+Filter interaction
+
+Integration Tests:
+
+Full search flow
+
+AI ranking integration
+
+---
+
+# Cursor Instructions
+
+When generating search features:
+
+- always include semantic + keyword hybrid search
+- always rank using learning relevance
+- always support cross-module results
+- never return raw unranked results to UI

@@ -1,0 +1,60 @@
+---
+description:
+Reusable widget engineering standards.
+
+alwaysApply: true
+---
+
+# Widget Standards
+
+Widgets should be:
+
+Small
+
+Focused
+
+Reusable
+
+Composable
+
+Testable
+
+---
+
+# Responsibilities
+
+One widget
+
+One responsibility.
+
+Avoid widgets exceeding 250 lines.
+
+---
+
+# Constructors
+
+Prefer required parameters.
+
+Avoid nullable values when unnecessary.
+
+---
+
+# Build Method
+
+Keep build methods concise.
+
+Extract private widgets when complexity grows.
+
+---
+
+# Performance
+
+Use const constructors whenever possible.
+
+Minimize rebuilds.
+
+---
+
+# Cursor Instructions
+
+Always favor composition over large monolithic widgets.

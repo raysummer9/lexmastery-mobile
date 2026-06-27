@@ -1,0 +1,124 @@
+---
+description:
+Secure storage standards.
+
+alwaysApply: true
+---
+
+# Secure Storage
+
+Use flutter_secure_storage for sensitive data.
+
+Never store secrets in Hive.
+
+---
+
+# Allowed Data
+
+JWT
+
+Refresh Token
+
+Encryption Keys
+
+Device Identifier
+
+Biometric Flags
+
+Nothing else.
+
+---
+
+# Forbidden Data
+
+Passwords
+
+PIN
+
+Card Details
+
+API Keys
+
+Personal Documents
+
+Never persist plaintext credentials.
+
+---
+
+# Token Lifecycle
+
+Store:
+
+Access Token
+
+Refresh Token
+
+Expiration
+
+Repositories manage token refresh.
+
+---
+
+# Logout
+
+Logout must:
+
+Delete tokens
+
+Delete session
+
+Clear secure storage
+
+Invalidate memory cache
+
+---
+
+# Biometric Authentication
+
+Future support should integrate with secure storage.
+
+Never bypass operating system security.
+
+---
+
+# Rotation
+
+Support automatic token rotation.
+
+Never continue using expired credentials.
+
+---
+
+# Failure Handling
+
+If secure storage fails:
+
+Invalidate session
+
+Request login again
+
+Do not continue with partially authenticated state.
+
+---
+
+# Testing
+
+Test:
+
+Token refresh
+
+Corrupted storage
+
+Logout
+
+Expiration
+
+Migration
+
+---
+
+# Cursor Instructions
+
+Never read secure storage directly inside Widgets.
+
+Access secure storage through repositories or authentication services only.

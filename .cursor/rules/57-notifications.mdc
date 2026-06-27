@@ -1,0 +1,204 @@
+---
+description:
+Defines the Notifications system including study reminders, exam alerts, AI suggestions, push notifications, scheduling logic, and engagement optimization.
+
+alwaysApply: true
+---
+
+# Notifications System
+
+Notifications drive engagement and consistency in LexMastery.
+
+They must be helpful, not intrusive.
+
+---
+
+# Product Vision
+
+Notifications must:
+
+- improve study consistency
+- remind users intelligently
+- avoid notification fatigue
+- support personalization
+- align with learning goals
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+NotificationsController (Riverpod)
+
+↓
+
+NotificationsState
+
+↓
+
+NotificationsRepository
+
+↓
+
+Push Notification Service
+
+---
+
+# State Management
+
+NotificationsState includes:
+
+- loading
+- synced
+- scheduled
+- error
+
+Core Data:
+
+- notificationQueue
+- preferences
+- deliveryStatus
+- history
+
+---
+
+# Notification Types
+
+- Study reminders
+- AI suggestions
+- Exam countdown alerts
+- Streak reminders
+- Course updates
+
+---
+
+# Scheduling Logic
+
+Notifications must be:
+
+- time-zone aware
+- user-preference driven
+- AI optimized based on study habits
+
+---
+
+# AI Integration
+
+AI determines:
+
+- best notification timing
+- frequency optimization
+- content personalization
+
+---
+
+# Offline Behaviour
+
+- scheduling works offline
+- syncs when online
+- queue persists locally
+
+---
+
+# API Contracts
+
+GET /notifications
+
+POST /notifications/schedule
+
+POST /notifications/update
+
+DELETE /notifications/remove
+
+---
+
+# Analytics Events
+
+notification_received
+
+notification_clicked
+
+notification_dismissed
+
+notification_scheduled
+
+---
+
+# UI Composition Rules
+
+Notification UI must include:
+
+- list view
+- grouping by type
+- toggle controls
+- scheduling preferences
+
+---
+
+# UX Rules
+
+- never spam user
+- prioritize relevance
+- allow full control over frequency
+
+---
+
+# Error Handling
+
+- retry delivery silently
+- fallback to local scheduling
+
+---
+
+# Performance
+
+- low battery impact
+- minimal background processing
+
+---
+
+# Accessibility
+
+Must support:
+
+- readable notification previews
+- screen reader support
+- vibration control options
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Scheduling logic
+
+Notification filtering
+
+Preference handling
+
+Widget Tests:
+
+Notification list
+
+Preference UI
+
+Integration Tests:
+
+Push delivery flow
+
+Scheduling accuracy
+
+---
+
+# Cursor Instructions
+
+When generating notifications:
+
+- always respect user preferences
+- always optimize timing using AI
+- never exceed user-defined frequency limits
+- always allow full opt-out

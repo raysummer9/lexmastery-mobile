@@ -1,0 +1,248 @@
+---
+description:
+Networking standards using Dio.
+
+alwaysApply: true
+---
+
+# Networking
+
+LexMastery uses Dio.
+
+Never use:
+
+http package
+
+direct sockets
+
+raw REST clients
+
+---
+
+# API Layer
+
+Networking follows:
+
+Controller
+
+↓
+
+Repository
+
+↓
+
+Datasource
+
+↓
+
+Dio Client
+
+Widgets never call APIs.
+
+---
+
+# Base Client
+
+Create one shared Dio client.
+
+Location:
+
+core/network/
+
+Responsibilities:
+
+- base URL
+- headers
+- interceptors
+- timeout
+- retries
+
+---
+
+# Authentication
+
+Inject JWT automatically.
+
+Never manually attach Authorization headers.
+
+---
+
+# Timeouts
+
+Configure:
+
+connect
+
+receive
+
+send
+
+timeouts.
+
+Avoid infinite waits.
+
+---
+
+# Interceptors
+
+Implement:
+
+Authentication
+
+Logging
+
+Retry
+
+Refresh Token
+
+Error Mapping
+
+Analytics (future)
+
+---
+
+# Logging
+
+Enable detailed logs only in development.
+
+Never log:
+
+JWT
+
+Passwords
+
+PII
+
+Tokens
+
+---
+
+# DTOs
+
+Every endpoint has:
+
+Request DTO
+
+Response DTO
+
+Never deserialize directly into domain models.
+
+---
+
+# Mapping
+
+DTO
+
+↓
+
+Mapper
+
+↓
+
+Domain Model
+
+Never skip mapping.
+
+---
+
+# Error Mapping
+
+Convert:
+
+Timeout
+
+401
+
+403
+
+404
+
+409
+
+422
+
+500
+
+Network Failure
+
+into domain failures.
+
+---
+
+# Cancellation
+
+Cancel obsolete requests.
+
+Especially:
+
+Search
+
+AI Streaming
+
+Pagination
+
+---
+
+# File Uploads
+
+Use multipart.
+
+Track upload progress.
+
+Support cancellation.
+
+---
+
+# Downloads
+
+Support:
+
+resume
+
+retry
+
+cancel
+
+progress
+
+---
+
+# Streaming
+
+AI endpoints should support streaming.
+
+Use incremental updates.
+
+Never wait for entire response.
+
+---
+
+# Retry Policy
+
+Retry only idempotent requests.
+
+Never retry:
+
+payments
+
+mutations
+
+exam submissions
+
+---
+
+# Cursor Instructions
+
+Always generate:
+
+Datasource
+
+DTOs
+
+Mapper
+
+Repository
+
+Tests
+
+Never call Dio from controllers.

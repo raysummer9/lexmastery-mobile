@@ -1,0 +1,104 @@
+---
+description:
+GoRouter implementation standards.
+
+alwaysApply: true
+---
+
+# GoRouter
+
+LexMastery uses GoRouter exclusively.
+
+---
+
+# Route Ownership
+
+Each feature registers its own routes.
+
+Example
+
+authentication/routes/
+
+dashboard/routes/
+
+quiz/routes/
+
+---
+
+# App Router
+
+Only AppRouter combines routes.
+
+Never define routes in main.dart.
+
+---
+
+# Guards
+
+Implement:
+
+Authentication
+
+Onboarding
+
+Subscription (future)
+
+Maintenance Mode
+
+---
+
+# Route Constants
+
+All route names belong in:
+
+core/navigation/app_routes.dart
+
+Never hardcode route strings.
+
+---
+
+# Deep Links
+
+Support:
+
+Courses
+
+Lessons
+
+AI Chats
+
+Quizzes
+
+Flashcards
+
+Mock Exams
+
+Profile
+
+---
+
+# Nested Navigation
+
+Use ShellRoute for:
+
+Bottom Navigation
+
+Navigation Rail
+
+Tablet Navigation
+
+---
+
+# Analytics
+
+Every navigation emits analytics.
+
+---
+
+# Cursor Instructions
+
+Generate feature routes.
+
+Register with AppRouter.
+
+Never use Navigator.push().

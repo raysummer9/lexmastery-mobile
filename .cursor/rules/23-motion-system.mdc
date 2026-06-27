@@ -1,0 +1,80 @@
+---
+description:
+Defines animation and motion principles.
+
+alwaysApply: true
+---
+
+# Motion
+
+Motion communicates change.
+
+Never animate for decoration alone.
+
+---
+
+# Principles
+
+Fast
+
+Purposeful
+
+Subtle
+
+Accessible
+
+---
+
+# Durations
+
+Micro
+
+100–150ms
+
+Standard
+
+200–300ms
+
+Complex
+
+300–500ms
+
+Avoid long animations.
+
+---
+
+# Easing
+
+Prefer Flutter Material easing.
+
+Avoid exaggerated curves.
+
+---
+
+# Page Transitions
+
+Consistent across the application.
+
+Do not mix styles.
+
+---
+
+# Loading
+
+Skeleton loaders preferred.
+
+Avoid unnecessary spinners.
+
+---
+
+# Reduced Motion
+
+Respect operating system accessibility settings.
+
+Disable non-essential animations.
+
+---
+
+# Cursor Instructions
+
+Use animation only when it improves comprehension.

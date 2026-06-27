@@ -1,0 +1,200 @@
+---
+description:
+Defines the Feature-First Clean Architecture used throughout LexMastery.
+
+alwaysApply: true
+---
+
+# Feature Architecture
+
+LexMastery follows Feature-First Clean Architecture.
+
+Every feature is an independent module.
+
+Never organize by layer globally.
+
+Incorrect
+
+lib/
+
+screens/
+
+controllers/
+
+repositories/
+
+models/
+
+Correct
+
+lib/
+
+features/
+
+authentication/
+
+dashboard/
+
+courses/
+
+quiz/
+
+flashcards/
+
+profile/
+
+settings/
+
+---
+
+# Feature Structure
+
+Every feature owns:
+
+presentation/
+
+application/
+
+domain/
+
+infrastructure/
+
+routes/
+
+tests/
+
+No feature may directly access another feature's implementation.
+
+---
+
+# Layer Responsibilities
+
+Presentation
+
+UI
+
+Widgets
+
+Pages
+
+Theme
+
+Navigation
+
+Application
+
+Controllers
+
+Providers
+
+Use Cases
+
+Business Orchestration
+
+Domain
+
+Entities
+
+Value Objects
+
+Repository Contracts
+
+Business Rules
+
+Infrastructure
+
+API
+
+Hive
+
+Secure Storage
+
+Repositories
+
+DTOs
+
+Mappers
+
+---
+
+# Dependency Rule
+
+Presentation
+
+↓
+
+Application
+
+↓
+
+Domain
+
+↑
+
+Infrastructure
+
+Domain must never depend on Flutter.
+
+---
+
+# Communication
+
+Features communicate through interfaces.
+
+Never import another feature's controller.
+
+---
+
+# Shared Code
+
+Shared contains only reusable assets.
+
+Examples
+
+Buttons
+
+Cards
+
+Typography
+
+Dialogs
+
+Validators
+
+Extensions
+
+Utilities
+
+Theme
+
+Icons
+
+Never place feature-specific logic in shared.
+
+---
+
+# Feature Independence
+
+A feature should be removable without breaking unrelated features.
+
+---
+
+# Testing
+
+Each feature owns:
+
+Unit Tests
+
+Widget Tests
+
+Mocks
+
+Fixtures
+
+---
+
+# Cursor Instructions
+
+Every new feature must follow this architecture.
+
+Never generate flat folder structures.

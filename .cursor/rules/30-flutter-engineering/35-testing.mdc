@@ -1,0 +1,64 @@
+---
+description:
+Testing standards.
+
+alwaysApply: true
+---
+
+# Testing
+
+Every feature includes:
+
+Unit Tests
+
+Widget Tests
+
+Integration Tests
+
+---
+
+# Minimum Coverage
+
+Controllers
+
+Repositories
+
+Mappers
+
+Critical Widgets
+
+Navigation
+
+---
+
+# Golden Tests
+
+Required for:
+
+Onboarding
+
+Authentication
+
+Dashboard
+
+AI Chat
+
+Quiz
+
+Flashcards
+
+---
+
+# Mocking
+
+Mock repositories.
+
+Never mock Flutter Widgets unnecessarily.
+
+---
+
+# Cursor Instructions
+
+Generate tests alongside implementation.
+
+Testing is not optional.

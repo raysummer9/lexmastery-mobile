@@ -1,0 +1,528 @@
+---
+description:
+Defines the complete design system architecture for the LexMastery Flutter application.
+
+alwaysApply: true
+---
+
+# Design System Architecture
+
+LexMastery uses a centralized Design System.
+
+Every visual element must originate from the Design System.
+
+Never design individual screens independently.
+
+Every screen belongs to one visual language.
+
+---
+
+# Design Philosophy
+
+LexMastery is
+
+Professional
+
+Elegant
+
+Academic
+
+Editorial
+
+Calm
+
+Minimal
+
+Modern
+
+Premium
+
+Trustworthy
+
+Focused
+
+Never create playful interfaces.
+
+Never create gaming interfaces.
+
+Never create social media interfaces.
+
+The application should feel like
+
+Notion
+
+Linear
+
+Stripe Dashboard
+
+Apple Books
+
+Headway
+
+—not—
+
+TikTok
+
+Instagram
+
+Duolingo
+
+---
+
+# Design Principles
+
+Every interface should
+
+Reduce cognitive load
+
+Increase confidence
+
+Guide attention
+
+Communicate hierarchy
+
+Promote focus
+
+Minimize distractions
+
+Support long study sessions
+
+Never overwhelm users.
+
+---
+
+# Design Layers
+
+Every UI element originates from
+
+Design Tokens
+
+↓
+
+Theme
+
+↓
+
+Foundation Components
+
+↓
+
+Composite Components
+
+↓
+
+Screen Patterns
+
+↓
+
+Screens
+
+Never skip layers.
+
+---
+
+# Design Tokens
+
+The Design Token layer owns
+
+Colors
+
+Typography
+
+Spacing
+
+Radius
+
+Elevation
+
+Borders
+
+Motion
+
+Opacity
+
+Sizing
+
+Icons
+
+Tokens are the single source of truth.
+
+Never hardcode values.
+
+---
+
+# Theme Layer
+
+The Theme layer converts tokens into Flutter themes.
+
+Examples
+
+ThemeData
+
+ColorScheme
+
+TextTheme
+
+ThemeExtensions
+
+Never hardcode theme values inside Widgets.
+
+---
+
+# Foundation Components
+
+Foundation components are primitive building blocks.
+
+Examples
+
+Button
+
+Text
+
+Input
+
+Icon
+
+Avatar
+
+Divider
+
+Badge
+
+Chip
+
+Switch
+
+Checkbox
+
+Radio
+
+Progress
+
+These should be highly reusable.
+
+---
+
+# Composite Components
+
+Composite components combine primitives.
+
+Examples
+
+Course Card
+
+Lesson Tile
+
+Question Card
+
+Progress Card
+
+Study Session Card
+
+Legal Citation Card
+
+AI Message Bubble
+
+AI Suggestion Card
+
+Flashcard
+
+Quiz Summary
+
+Performance Graph
+
+Composite components belong in Shared only after proven reuse.
+
+---
+
+# Screen Patterns
+
+A screen is assembled from
+
+Layouts
+
+↓
+
+Sections
+
+↓
+
+Composite Components
+
+↓
+
+Foundation Components
+
+Never build screens directly from primitives.
+
+---
+
+# Visual Hierarchy
+
+Every screen should have
+
+Primary Content
+
+↓
+
+Secondary Content
+
+↓
+
+Supporting Content
+
+↓
+
+Metadata
+
+↓
+
+Actions
+
+Hierarchy should be immediately obvious.
+
+---
+
+# Spacing Rhythm
+
+Spacing must feel intentional.
+
+Whitespace is a design element.
+
+Never compress content unnecessarily.
+
+Never create uneven spacing.
+
+Spacing comes only from Design Tokens.
+
+---
+
+# Typography Rhythm
+
+Typography establishes hierarchy.
+
+Headings
+
+↓
+
+Subheadings
+
+↓
+
+Body
+
+↓
+
+Supporting Text
+
+↓
+
+Captions
+
+Never invent font sizes.
+
+Always use typography tokens.
+
+---
+
+# Component Consistency
+
+Buttons should always behave the same.
+
+Inputs should always behave the same.
+
+Cards should always behave the same.
+
+Dialogs should always behave the same.
+
+Navigation should always behave the same.
+
+Consistency builds trust.
+
+---
+
+# Motion Philosophy
+
+Motion communicates state.
+
+Never animate for decoration.
+
+Animations should
+
+Guide attention
+
+Confirm actions
+
+Reduce uncertainty
+
+Improve continuity
+
+Motion should feel calm.
+
+---
+
+# Color Philosophy
+
+Color communicates meaning.
+
+Not decoration.
+
+Use color sparingly.
+
+Primary
+
+↓
+
+Information
+
+↓
+
+Success
+
+↓
+
+Warning
+
+↓
+
+Danger
+
+↓
+
+Disabled
+
+Avoid unnecessary accent colors.
+
+---
+
+# Elevation
+
+Elevation indicates interaction.
+
+Higher elevation
+
+↓
+
+Higher importance.
+
+Avoid excessive shadows.
+
+Prefer subtle depth.
+
+---
+
+# Icons
+
+Icons support text.
+
+Never replace text with icons alone.
+
+Icons should remain simple.
+
+Consistent stroke weight.
+
+Consistent sizing.
+
+---
+
+# Accessibility
+
+Every component must support
+
+Large fonts
+
+Screen readers
+
+Reduced motion
+
+High contrast
+
+Touch targets
+
+Accessibility is part of the Design System.
+
+---
+
+# Empty States
+
+Every empty state should
+
+Explain
+
+Educate
+
+Guide
+
+Encourage
+
+Never show blank pages.
+
+---
+
+# Loading States
+
+Every asynchronous component requires
+
+Skeleton
+
+↓
+
+Progress Indicator
+
+↓
+
+Content
+
+Never display empty white screens.
+
+---
+
+# Error States
+
+Errors should be
+
+Clear
+
+Calm
+
+Actionable
+
+Helpful
+
+Never blame the user.
+
+---
+
+# Responsive Design
+
+Design mobile-first.
+
+Scale to tablets.
+
+Maintain rhythm across devices.
+
+Respect safe areas.
+
+---
+
+# Cursor Instructions
+
+Before creating any UI:
+
+Determine existing component.
+
+Determine screen pattern.
+
+Determine spacing.
+
+Determine typography.
+
+Determine motion.
+
+Determine accessibility.
+
+Only then build the interface.
+
+Never invent new visual styles.
+
+Always extend the Design System.

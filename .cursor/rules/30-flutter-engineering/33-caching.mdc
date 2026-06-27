@@ -1,0 +1,78 @@
+---
+description:
+Caching strategy.
+
+alwaysApply: true
+---
+
+# Cache Strategy
+
+Repositories own caching.
+
+Widgets never cache data.
+
+---
+
+# Cache Levels
+
+Memory
+
+↓
+
+Hive
+
+↓
+
+API
+
+---
+
+# Policy
+
+Cache First
+
+↓
+
+Background Refresh
+
+↓
+
+Update UI
+
+---
+
+# Expiration
+
+Every cache object includes:
+
+createdAt
+
+updatedAt
+
+expiresAt
+
+---
+
+# Invalidations
+
+Invalidate after:
+
+Profile Update
+
+Logout
+
+Exam Submission
+
+Password Change
+
+---
+
+# AI Responses
+
+Never cache sensitive AI conversations permanently.
+
+---
+
+# Cursor Instructions
+
+Generate cache-aware repositories.

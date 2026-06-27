@@ -1,0 +1,153 @@
+---
+description:
+Defines the Performance System including rendering optimization, caching strategy, lazy loading, memory management, and app responsiveness rules.
+
+alwaysApply: true
+---
+
+# Performance System
+
+Performance is a core product feature.
+
+LexMastery must feel instant.
+
+---
+
+# Product Vision
+
+Performance system must:
+
+- ensure fast startup
+- optimize rendering
+- minimize memory usage
+- reduce API load
+- guarantee smooth UX
+
+---
+
+# Architecture
+
+PerformanceController
+
+↓
+
+PerformanceState
+
+↓
+
+CacheManager
+
+↓
+
+LazyLoader
+
+↓
+
+Resource Optimizer
+
+---
+
+# Rendering Rules
+
+- avoid full widget rebuilds
+- use lazy rendering everywhere
+- paginate large lists
+- defer heavy computations
+
+---
+
+# Caching Strategy
+
+Cache layers:
+
+1. Memory cache (fast)
+2. Local storage cache (persistent)
+3. Remote cache (fallback)
+
+---
+
+# Data Loading Strategy
+
+- eager load critical UI
+- lazy load secondary data
+- prefetch next likely content
+
+---
+
+# AI Performance Rules
+
+- stream responses
+- cancel stale requests
+- cache frequent queries
+- reuse embeddings
+
+---
+
+# Offline Optimization
+
+- prioritize cached content
+- disable heavy AI features offline
+- preload essential modules
+
+---
+
+# API Performance Rules
+
+- batch requests
+- compress payloads
+- debounce calls
+- avoid redundant fetches
+
+---
+
+# State Optimization
+
+- minimize rebuild triggers
+- split state into granular units
+- avoid global re-renders
+
+---
+
+# Performance Budgets
+
+- app startup: <2s
+- screen load: <200ms
+- AI first token: <500ms
+- search response: <300ms
+
+---
+
+# Memory Management
+
+- dispose unused controllers
+- clear unused caches
+- limit in-memory history size
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Cache logic
+
+Lazy loading system
+
+Performance thresholds
+
+Integration Tests:
+
+Full app load performance
+
+AI response timing
+
+---
+
+# Cursor Instructions
+
+When generating features:
+
+- always optimize for speed
+- always use lazy loading
+- always cache aggressively
+- never block UI for heavy tasks

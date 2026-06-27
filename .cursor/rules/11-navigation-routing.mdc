@@ -1,0 +1,398 @@
+---
+description:
+Defines the routing architecture for the LexMastery Flutter application using GoRouter. Ensures scalable, secure, feature-first navigation with support for authentication, deep linking, nested navigation, and future modular growth.
+
+alwaysApply: true
+---
+
+# Navigation Architecture
+
+LexMastery uses GoRouter as the only navigation solution.
+
+Do not introduce:
+
+- Navigator.push
+- Navigator 1.0
+- GetX Routing
+- AutoRoute
+- Beamer
+
+All navigation must be handled through GoRouter.
+
+---
+
+# Guiding Principles
+
+Navigation should be:
+
+- Predictable
+- Declarative
+- Type-safe
+- Feature-oriented
+- Testable
+- Deep-link ready
+
+Navigation must never contain business logic.
+
+---
+
+# Route Organization
+
+Every feature owns its own routes.
+
+Example:
+
+lib/
+└── features/
+    └── onboarding/
+        ├── presentation/
+        ├── application/
+        ├── domain/
+        ├── infrastructure/
+        └── routes/
+            └── onboarding_routes.dart
+
+Do not register feature routes directly inside main.dart.
+
+---
+
+# Central Router
+
+The application exposes a single AppRouter.
+
+Location:
+
+lib/core/navigation/app_router.dart
+
+Responsibilities:
+
+- Register all feature routes
+- Configure redirect logic
+- Configure authentication guards
+- Configure deep links
+- Configure shell routes
+- Configure error pages
+
+---
+
+# Route Naming
+
+Every route must have:
+
+- path
+- name
+
+Example:
+
+name: onboardingWelcome
+
+path: /onboarding/welcome
+
+Never rely on anonymous routes.
+
+---
+
+# Route Constants
+
+All paths must be defined as constants.
+
+Example:
+
+AppRoutes.onboarding
+
+AppRoutes.dashboard
+
+AppRoutes.aiTutor
+
+Never hardcode route strings throughout the application.
+
+---
+
+# Authentication Guards
+
+Protected screens require authentication.
+
+Examples:
+
+Dashboard
+
+Courses
+
+Bookmarks
+
+AI Tutor
+
+Profile
+
+Settings
+
+Guests should be redirected to Login.
+
+---
+
+# Public Routes
+
+Public routes include:
+
+Splash
+
+Onboarding
+
+Welcome
+
+Login
+
+Register
+
+Forgot Password
+
+Terms
+
+Privacy Policy
+
+---
+
+# Redirect Rules
+
+The router is responsible for:
+
+- Authentication redirects
+- First-launch onboarding
+- Email verification
+- Subscription checks (future)
+- Maintenance mode (future)
+
+Business logic belongs in services, not in the router.
+
+---
+
+# Shell Navigation
+
+Major sections of the application should use ShellRoute.
+
+Examples:
+
+Dashboard
+
+Courses
+
+Study
+
+AI Tutor
+
+Profile
+
+This preserves navigation state when switching tabs.
+
+---
+
+# Bottom Navigation
+
+Bottom navigation state should be managed by GoRouter.
+
+Avoid manually rebuilding navigation stacks.
+
+---
+
+# Nested Navigation
+
+Features may contain nested routes.
+
+Example:
+
+Course
+
+↓
+
+Lesson List
+
+↓
+
+Lesson Detail
+
+↓
+
+Quiz
+
+↓
+
+Results
+
+Nested navigation should remain inside the owning feature.
+
+---
+
+# Deep Linking
+
+Every important screen should support deep linking.
+
+Examples:
+
+Course
+
+Lesson
+
+Quiz
+
+Flashcard Deck
+
+Mock Exam
+
+Profile
+
+Links should restore navigation state where possible.
+
+---
+
+# Route Parameters
+
+Prefer typed parameters.
+
+Examples:
+
+courseId
+
+lessonId
+
+quizId
+
+examId
+
+Avoid passing large objects through navigation.
+
+Pass IDs and fetch data from repositories.
+
+---
+
+# Query Parameters
+
+Use query parameters only for optional UI state.
+
+Examples:
+
+search
+
+sort
+
+filter
+
+tab
+
+Do not pass domain models as query parameters.
+
+---
+
+# Navigation Events
+
+Navigation should be initiated by controllers or dedicated navigation services.
+
+Widgets should not contain complex routing logic.
+
+---
+
+# Error Routes
+
+Provide a dedicated error screen for:
+
+- Unknown routes
+- Invalid deep links
+- Missing resources
+
+Never crash because of navigation failures.
+
+---
+
+# Transitions
+
+Use consistent page transitions.
+
+Guidelines:
+
+- Fast
+- Minimal
+- Professional
+
+Avoid distracting animations.
+
+Respect reduced-motion accessibility settings.
+
+---
+
+# Dialogs
+
+Dialogs are not routes.
+
+Use dialog services or showDialog.
+
+Do not register dialogs as pages.
+
+---
+
+# Bottom Sheets
+
+Use modal bottom sheets for:
+
+- Filters
+- Quick actions
+- Contextual menus
+
+Avoid using bottom sheets for full application flows.
+
+---
+
+# Route Metadata
+
+Each route should define:
+
+- Requires authentication
+- Analytics name
+- Feature owner
+- Accessibility label
+
+This supports analytics and testing.
+
+---
+
+# Analytics
+
+Every successful navigation should emit a screen view event.
+
+Screen names must remain consistent across releases.
+
+---
+
+# Testing
+
+Navigation must be testable.
+
+Create tests for:
+
+- Redirects
+- Authentication guards
+- Deep links
+- Unknown routes
+- Back navigation
+- Nested navigation
+
+---
+
+# Performance
+
+Lazy-load feature modules where appropriate.
+
+Avoid eagerly constructing screens that are not immediately needed.
+
+---
+
+# Cursor Instructions
+
+When generating new features:
+
+1. Create a dedicated routes folder.
+2. Register routes with AppRouter.
+3. Define named routes.
+4. Use route constants.
+5. Implement authentication guards where required.
+6. Support deep linking.
+7. Add navigation tests.
+8. Never use Navigator.push directly.

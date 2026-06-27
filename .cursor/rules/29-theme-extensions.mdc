@@ -1,0 +1,68 @@
+---
+description:
+Defines custom ThemeExtension usage across LexMastery.
+
+alwaysApply: true
+---
+
+# Theme Extensions
+
+Extend Flutter's ThemeData using ThemeExtension.
+
+Avoid static color classes.
+
+---
+
+# Extensions
+
+Examples
+
+LearningColors
+
+AIColors
+
+ExamColors
+
+SuccessColors
+
+DangerColors
+
+Spacing
+
+Elevation
+
+Motion
+
+Illustration Colors
+
+---
+
+# Access
+
+Use:
+
+Theme.of(context).extension<LearningTheme>()
+
+Never hardcode values.
+
+---
+
+# Light & Dark
+
+Every extension supports:
+
+Light Theme
+
+Dark Theme
+
+Future custom themes
+
+---
+
+# Cursor Instructions
+
+Whenever introducing a new visual token:
+
+Create a ThemeExtension.
+
+Do not add arbitrary constants.

@@ -1,0 +1,180 @@
+---
+description:
+Defines the Prompt Engineering system including system prompts, feature-specific prompts, AI behavior control, and structured prompt templates.
+
+alwaysApply: true
+---
+
+# Prompt Engineering System
+
+This system controls how AI behaves across LexMastery.
+
+It is the behavior layer of intelligence.
+
+---
+
+# Product Vision
+
+Prompts must:
+
+- enforce consistent AI behavior
+- define role-based instructions
+- adapt to feature context
+- control response structure
+- prevent hallucination
+
+---
+
+# Prompt Types
+
+1. System Prompts
+2. Feature Prompts
+3. Context Prompts
+4. Mode Prompts
+5. Retrieval Prompts (RAG-based)
+
+---
+
+# Architecture
+
+PromptController (logical layer)
+
+↓
+
+PromptBuilder
+
+↓
+
+PromptTemplates
+
+↓
+
+AI Service
+
+---
+
+# Prompt Structure
+
+Every prompt must include:
+
+- role definition
+- user context
+- learning objective
+- constraints
+- output format rules
+
+---
+
+# Feature-Specific Prompts
+
+Each module has custom prompts:
+
+- AI Tutor Prompt
+- Quiz Generation Prompt
+- Flashcard Prompt
+- Mock Exam Prompt
+- Comparative Law Prompt
+
+---
+
+# Context Injection Rules
+
+Prompts must dynamically include:
+
+- user progress
+- memory system data
+- RAG results
+- difficulty level
+- jurisdiction context
+
+---
+
+# Safety Rules
+
+Prompts must enforce:
+
+- no hallucination
+- citation requirement when needed
+- structured responses
+- legal accuracy constraints
+
+---
+
+# Mode Switching
+
+Prompts change based on mode:
+
+- Explanation Mode
+- Exam Mode
+- Practice Mode
+- Revision Mode
+
+---
+
+# Offline Behaviour
+
+- static prompt templates available offline
+- dynamic context injection disabled offline
+
+---
+
+# API Contracts
+
+POST /prompt/generate
+
+GET /prompt/templates
+
+POST /prompt/test
+
+---
+
+# Analytics Events
+
+prompt_used
+
+prompt_modified
+
+prompt_error
+
+---
+
+# Performance
+
+- prompt generation <50ms target
+- cached templates preferred
+
+---
+
+# UX Rules
+
+- prompts are invisible to users
+- only affect AI behavior
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Prompt builder logic
+
+Template rendering
+
+Context injection
+
+Integration Tests:
+
+AI Tutor prompt flow
+
+Quiz generation prompts
+
+---
+
+# Cursor Instructions
+
+When generating AI features:
+
+- always use structured prompts
+- always include constraints
+- always inject context dynamically
+- never allow free-form unstructured prompts

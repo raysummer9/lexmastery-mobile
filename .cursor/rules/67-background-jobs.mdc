@@ -1,0 +1,154 @@
+---
+description:
+Defines the Background Jobs system including queued tasks, sync retries, AI precomputation, notifications scheduling, and deferred processing architecture.
+
+alwaysApply: true
+---
+
+# Background Jobs System
+
+Background Jobs handle all deferred work in LexMastery.
+
+They ensure smooth UX.
+
+---
+
+# Product Vision
+
+Background jobs must:
+
+- run heavy tasks off main thread
+- schedule retries automatically
+- handle offline queues
+- precompute AI outputs
+- manage delayed tasks reliably
+
+---
+
+# Architecture
+
+JobController
+
+↓
+
+JobQueueManager
+
+↓
+
+JobProcessor
+
+↓
+
+Worker Engine
+
+↓
+
+Local Queue + Remote Scheduler
+
+---
+
+# Job Types
+
+- Sync Jobs
+- AI Precompute Jobs
+- Flashcard Scheduling Jobs
+- Notification Jobs
+- Analytics Batch Jobs
+- Study Plan Generation Jobs
+
+---
+
+# Queue Strategy
+
+- FIFO processing
+- priority-based execution
+- retry on failure
+- exponential backoff
+
+---
+
+# Offline Behaviour
+
+- jobs queued locally
+- executed when online
+- persistent queue storage
+
+---
+
+# AI Integration
+
+AI jobs include:
+
+- pre-generating explanations
+- summarizing notes
+- generating flashcards
+- analyzing weak areas
+
+---
+
+# API Contracts
+
+POST /jobs/create
+
+GET /jobs/status
+
+POST /jobs/retry
+
+POST /jobs/cancel
+
+---
+
+# State Management
+
+JobState includes:
+
+- queued
+- running
+- completed
+- failed
+- retrying
+
+---
+
+# Performance Rules
+
+- jobs must not block UI
+- batch execution preferred
+- limit concurrent workers
+
+---
+
+# Reliability Rules
+
+- guaranteed execution
+- retry logic mandatory
+- no silent failures
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Queue logic
+
+Retry system
+
+Job execution flow
+
+Integration Tests:
+
+Offline job processing
+
+AI background job execution
+
+---
+
+# Cursor Instructions
+
+When generating background jobs:
+
+- always queue heavy tasks
+- always allow retries
+- always support offline execution
+- never run heavy tasks on main thread

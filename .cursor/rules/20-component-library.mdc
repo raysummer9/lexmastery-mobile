@@ -1,0 +1,248 @@
+---
+description:
+Defines the reusable component architecture for LexMastery. Every screen must be composed from reusable components instead of ad-hoc widgets.
+
+alwaysApply: true
+---
+
+# Component Library
+
+LexMastery uses a centralized design system.
+
+Every UI element should come from the component library before creating a new widget.
+
+Never duplicate UI.
+
+---
+
+# Design Philosophy
+
+Components should be:
+
+Reusable
+
+Composable
+
+Accessible
+
+Theme-aware
+
+Responsive
+
+Stateless whenever possible
+
+---
+
+# Component Hierarchy
+
+Design Tokens
+
+↓
+
+Primitive Components
+
+↓
+
+Composite Components
+
+↓
+
+Feature Components
+
+↓
+
+Screens
+
+Never skip layers.
+
+---
+
+# Folder Structure
+
+lib/
+
+shared/
+
+components/
+
+buttons/
+
+inputs/
+
+cards/
+
+dialogs/
+
+navigation/
+
+feedback/
+
+layouts/
+
+surfaces/
+
+icons/
+
+Feature-specific widgets belong inside the feature.
+
+---
+
+# Primitive Components
+
+Examples
+
+LMButton
+
+LMText
+
+LMIcon
+
+LMAvatar
+
+LMBadge
+
+LMDivider
+
+LMSpacer
+
+These should never contain business logic.
+
+---
+
+# Composite Components
+
+Examples
+
+Lesson Card
+
+Course Card
+
+Quiz Card
+
+AI Message Bubble
+
+Progress Card
+
+Score Card
+
+Continue Learning Card
+
+---
+
+# Screen Components
+
+Screens compose components.
+
+They do not implement them.
+
+---
+
+# Naming Convention
+
+Prefix every reusable component.
+
+Example
+
+LMButton
+
+LMCard
+
+LMSearchField
+
+LMProgressIndicator
+
+Avoid generic names.
+
+---
+
+# Component API
+
+Components should expose only meaningful properties.
+
+Avoid exposing internal implementation details.
+
+---
+
+# Styling
+
+Never hardcode:
+
+colors
+
+typography
+
+spacing
+
+radius
+
+elevation
+
+Everything comes from tokens.
+
+---
+
+# State
+
+Reusable components should remain stateless whenever possible.
+
+Interactive behavior belongs in controllers.
+
+---
+
+# Variants
+
+Components support variants.
+
+Example
+
+Primary
+
+Secondary
+
+Outlined
+
+Ghost
+
+Danger
+
+Never create duplicate widgets.
+
+---
+
+# Accessibility
+
+Every component must expose:
+
+Semantic labels
+
+Touch target ≥48dp
+
+Keyboard focus
+
+Screen reader support
+
+---
+
+# Documentation
+
+Every reusable component should include:
+
+Purpose
+
+Usage
+
+Properties
+
+Examples
+
+Accessibility notes
+
+---
+
+# Cursor Instructions
+
+Before generating a widget:
+
+Search for an existing reusable component.
+
+Reuse before creating new.

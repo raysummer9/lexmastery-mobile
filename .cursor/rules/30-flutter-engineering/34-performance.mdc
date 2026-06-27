@@ -1,0 +1,76 @@
+---
+description:
+Flutter performance standards.
+
+alwaysApply: true
+---
+
+# Performance
+
+Performance is a feature.
+
+---
+
+# Widget Rebuilds
+
+Minimize rebuilds.
+
+Prefer:
+
+const
+
+ConsumerWidget
+
+Selectors
+
+Derived Providers
+
+---
+
+# Images
+
+Lazy load.
+
+Cache.
+
+Compress.
+
+---
+
+# Lists
+
+Use:
+
+ListView.builder
+
+GridView.builder
+
+Slivers
+
+Never build long static lists.
+
+---
+
+# Memory
+
+Dispose:
+
+Controllers
+
+Streams
+
+Timers
+
+AnimationControllers
+
+---
+
+# Animations
+
+Keep under 300ms.
+
+---
+
+# Cursor Instructions
+
+Every generated screen should be optimized before completion.

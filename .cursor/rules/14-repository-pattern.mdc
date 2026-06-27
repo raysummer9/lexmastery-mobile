@@ -1,0 +1,146 @@
+---
+description:
+Repository architecture.
+
+alwaysApply: true
+---
+
+# Repository Pattern
+
+Every feature owns a repository.
+
+Repositories isolate data sources.
+
+---
+
+# Responsibilities
+
+Repositories:
+
+- combine local and remote data
+- map DTOs
+- expose domain models
+- handle caching
+- manage synchronization
+
+Repositories never render UI.
+
+---
+
+# Structure
+
+Feature
+
+↓
+
+Repository Interface
+
+↓
+
+Repository Implementation
+
+↓
+
+Datasource
+
+---
+
+# Data Sources
+
+Separate:
+
+RemoteDatasource
+
+LocalDatasource
+
+Never mix responsibilities.
+
+---
+
+# Domain Models
+
+Repositories expose only domain models.
+
+Never expose DTOs.
+
+---
+
+# Caching
+
+Repositories determine:
+
+cache
+
+refresh
+
+offline fallback
+
+---
+
+# Synchronization
+
+When online:
+
+refresh cache
+
+When offline:
+
+return cached data
+
+---
+
+# Multiple Sources
+
+Repositories may combine:
+
+API
+
+Hive
+
+Secure Storage
+
+SQLite
+
+Future providers
+
+without exposing implementation.
+
+---
+
+# Naming
+
+AuthenticationRepository
+
+CourseRepository
+
+QuizRepository
+
+AIRepository
+
+Avoid generic names.
+
+---
+
+# Testing
+
+Mock repositories.
+
+Never mock Dio in widget tests.
+
+---
+
+# Cursor Instructions
+
+Generate:
+
+interface
+
+implementation
+
+datasources
+
+mapper
+
+tests
+
+Hide implementation details from presentation.

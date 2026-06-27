@@ -1,0 +1,67 @@
+import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:lexmastery_mobile/core/analytics/analytics_controller.dart';
+import 'package:lexmastery_mobile/core/analytics/analytics_event.dart';
+import 'package:lexmastery_mobile/core/navigation/app_routes.dart';
+import 'package:lexmastery_mobile/features/authentication/presentation/controllers/auth_controller.dart';
+import 'package:lexmastery_mobile/features/authentication/presentation/state/auth_state.dart';
+import 'package:lexmastery_mobile/features/authentication/routes/authentication_routes.dart';
+import 'package:lexmastery_mobile/features/notifications/routes/notifications_routes.dart';
+import 'package:lexmastery_mobile/features/app_shell/presentation/screens/app_shell_screen.dart';
+import 'package:lexmastery_mobile/features/profile/routes/profile_routes.dart';
+import 'package:lexmastery_mobile/features/settings/routes/settings_routes.dart';
+
+final appRouterProvider = Provider<GoRouter>((ref) {
+  final analyticsController = ref.watch(analyticsControllerProvider.notifier);
+  final authState = ref.watch(authControllerProvider);
+  return GoRouter(
+    initialLocation: AppRoutes.appShellPath,
+    routes: <RouteBase>[
+      GoRoute(
+        path: AppRoutes.appShellPath,
+        name: AppRoutes.appShellName,
+        builder: (context, state) => const AppShellScreen(),
+      ),
+      ...AuthenticationRoutes.routes,
+      ...ProfileRoutes.routes,
+      ...SettingsRoutes.routes,
+      ...NotificationsRoutes.routes,
+    ],
+    redirect: (context, state) {
+      final isLoginRoute =
+          state.matchedLocation == AuthenticationRoutes.loginPath;
+      final isAuthenticated = authState.status == AuthStatus.authenticated;
+      if (!isAuthenticated && !isLoginRoute) {
+        return AuthenticationRoutes.loginPath;
+      }
+      if (isAuthenticated && isLoginRoute) {
+        return AppRoutes.appShellPath;
+      }
+      return null;
+    },
+    observers: <NavigatorObserver>[
+      _AnalyticsRouteObserver(analyticsController),
+    ],
+  );
+});
+
+class _AnalyticsRouteObserver extends NavigatorObserver {
+  _AnalyticsRouteObserver(this._controller);
+
+  final AnalyticsController _controller;
+
+  @override
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
+    final routeName =
+        route.settings.name ?? route.settings.arguments?.toString();
+    if (routeName != null) {
+      _controller.track(
+        AnalyticsEvent.screenViewed(
+          screenName: routeName,
+        ),
+      );
+    }
+    super.didPush(route, previousRoute);
+  }
+}

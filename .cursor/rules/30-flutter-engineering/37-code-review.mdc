@@ -1,0 +1,62 @@
+---
+description:
+Code review standards.
+
+alwaysApply: true
+---
+
+# Code Review
+
+Every pull request should verify:
+
+Architecture
+
+Naming
+
+Performance
+
+Accessibility
+
+Testing
+
+Security
+
+Documentation
+
+---
+
+# Review Questions
+
+Does it follow Feature Architecture?
+
+Does it reuse components?
+
+Does it use design tokens?
+
+Does it introduce duplication?
+
+Does it reduce maintainability?
+
+---
+
+# Rejections
+
+Reject PRs that:
+
+Duplicate code
+
+Hardcode colors
+
+Bypass repositories
+
+Mix business logic into widgets
+
+Break accessibility
+
+Reduce testability
+
+---
+
+# Cursor Instructions
+
+Review generated code against these standards before considering it complete.

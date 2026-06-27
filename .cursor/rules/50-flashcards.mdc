@@ -1,0 +1,214 @@
+---
+description:
+Defines the Flashcards system including spaced repetition, memory retention logic, difficulty adjustment, and review scheduling.
+
+alwaysApply: true
+---
+
+# Flashcards System
+
+Flashcards are the memory reinforcement engine of LexMastery.
+
+They power long-term retention.
+
+---
+
+# Product Vision
+
+Flashcards must:
+
+- strengthen memory recall
+- use spaced repetition
+- adapt to user performance
+- reduce forgetting curve
+- reinforce weak topics
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+FlashcardsController (Riverpod)
+
+↓
+
+FlashcardsState
+
+↓
+
+FlashcardsRepository
+
+↓
+
+SRS Engine (Spaced Repetition System)
+
+---
+
+# State Management
+
+FlashcardsState includes:
+
+- loading
+- reviewing
+- answered
+- completed
+- error
+
+Core Data:
+
+- deck
+- currentCard
+- easeFactor
+- interval
+- nextReviewDate
+- performanceHistory
+
+---
+
+# Spaced Repetition System
+
+Based on:
+
+- correctness
+- response time
+- confidence level
+
+Adjust:
+
+- interval
+- difficulty
+- repetition frequency
+
+---
+
+# Card Types
+
+- Basic Q&A
+- Legal concept cards
+- Scenario cards
+- Definition cards
+
+---
+
+# Review Flow
+
+1. Show question
+2. User attempts answer
+3. Reveal correct answer
+4. User rates difficulty
+5. System adjusts schedule
+
+---
+
+# Offline Behaviour
+
+Flashcards must work fully offline.
+
+Sync when online.
+
+---
+
+# API Contracts
+
+GET /flashcards/decks
+
+GET /flashcards/{deckId}
+
+POST /flashcards/review
+
+POST /flashcards/sync
+
+---
+
+# Analytics Events
+
+flashcard_open
+
+flashcard_answer
+
+flashcard_difficulty_rating
+
+flashcard_session_complete
+
+---
+
+# UI Composition Rules
+
+Flashcards UI must include:
+
+- single card focus
+- flip animation
+- difficulty rating buttons
+- progress indicator
+
+---
+
+# UX Rules
+
+- minimal distraction
+- fast interaction loop
+- focus on recall, not reading
+
+---
+
+# Error Handling
+
+- preserve session state
+- retry sync automatically
+
+---
+
+# Performance
+
+- instant card rendering
+- prefetch next card
+
+---
+
+# Accessibility
+
+Must support:
+
+- screen reader card reading
+- keyboard shortcuts
+- high contrast mode
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+SRS algorithm
+
+Scheduling logic
+
+Controller state
+
+Widget Tests:
+
+Card UI
+
+Review flow
+
+Rating interaction
+
+Integration Tests:
+
+Full study session
+
+Offline review session
+
+---
+
+# Cursor Instructions
+
+When generating flashcards:
+
+- always implement spaced repetition logic
+- always support offline mode
+- always track performance history
+- never treat flashcards as static content

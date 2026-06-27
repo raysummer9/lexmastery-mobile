@@ -1,0 +1,230 @@
+---
+description:
+Defines the Riverpod state management architecture for LexMastery.
+
+alwaysApply: true
+---
+
+# Riverpod State Management
+
+Riverpod is the only approved state management solution.
+
+Never introduce:
+
+- Bloc
+- Cubit
+- Provider
+- Redux
+- MobX
+- GetX
+
+---
+
+# Philosophy
+
+State should be:
+
+- Immutable
+- Predictable
+- Feature-scoped
+- Testable
+- Explicit
+
+State exists to describe the UI.
+
+Business logic never belongs inside Widgets.
+
+---
+
+# Feature Ownership
+
+Each feature owns its providers.
+
+Example:
+
+features/
+    authentication/
+        application/
+        presentation/
+            providers/
+
+Avoid global providers unless truly global.
+
+---
+
+# Provider Types
+
+Preferred:
+
+AsyncNotifierProvider
+
+NotifierProvider
+
+FutureProvider
+
+StreamProvider
+
+StateProvider is allowed only for ephemeral UI state.
+
+Examples:
+
+- selected tab
+- expanded tile
+- current page
+
+Never store business state in StateProvider.
+
+---
+
+# Controller Responsibilities
+
+Controllers coordinate:
+
+- repositories
+- use cases
+- state updates
+- analytics
+- navigation events
+
+Controllers must never:
+
+- parse JSON
+- perform HTTP requests directly
+- render widgets
+
+---
+
+# State Objects
+
+Every controller exposes a single immutable state.
+
+Example:
+
+LoginState
+
+DashboardState
+
+QuizState
+
+Always use Freezed.
+
+---
+
+# Async State
+
+Represent every async operation explicitly.
+
+Use:
+
+Initial
+
+Loading
+
+Refreshing
+
+Success
+
+Empty
+
+Error
+
+Avoid boolean flags like:
+
+isLoading
+
+hasError
+
+---
+
+# Watching Providers
+
+Use:
+
+ref.watch()
+
+only when rebuilds are required.
+
+Use:
+
+ref.read()
+
+for commands.
+
+Use:
+
+ref.listen()
+
+for:
+
+- snackbars
+- dialogs
+- navigation
+- side effects
+
+---
+
+# Derived State
+
+Never duplicate state.
+
+Compute derived values using providers.
+
+---
+
+# Pagination
+
+Pagination belongs inside controllers.
+
+Expose:
+
+- items
+- page
+- hasMore
+- loadingMore
+
+---
+
+# Search
+
+Debounce requests.
+
+Cancel obsolete searches.
+
+Never issue duplicate requests.
+
+---
+
+# Error Handling
+
+Convert infrastructure exceptions into domain failures.
+
+Never expose raw Dio exceptions to the UI.
+
+---
+
+# Optimistic Updates
+
+Use only when appropriate.
+
+Rollback on failure.
+
+---
+
+# Testing
+
+Every provider must have unit tests.
+
+Business logic should be testable without Flutter.
+
+---
+
+# Cursor Instructions
+
+Generate:
+
+- controller
+- immutable state
+- provider
+- tests
+
+Keep widgets free of business logic.

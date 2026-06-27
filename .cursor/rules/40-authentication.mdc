@@ -1,0 +1,332 @@
+---
+description:
+Defines the complete authentication system for LexMastery including login, registration, JWT handling, session management, and security rules.
+
+alwaysApply: true
+---
+
+# Authentication System
+
+Authentication is the entry point of LexMastery.
+
+It must be secure, predictable, and resilient.
+
+Never bypass authentication rules.
+
+---
+
+# Product Vision
+
+Authentication is not just access control.
+
+It is:
+
+- Identity verification
+- Session management
+- Device trust management
+- Security enforcement layer
+
+---
+
+# Authentication Methods
+
+Supported methods:
+
+Email + Password
+
+OTP (Email-based)
+
+Password Reset
+
+Biometric Authentication (device-level only)
+
+Future:
+
+OAuth (Google, Apple)
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+Application Layer (Auth Controller)
+
+↓
+
+Domain Layer (Auth Rules)
+
+↓
+
+Infrastructure Layer
+
+- Auth API
+- Secure Storage
+- Token Manager
+
+---
+
+# State Management
+
+Use Riverpod:
+
+AuthState
+
+AuthController
+
+AuthNotifier
+
+States:
+
+- Unauthenticated
+- Authenticating
+- Authenticated
+- SessionExpired
+- Error
+
+Never use boolean flags like isLoggedIn.
+
+---
+
+# Token Strategy
+
+JWT-based authentication.
+
+Tokens:
+
+Access Token (short-lived)
+
+Refresh Token (long-lived)
+
+Rules:
+
+- Access token stored in memory
+- Refresh token stored in Secure Storage
+- Auto-refresh on expiry
+- Auto-logout on refresh failure
+
+---
+
+# Session Lifecycle
+
+1. User logs in
+2. Tokens generated
+3. Session created
+4. App maintains session silently
+5. Refresh token used when needed
+6. Expired refresh → logout
+
+---
+
+# Secure Storage Rules
+
+Only store:
+
+- Refresh token
+- User ID
+- Device ID
+
+Never store:
+
+- Passwords
+- Plain JWT access tokens (persistently)
+
+---
+
+# Login Flow
+
+1. Input validation
+2. API call
+3. Token retrieval
+4. State update
+5. Navigation to Dashboard
+6. Analytics event logged
+
+---
+
+# Registration Flow
+
+1. User details
+2. Email verification (OTP)
+3. Account creation
+4. Optional onboarding redirect
+
+---
+
+# Password Reset Flow
+
+1. Request reset
+2. OTP verification
+3. New password submission
+4. Session invalidation
+5. Login redirect
+
+---
+
+# Error Handling
+
+Standard errors:
+
+Invalid credentials
+
+Network failure
+
+Account locked
+
+Unverified account
+
+Expired session
+
+Each error must have:
+
+User-friendly message
+
+Recovery action
+
+Analytics event
+
+---
+
+# Navigation Rules
+
+Unauthenticated users can access:
+
+Login
+
+Register
+
+Forgot Password
+
+Onboarding
+
+Authenticated users:
+
+Dashboard
+
+Courses
+
+AI Tutor
+
+Profile
+
+Settings
+
+---
+
+# Offline Behaviour
+
+Authentication requires network.
+
+Offline:
+
+- Allow cached session validation
+- Block login/register attempts
+- Show offline state UI
+
+---
+
+# Security Rules
+
+- No token exposure in logs
+- No storage of passwords
+- Auto logout on suspicious activity
+- Session invalidation on password change
+
+---
+
+# API Contracts
+
+POST /auth/login
+
+POST /auth/register
+
+POST /auth/logout
+
+POST /auth/refresh
+
+POST /auth/verify-otp
+
+POST /auth/reset-password
+
+---
+
+# Analytics Events
+
+auth_login_attempt
+
+auth_login_success
+
+auth_login_failure
+
+auth_logout
+
+auth_register_start
+
+auth_register_success
+
+auth_password_reset
+
+---
+
+# Accessibility
+
+All auth screens must:
+
+Support screen readers
+
+Provide error announcements
+
+Support large text scaling
+
+Have proper focus order
+
+---
+
+# Testing Requirements
+
+Unit tests:
+
+AuthController
+
+TokenManager
+
+Session logic
+
+Widget tests:
+
+Login screen
+
+Register screen
+
+OTP screen
+
+Integration tests:
+
+Full login flow
+
+Refresh token flow
+
+Logout flow
+
+---
+
+# Performance
+
+Auth state must initialize in <300ms.
+
+Avoid blocking UI on startup.
+
+---
+
+# Cursor Instructions
+
+When generating authentication features:
+
+- Always use AuthController
+- Always use Secure Storage for refresh tokens
+- Never bypass token lifecycle
+- Always implement error states
+- Always implement loading states
+- Always implement offline behavior

@@ -1,0 +1,294 @@
+---
+description:
+Defines the engineering philosophy, product principles,
+UX mindset and AI behavior for the entire LexMastery
+Flutter mobile application.
+
+alwaysApply: true
+---
+
+# LexMastery Engineering Philosophy
+
+## Mission
+
+LexMastery exists to become the world's most intelligent legal education platform.
+
+The product combines Artificial Intelligence, cognitive science, structured learning, and premium user experience to help aspiring lawyers successfully prepare for professional legal examinations including:
+
+- SQE
+- NextGen Bar
+- Future international legal qualifications
+
+The application should never feel like an e-learning platform.
+
+Instead, it should feel like an elite legal mentor.
+
+Every engineering decision must reinforce this mission.
+
+---
+
+# Product Vision
+
+LexMastery is not a course marketplace.
+
+LexMastery is not a chatbot.
+
+LexMastery is not another quiz application.
+
+LexMastery is an AI-powered legal learning ecosystem.
+
+The application should progressively evolve into the world's best AI legal education platform.
+
+Every feature must contribute toward:
+
+• confidence
+
+• clarity
+
+• mastery
+
+• measurable progress
+
+---
+
+# Engineering Philosophy
+
+Code should optimize for:
+
+Readability
+
+Maintainability
+
+Scalability
+
+Consistency
+
+Accessibility
+
+Performance
+
+Security
+
+Developer Experience
+
+Never optimize prematurely.
+
+Never sacrifice readability.
+
+Always build reusable systems.
+
+Never duplicate business logic.
+
+---
+
+# UX Philosophy
+
+Users are preparing for one of the hardest examinations in their lives.
+
+The application must reduce anxiety.
+
+Never create visual clutter.
+
+Never overwhelm users.
+
+Guide them one decision at a time.
+
+Always communicate progress.
+
+Celebrate milestones.
+
+Reduce cognitive load.
+
+---
+
+# Design Philosophy
+
+Visual language:
+
+Premium
+
+Editorial
+
+Professional
+
+Academic
+
+Minimal
+
+Elegant
+
+Never playful.
+
+Never cartoonish.
+
+Never childish.
+
+Never flashy.
+
+Avoid unnecessary gradients.
+
+Avoid visual noise.
+
+Whitespace is a feature.
+
+---
+
+# AI Philosophy
+
+AI is a mentor.
+
+Not a gimmick.
+
+Not entertainment.
+
+AI interactions should feel:
+
+Thoughtful
+
+Reliable
+
+Professional
+
+Transparent
+
+Every AI response should inspire trust.
+
+Where applicable:
+
+show reasoning
+
+show legal references
+
+show confidence indicators
+
+allow follow-up questions
+
+---
+
+# Mobile Experience
+
+Design mobile-first.
+
+Support tablets.
+
+Support landscape where appropriate.
+
+Respect safe areas.
+
+Support accessibility.
+
+Support offline learning whenever feasible.
+
+Optimize for one-handed usage.
+
+---
+
+# Performance Philosophy
+
+The application should feel instant.
+
+Preferred targets:
+
+Cold startup <2 seconds
+
+Navigation <300ms
+
+Animations 60 FPS
+
+Avoid unnecessary rebuilds.
+
+Lazy load expensive screens.
+
+Cache aggressively.
+
+---
+
+# Accessibility
+
+Accessibility is not optional.
+
+Support:
+
+Screen readers
+
+Dynamic font sizes
+
+Reduced motion
+
+High contrast
+
+Large touch targets
+
+Semantic labels
+
+WCAG AA compliance
+
+---
+
+# Engineering Standards
+
+Prefer composition over inheritance.
+
+Prefer immutable models.
+
+Prefer dependency injection.
+
+Never place business logic inside widgets.
+
+Widgets should remain lightweight.
+
+Feature code must remain isolated.
+
+All APIs must go through repositories.
+
+---
+
+# Product Decisions
+
+Every feature should answer:
+
+Does this reduce study friction?
+
+Does this improve learning?
+
+Does this improve retention?
+
+Does this improve exam performance?
+
+If not,
+
+reconsider building it.
+
+---
+
+# Cursor Instructions
+
+Whenever generating code:
+
+Act as a Senior Flutter Engineer.
+
+Act as a Senior Product Designer.
+
+Act as a Senior UX Designer.
+
+Act as a Senior Software Architect.
+
+Generate production-ready code.
+
+Never generate placeholder architecture.
+
+Prefer reusable widgets.
+
+Prefer reusable themes.
+
+Follow Clean Architecture.
+
+Follow Feature-First Architecture.
+
+Follow all project rules.
+
+If a conflict exists between files,
+
+the newest rule overrides the older rule.
+
+Never ignore these principles.

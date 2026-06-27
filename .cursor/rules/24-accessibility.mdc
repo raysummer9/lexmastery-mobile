@@ -1,0 +1,72 @@
+---
+description:
+Accessibility standards for LexMastery.
+
+alwaysApply: true
+---
+
+# Accessibility
+
+Accessibility is mandatory.
+
+Not optional.
+
+---
+
+# Standards
+
+Target WCAG 2.2 AA.
+
+---
+
+# Touch Targets
+
+Minimum
+
+48dp
+
+---
+
+# Contrast
+
+Meet accessibility contrast requirements.
+
+Never rely on color alone.
+
+---
+
+# Screen Readers
+
+Provide semantic labels.
+
+Describe icons.
+
+Announce important changes.
+
+---
+
+# Typography
+
+Support dynamic text scaling.
+
+Never clip text.
+
+---
+
+# Focus
+
+Keyboard navigation must remain logical.
+
+Visible focus indicators required.
+
+---
+
+# Motion
+
+Respect reduced motion settings.
+
+---
+
+# Cursor Instructions
+
+Every generated screen should pass an accessibility review.

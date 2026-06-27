@@ -1,0 +1,246 @@
+---
+description:
+Defines the AI Chat system for LexMastery including free-form conversational assistant behavior, context switching, memory rules, and routing separation from AI Tutor.
+
+alwaysApply: true
+---
+
+# AI Chat System
+
+AI Chat is different from AI Tutor.
+
+It is a general-purpose assistant interface.
+
+It does NOT enforce structured learning flows.
+
+---
+
+# Product Vision
+
+AI Chat must:
+
+- Answer general legal questions
+- Provide explanations on demand
+- Support free-form conversation
+- Handle non-curriculum queries
+- Route users to AI Tutor when needed
+
+---
+
+# Key Distinction
+
+AI Tutor = structured learning system  
+AI Chat = flexible assistant
+
+Never merge both systems.
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+AIChatController (Riverpod)
+
+↓
+
+AIChatState
+
+↓
+
+AIService (Shared with Tutor)
+
+↓
+
+Context Router
+
+↓
+
+Optional RAG Layer
+
+---
+
+# State Management
+
+AIChatState includes:
+
+- idle
+- loading
+- streaming
+- responding
+- error
+
+Core Data:
+
+- messages
+- chatThreads
+- activeThread
+- contextMode
+- memoryEnabled
+
+---
+
+# Chat Modes
+
+1. General Mode
+2. Legal Q&A Mode
+3. Study Support Mode
+4. Explanation Mode
+
+Each mode changes prompt behavior.
+
+---
+
+# Context Rules
+
+AI Chat may optionally use:
+
+- course context
+- lesson context
+- user history
+
+But must never force structured learning.
+
+---
+
+# Memory System
+
+Memory is optional in AI Chat.
+
+Two modes:
+
+- Ephemeral Chat (default)
+- Persistent Chat (user enabled)
+
+---
+
+# Routing Logic
+
+If query requires:
+
+- structured learning → route to AI Tutor
+- practice questions → route to Quiz Engine
+- exams → route to Mock Exam system
+
+---
+
+# Offline Behaviour
+
+AI Chat:
+
+- disabled offline for generation
+- may show cached responses
+
+---
+
+# API Contracts
+
+POST /ai/chat
+
+GET /ai/chat/history
+
+POST /ai/chat/thread
+
+DELETE /ai/chat/thread
+
+---
+
+# Analytics Events
+
+ai_chat_open
+
+ai_chat_message_sent
+
+ai_chat_response_stream
+
+ai_chat_mode_switch
+
+ai_chat_thread_created
+
+---
+
+# UI Composition Rules
+
+AI Chat must include:
+
+- chat input
+- streaming messages
+- mode selector
+- thread history
+- optional memory indicator
+
+---
+
+# UX Rules
+
+- responses must be conversational
+- avoid over-structuring
+- allow interruptions
+- support follow-up questions
+
+---
+
+# Safety Rules
+
+AI must:
+
+- avoid hallucinated legal claims
+- distinguish opinion vs fact
+- suggest verification when uncertain
+
+---
+
+# Performance
+
+- first token < 500ms target
+- streaming mandatory
+- cancel previous requests on new input
+
+---
+
+# Accessibility
+
+Must support:
+
+- screen reader message streaming
+- focus management
+- readable message structure
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Context Router
+
+Chat State Manager
+
+Thread handling
+
+Widget Tests:
+
+Chat UI
+
+Thread UI
+
+Mode switching
+
+Integration Tests:
+
+Full chat lifecycle
+
+Routing between AI systems
+
+---
+
+# Cursor Instructions
+
+When generating AI Chat:
+
+- always support multi-threading
+- always support streaming responses
+- always implement context routing
+- never confuse with AI Tutor system

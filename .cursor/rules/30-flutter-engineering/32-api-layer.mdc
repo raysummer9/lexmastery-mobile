@@ -1,0 +1,114 @@
+---
+description:
+Defines API communication architecture.
+
+alwaysApply: true
+---
+
+# API Layer
+
+Every endpoint follows:
+
+Controller
+
+↓
+
+Repository
+
+↓
+
+Datasource
+
+↓
+
+API Client
+
+Never bypass the Repository.
+
+---
+
+# DTOs
+
+Every endpoint owns:
+
+Request DTO
+
+Response DTO
+
+Mapper
+
+Never expose DTOs outside Infrastructure.
+
+---
+
+# Endpoint Naming
+
+Example
+
+GET
+
+/courses
+
+GET
+
+/courses/{id}
+
+POST
+
+/auth/login
+
+POST
+
+/quiz/submit
+
+Use REST conventions.
+
+---
+
+# Errors
+
+Map every HTTP error into Domain Failures.
+
+Never expose DioException.
+
+---
+
+# Pagination
+
+Standard response
+
+items
+
+page
+
+limit
+
+total
+
+hasMore
+
+Cursor should generate pagination automatically.
+
+---
+
+# Streaming
+
+Support streamed AI responses.
+
+Do not wait for complete payloads.
+
+---
+
+# Cursor Instructions
+
+Always generate:
+
+Datasource
+
+DTO
+
+Mapper
+
+Repository
+
+Tests

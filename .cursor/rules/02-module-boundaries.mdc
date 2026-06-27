@@ -1,0 +1,443 @@
+---
+description: Defines ownership boundaries, dependency rules, and communication between modules in the LexMastery Flutter application.
+
+alwaysApply: true
+---
+
+# Module Boundaries
+
+LexMastery is a modular application.
+
+Every module owns one business capability.
+
+Modules must remain independent.
+
+Never merge unrelated business domains.
+
+---
+
+# Business Modules
+
+The official business modules are:
+
+authentication
+
+onboarding
+
+dashboard
+
+courses
+
+learning
+
+flashcards
+
+quizzes
+
+mock_exams
+
+ai_tutor
+
+ai_instructor
+
+diagnostics
+
+comparative_law
+
+analytics
+
+notifications
+
+profile
+
+settings
+
+accessibility
+
+Each module should evolve independently.
+
+---
+
+# Core Module
+
+The Core module owns:
+
+Networking
+
+Authentication Infrastructure
+
+Analytics
+
+Theme
+
+Routing
+
+Dependency Injection
+
+Storage
+
+Logging
+
+Errors
+
+Constants
+
+Environment
+
+Utilities
+
+Core owns infrastructure.
+
+Core never owns business logic.
+
+---
+
+# Shared Module
+
+Shared contains reusable presentation components.
+
+Examples:
+
+Buttons
+
+Cards
+
+Dialogs
+
+Inputs
+
+Badges
+
+Spacing
+
+Typography
+
+Icons
+
+Animations
+
+Extensions
+
+Validators
+
+A shared component must be reused by at least three features.
+
+Otherwise,
+
+keep it inside the feature.
+
+---
+
+# Feature Ownership
+
+Each feature owns:
+
+Presentation
+
+Domain
+
+Data
+
+Routes
+
+Widgets
+
+Controllers
+
+Repositories
+
+Use Cases
+
+Tests
+
+Assets specific to that feature
+
+No other feature may modify these directly.
+
+---
+
+# Communication Rules
+
+Features do not communicate directly.
+
+Allowed communication:
+
+↓
+
+Repository Interfaces
+
+↓
+
+Core Services
+
+↓
+
+Events
+
+↓
+
+Navigation
+
+Forbidden:
+
+Feature A imports Feature B.
+
+Never create tight coupling.
+
+---
+
+# Ownership Rule
+
+Every file has one owner.
+
+Every class has one owner.
+
+Every responsibility has one owner.
+
+Avoid shared ownership.
+
+---
+
+# Widget Ownership
+
+Widgets should stay inside their feature until reused.
+
+Rule:
+
+Used once → Feature
+
+Used twice → Feature
+
+Used three or more times → Shared
+
+Never prematurely move widgets to Shared.
+
+---
+
+# Repository Ownership
+
+Repositories belong to the feature.
+
+AuthenticationRepository
+
+belongs only to
+
+Authentication.
+
+CourseRepository
+
+belongs only to
+
+Courses.
+
+AIRepository
+
+belongs only to
+
+AI Tutor.
+
+---
+
+# Controller Ownership
+
+One screen
+
+↓
+
+One Controller
+
+Never share controllers across unrelated screens.
+
+---
+
+# State Ownership
+
+State belongs to the feature.
+
+Never create global mutable state.
+
+Global state is limited to:
+
+Authentication
+
+Theme
+
+Locale
+
+Connectivity
+
+User Session
+
+Everything else remains local.
+
+---
+
+# API Ownership
+
+Every endpoint belongs to one feature.
+
+Example:
+
+/auth/*
+
+↓
+
+Authentication
+
+/courses/*
+
+↓
+
+Courses
+
+/ai/*
+
+↓
+
+AI Tutor
+
+Never mix endpoints between repositories.
+
+---
+
+# Asset Ownership
+
+Global assets
+
+↓
+
+assets/
+
+Feature-specific illustrations
+
+↓
+
+feature/assets/
+
+Do not duplicate assets.
+
+---
+
+# Testing Ownership
+
+Every feature owns:
+
+Unit Tests
+
+Widget Tests
+
+Golden Tests
+
+Integration Tests
+
+Tests should remain alongside the feature.
+
+---
+
+# Dependency Rules
+
+Allowed:
+
+Feature
+
+↓
+
+Core
+
+Feature
+
+↓
+
+Shared
+
+Presentation
+
+↓
+
+Domain
+
+↓
+
+Data
+
+Forbidden:
+
+Feature
+
+↓
+
+Feature
+
+Presentation
+
+↓
+
+Presentation
+
+Domain
+
+↓
+
+Flutter UI
+
+---
+
+# Package Ownership
+
+Infrastructure packages belong to Core.
+
+UI packages belong to Shared.
+
+Business packages belong to Features.
+
+Never mix responsibilities.
+
+---
+
+# Analytics Ownership
+
+Each feature emits analytics.
+
+Core records analytics.
+
+Features never talk directly to Firebase.
+
+---
+
+# Error Ownership
+
+Features define business failures.
+
+Core defines infrastructure failures.
+
+UI converts failures into user-friendly messages.
+
+---
+
+# Cursor Instructions
+
+Before creating any file:
+
+1.
+
+Identify the business module.
+
+2.
+
+Identify the owner.
+
+3.
+
+Identify the correct layer.
+
+4.
+
+Verify the dependency direction.
+
+5.
+
+Only then generate the file.
+
+Never create files outside the correct owner.
+
+Architecture consistency is mandatory.

@@ -1,0 +1,142 @@
+---
+description:
+Defines the Error Handling system including global error strategy, retry mechanisms, fallback UI, API failure handling, and crash prevention rules.
+
+alwaysApply: true
+---
+
+# Error Handling System
+
+Error handling ensures system resilience.
+
+No user action should cause app failure.
+
+---
+
+# Product Vision
+
+Error system must:
+
+- prevent crashes
+- recover gracefully
+- retry intelligently
+- show meaningful feedback
+- preserve user state
+
+---
+
+# Architecture
+
+ErrorController
+
+↓
+
+ErrorState
+
+↓
+
+ErrorLogger
+
+↓
+
+RetryManager
+
+↓
+
+Fallback UI System
+
+---
+
+# Error Categories
+
+- Network Errors
+- API Errors
+- AI Errors
+- Sync Errors
+- Validation Errors
+- System Errors
+
+---
+
+# Global Rules
+
+- never expose raw error codes to users
+- always provide user-friendly messages
+- always preserve user state
+- retry silently when possible
+
+---
+
+# Retry Strategy
+
+- exponential backoff
+- max retry limits
+- fallback after failure threshold
+
+---
+
+# Offline Behaviour
+
+- detect offline state
+- queue actions
+- show offline mode UI
+
+---
+
+# UI Fallback Rules
+
+- skeleton loading
+- cached data fallback
+- retry button only when necessary
+
+---
+
+# Logging Rules
+
+- log all errors internally
+- group similar errors
+- avoid duplicate logs
+
+---
+
+# API Contracts
+
+POST /errors/log
+
+GET /errors/report
+
+---
+
+# Performance Rules
+
+- error handling must not block UI
+- retries must be async
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Retry logic
+
+Error classification
+
+Fallback behavior
+
+Integration Tests:
+
+API failure recovery
+
+Offline error handling
+
+---
+
+# Cursor Instructions
+
+When generating features:
+
+- always handle failure states
+- always preserve user data
+- always provide fallback UI
+- never crash silently

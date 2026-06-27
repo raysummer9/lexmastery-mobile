@@ -1,0 +1,185 @@
+---
+description:
+Application-wide error handling strategy.
+
+alwaysApply: true
+---
+
+# Error Handling
+
+Errors should educate, not frustrate.
+
+Every error should have:
+
+Cause
+
+↓
+
+Recovery
+
+↓
+
+Next Action
+
+Never expose stack traces to users.
+
+---
+
+# Error Categories
+
+Infrastructure
+
+Network
+
+Authentication
+
+Validation
+
+Business Logic
+
+Permission
+
+Unexpected
+
+Each category requires a dedicated failure model.
+
+---
+
+# Domain Failures
+
+Infrastructure errors must be converted into domain failures.
+
+Never expose:
+
+SocketException
+
+DioException
+
+FormatException
+
+to presentation.
+
+---
+
+# User Messages
+
+Messages should be:
+
+Clear
+
+Professional
+
+Actionable
+
+Avoid technical jargon.
+
+Example:
+
+Instead of:
+
+"SocketException"
+
+Use:
+
+"Unable to connect. Check your internet connection."
+
+---
+
+# Retry
+
+Allow retry only where appropriate.
+
+Examples:
+
+Network Requests
+
+Downloads
+
+Synchronization
+
+Never automatically retry:
+
+Payments
+
+Exam submissions
+
+Account deletion
+
+---
+
+# Global Error Handler
+
+Create a centralized error handler.
+
+Responsibilities:
+
+- Logging
+- Mapping
+- Reporting
+- Analytics
+
+---
+
+# Logging
+
+Capture:
+
+Stack Trace
+
+Device
+
+Version
+
+Screen
+
+API Endpoint
+
+Never log:
+
+Passwords
+
+JWT
+
+Personal data
+
+---
+
+# Empty vs Error
+
+Differentiate between:
+
+No data
+
+and
+
+Request failed
+
+Never use the same screen.
+
+---
+
+# Validation
+
+Validation belongs inside:
+
+Application Layer
+
+Domain Layer
+
+Never inside Widgets.
+
+---
+
+# Cursor Instructions
+
+Every async operation must expose:
+
+Loading
+
+Success
+
+Empty
+
+Error
+
+Recovery Action

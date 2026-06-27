@@ -1,0 +1,270 @@
+---
+description:
+Defines the complete Dashboard system for LexMastery including layout, data architecture, personalization logic, widgets, and AI-driven learning insights.
+
+alwaysApply: true
+---
+
+# Dashboard System
+
+The Dashboard is the central command center of LexMastery.
+
+It is not a static home screen.
+
+It is a dynamic learning intelligence system.
+
+---
+
+# Product Vision
+
+The Dashboard must:
+
+- Guide daily learning
+- Show progress clearly
+- Reinforce habits
+- Surface AI recommendations
+- Reduce decision fatigue
+
+Every element must answer:
+
+"What should I do next?"
+
+---
+
+# Dashboard Philosophy
+
+The Dashboard is:
+
+- Personalized
+- Adaptive
+- Action-driven
+- Minimal but powerful
+- AI-assisted
+
+Avoid clutter at all costs.
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+DashboardController (Riverpod)
+
+↓
+
+DashboardState
+
+↓
+
+DashboardRepository
+
+↓
+
+Data Sources (API + Local Cache)
+
+---
+
+# State Management
+
+DashboardState must include:
+
+- loading
+- error
+- empty
+- loaded
+- refreshing
+
+Data groups:
+
+- Continue Learning
+- Recommended Courses
+- Daily Goals
+- AI Suggestions
+- Upcoming Exams
+- Streaks
+- Recent Activity
+
+---
+
+# Dashboard Widgets
+
+Mandatory widgets:
+
+Continue Learning Card
+
+Daily Study Goal
+
+AI Recommendation Panel
+
+Upcoming Exam Countdown
+
+Learning Streak Tracker
+
+Performance Summary
+
+Recent Activity Feed
+
+---
+
+# Widget Rules
+
+Each widget must:
+
+- Be independently loadable
+- Support skeleton loading
+- Support offline cache
+- Have empty states
+- Be reusable in other screens
+
+---
+
+# Data Prioritization
+
+Priority order:
+
+1. Continue Learning
+2. Upcoming Exams
+3. AI Recommendations
+4. Daily Goals
+5. Progress Analytics
+6. Activity Feed
+
+---
+
+# AI Integration
+
+AI drives dashboard personalization:
+
+- Suggest next lesson
+- Adjust difficulty
+- Recommend revision
+- Predict weak areas
+
+AI suggestions must be explainable.
+
+---
+
+# Navigation Rules
+
+Dashboard is the root after authentication.
+
+From dashboard users can access:
+
+Courses
+
+AI Tutor
+
+Quiz Engine
+
+Study Planner
+
+Profile
+
+Settings
+
+---
+
+# Offline Behaviour
+
+Dashboard must work offline using cached data.
+
+Restrictions:
+
+- AI suggestions disabled offline
+- Activity feed uses cached logs
+- Progress data remains accessible
+
+---
+
+# Analytics Events
+
+dashboard_view
+
+dashboard_widget_view
+
+dashboard_continue_learning_click
+
+dashboard_ai_suggestion_click
+
+dashboard_exam_click
+
+---
+
+# Performance
+
+Dashboard must load initial shell in <300ms.
+
+Widgets load progressively.
+
+Never block UI on full data fetch.
+
+---
+
+# Error Handling
+
+Each widget handles its own errors.
+
+Dashboard must not fail entirely.
+
+Partial rendering is allowed.
+
+---
+
+# Accessibility
+
+Dashboard must:
+
+- Support screen readers
+- Provide labeled widgets
+- Maintain logical tab order
+- Avoid information overload
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+DashboardController logic
+
+Widget data mapping
+
+AI recommendation integration
+
+Widget Tests:
+
+Each dashboard widget
+
+Loading/empty/error states
+
+Integration Tests:
+
+Full dashboard load
+
+Offline mode behavior
+
+Navigation flow
+
+---
+
+# Security Rules
+
+Do not expose sensitive AI data in logs.
+
+User progress data must be encrypted at rest.
+
+---
+
+# Cursor Instructions
+
+When generating dashboard features:
+
+- Always use widget-based architecture
+- Always support partial rendering
+- Always implement AI-driven recommendations
+- Always include offline fallback
+- Always include skeleton loading states
+- Never make dashboard a static UI

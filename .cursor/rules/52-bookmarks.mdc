@@ -1,0 +1,209 @@
+---
+description:
+Defines the Bookmarks system including saving lessons, AI responses, quiz questions, tagging, and cross-feature referencing.
+
+alwaysApply: true
+---
+
+# Bookmarks System
+
+Bookmarks allow users to save important learning moments.
+
+They act as a knowledge retrieval layer.
+
+---
+
+# Product Vision
+
+Bookmarks must:
+
+- capture important content instantly
+- support cross-module saving
+- enable fast retrieval
+- improve revision efficiency
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+BookmarksController (Riverpod)
+
+↓
+
+BookmarksState
+
+↓
+
+BookmarksRepository
+
+↓
+
+Local DB + Sync Service
+
+---
+
+# State Management
+
+BookmarksState includes:
+
+- loading
+- synced
+- updated
+- error
+
+Core Data:
+
+- bookmarkedItems
+- tags
+- categories
+- sourceType
+- timestamps
+
+---
+
+# Bookmark Types
+
+- Lesson Bookmark
+- AI Response Bookmark
+- Quiz Question Bookmark
+- Exam Question Bookmark
+- Flashcard Bookmark
+
+---
+
+# Tagging System
+
+Users can:
+
+- add tags
+- group bookmarks
+- filter by category
+
+AI may auto-suggest tags.
+
+---
+
+# Navigation Rules
+
+Bookmarks must be accessible from:
+
+- Dashboard
+- Lesson Player
+- AI Tutor
+- Quiz Engine
+- Profile
+
+---
+
+# Offline Behaviour
+
+- full offline access
+- sync when online
+- conflict resolution on merge
+
+---
+
+# API Contracts
+
+GET /bookmarks
+
+POST /bookmarks/add
+
+DELETE /bookmarks/remove
+
+POST /bookmarks/sync
+
+---
+
+# Analytics Events
+
+bookmark_add
+
+bookmark_remove
+
+bookmark_open
+
+bookmark_filter_used
+
+---
+
+# UI Composition Rules
+
+Bookmarks UI must include:
+
+- list view
+- filtering system
+- tag chips
+- source indicators
+- quick search
+
+---
+
+# UX Rules
+
+- bookmarking must be instant
+- no confirmation dialogs
+- allow undo removal
+
+---
+
+# Error Handling
+
+- retry sync automatically
+- preserve local changes
+
+---
+
+# Performance
+
+- instant save (<100ms local)
+- lazy load lists
+
+---
+
+# Accessibility
+
+Must support:
+
+- keyboard navigation
+- screen reader labeling
+- clear grouping of items
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Bookmark creation logic
+
+Sync system
+
+Tagging logic
+
+Widget Tests:
+
+Bookmark list UI
+
+Tag filters
+
+Integration Tests:
+
+Cross-feature bookmarking
+
+Offline sync flow
+
+---
+
+# Cursor Instructions
+
+When generating bookmarks:
+
+- always make bookmarking instant
+- always support cross-module saving
+- always implement tagging system
+- never block UI for sync

@@ -1,0 +1,385 @@
+---
+description: Defines the official technology stack for the LexMastery Flutter application.
+
+alwaysApply: true
+---
+
+# LexMastery Official Technology Stack
+
+This file defines the ONLY approved technology stack for the project.
+
+Cursor MUST follow these technologies.
+
+Do not substitute alternatives unless explicitly instructed.
+
+---
+
+# Flutter
+
+ALWAYS use the latest stable Flutter version.
+
+ALWAYS use the latest stable Dart version.
+
+Never generate deprecated Flutter code.
+
+Always follow Material 3.
+
+Use adaptive widgets where appropriate.
+
+---
+
+# Architecture
+
+ALWAYS use Feature-First Clean Architecture.
+
+Every feature MUST contain
+
+presentation/
+
+domain/
+
+data/
+
+Never mix responsibilities.
+
+Never put business logic inside Widgets.
+
+---
+
+# State Management
+
+ONLY use Riverpod.
+
+Use:
+
+flutter_riverpod
+
+riverpod_annotation
+
+riverpod_generator
+
+Never use:
+
+Provider
+
+Bloc
+
+Cubit
+
+Redux
+
+MobX
+
+GetX
+
+unless explicitly requested.
+
+---
+
+# Navigation
+
+ALWAYS use go_router.
+
+Support:
+
+Deep Links
+
+Nested Navigation
+
+Shell Routes
+
+Authentication Guards
+
+Never use Navigator.push() directly except inside Router configuration.
+
+---
+
+# Networking
+
+ONLY use Dio.
+
+Every request must pass through
+
+API Client
+
+↓
+
+Repository
+
+↓
+
+Use Case
+
+↓
+
+Controller
+
+↓
+
+UI
+
+Never call Dio directly from Widgets.
+
+---
+
+# Serialization
+
+Use
+
+Freezed
+
+json_serializable
+
+Never manually write JSON parsing.
+
+Always generate immutable models.
+
+---
+
+# Local Storage
+
+Use Hive for offline caching.
+
+Use flutter_secure_storage for
+
+JWT
+
+Refresh Tokens
+
+Sensitive user information
+
+Never store sensitive information inside Hive.
+
+---
+
+# Dependency Injection
+
+Use Riverpod providers.
+
+Avoid service locators.
+
+Never use GetIt unless approved.
+
+---
+
+# Logging
+
+Use logger.
+
+Disable verbose logs in production.
+
+Never print() in production code.
+
+---
+
+# Error Handling
+
+Create typed Failure objects.
+
+Never throw generic Exceptions.
+
+Every network error must map to a user-friendly message.
+
+---
+
+# Images
+
+Use cached_network_image.
+
+Never use Image.network directly.
+
+---
+
+# Forms
+
+Use flutter_form_builder when complexity requires it.
+
+Otherwise use Flutter forms.
+
+Validation belongs in the Controller.
+
+---
+
+# Animations
+
+Use flutter_animate.
+
+Avoid custom AnimationControllers unless necessary.
+
+Prefer implicit animations.
+
+---
+
+# SVG
+
+Use flutter_svg.
+
+Never convert SVG to PNG.
+
+---
+
+# Responsive Layout
+
+Use flutter_screenutil only for typography scaling if needed.
+
+Do not scale everything.
+
+Respect platform conventions.
+
+---
+
+# Localization
+
+Prepare every string for localization.
+
+Never hardcode UI strings inside Widgets.
+
+---
+
+# Theming
+
+Use Theme Extensions.
+
+Never hardcode colors.
+
+Never hardcode font sizes.
+
+Never hardcode spacing.
+
+Everything must come from Design Tokens.
+
+---
+
+# Testing
+
+Every feature should support
+
+Unit Tests
+
+Widget Tests
+
+Integration Tests
+
+Controllers should be fully testable.
+
+---
+
+# Performance
+
+Prefer const constructors.
+
+Minimize Widget rebuilds.
+
+Use ConsumerWidget selectively.
+
+Use select() where appropriate.
+
+Lazy-load large modules.
+
+Paginate large datasets.
+
+---
+
+# Analytics
+
+Support Firebase Analytics.
+
+Every major user interaction should be trackable.
+
+---
+
+# Crash Reporting
+
+Use Firebase Crashlytics.
+
+Never swallow exceptions silently.
+
+---
+
+# Notifications
+
+Support Firebase Cloud Messaging.
+
+Architecture should support
+
+Push Notifications
+
+Local Notifications
+
+Scheduled Notifications
+
+---
+
+# Security
+
+Never expose API Keys.
+
+Never hardcode secrets.
+
+Always use HTTPS.
+
+Always validate tokens.
+
+---
+
+# Folder Naming
+
+Use
+
+snake_case
+
+for folders.
+
+PascalCase
+
+for classes.
+
+camelCase
+
+for methods and variables.
+
+---
+
+# File Naming
+
+home_screen.dart
+
+login_controller.dart
+
+course_repository.dart
+
+progress_model.dart
+
+Never abbreviate names.
+
+---
+
+# Package Rules
+
+Before adding a package
+
+Ask:
+
+Can Flutter already do this?
+
+Can an existing package already solve this?
+
+Will this increase maintenance?
+
+Keep dependencies minimal.
+
+---
+
+# Cursor Instructions
+
+Always generate production-quality Flutter code.
+
+Never generate demo code.
+
+Never generate placeholder architecture.
+
+Always follow this technology stack.
+
+If a package conflicts with this file,
+
+this file wins.

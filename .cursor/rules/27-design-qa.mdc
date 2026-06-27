@@ -1,0 +1,40 @@
+---
+description:
+Design quality assurance checklist.
+
+alwaysApply: true
+---
+
+# Design QA
+
+Before completing a screen verify:
+
+✓ Uses design tokens
+
+✓ Uses reusable components
+
+✓ Responsive
+
+✓ Accessible
+
+✓ Loading state
+
+✓ Empty state
+
+✓ Error state
+
+✓ Offline state
+
+✓ Semantic labels
+
+✓ Consistent spacing
+
+✓ Consistent typography
+
+✓ Consistent icons
+
+✓ Dark mode support
+
+✓ Performance optimized
+
+Never consider a screen complete until all checks pass.

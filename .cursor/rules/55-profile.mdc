@@ -1,0 +1,223 @@
+---
+description:
+Defines the Profile system including user identity, learning preferences, jurisdiction settings, performance summary, and account management.
+
+alwaysApply: true
+---
+
+# Profile System
+
+The Profile system represents the user's identity inside LexMastery.
+
+It is both personal and academic.
+
+---
+
+# Product Vision
+
+Profile must:
+
+- represent learner identity
+- store learning preferences
+- show performance summary
+- manage jurisdiction settings
+- support personalization engine
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+ProfileController (Riverpod)
+
+↓
+
+ProfileState
+
+↓
+
+ProfileRepository
+
+↓
+
+User Service API
+
+---
+
+# State Management
+
+ProfileState includes:
+
+- loading
+- loaded
+- updating
+- error
+
+Core Data:
+
+- userInfo
+- jurisdiction
+- examType
+- learningGoals
+- preferences
+- progressSummary
+
+---
+
+# Profile Data
+
+Includes:
+
+- name
+- email
+- avatar
+- study goal
+- exam target
+- experience level
+
+---
+
+# Jurisdiction Settings
+
+Critical for legal context:
+
+- country
+- legal system type
+- exam board
+- curriculum alignment
+
+---
+
+# Learning Preferences
+
+- study pace
+- difficulty preference
+- AI assistance level
+- notification intensity
+
+---
+
+# Navigation Rules
+
+Profile is accessible from:
+
+- Dashboard
+- Settings
+- AI Tutor
+- Progress
+
+---
+
+# Offline Behaviour
+
+- view profile offline
+- edit requires sync
+- cached preferences available
+
+---
+
+# API Contracts
+
+GET /profile
+
+PUT /profile/update
+
+GET /profile/preferences
+
+POST /profile/sync
+
+---
+
+# Analytics Events
+
+profile_view
+
+profile_update
+
+jurisdiction_changed
+
+learning_goal_updated
+
+---
+
+# UI Composition Rules
+
+Profile UI must include:
+
+- identity header
+- progress summary
+- preference settings
+- jurisdiction selector
+- edit mode
+
+---
+
+# UX Rules
+
+- changes must be simple and reversible
+- avoid deep nested settings
+- prioritize clarity
+
+---
+
+# Error Handling
+
+- preserve local edits
+- retry sync safely
+
+---
+
+# Performance
+
+- profile load <200ms
+- updates must be instant locally
+
+---
+
+# Accessibility
+
+Must support:
+
+- screen reader labels
+- editable field navigation
+- high contrast mode
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Profile update logic
+
+Preference handling
+
+Jurisdiction mapping
+
+Widget Tests:
+
+Profile screen
+
+Edit forms
+
+Summary widgets
+
+Integration Tests:
+
+Profile sync flow
+
+Preference update flow
+
+---
+
+# Cursor Instructions
+
+When generating profile features:
+
+- always treat jurisdiction as core data
+- always support offline edits
+- always sync safely
+- never overwrite user preferences without confirmation

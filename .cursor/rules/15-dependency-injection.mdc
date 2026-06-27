@@ -1,0 +1,160 @@
+---
+description:
+Dependency injection standards.
+
+alwaysApply: true
+---
+
+# Dependency Injection
+
+Use Riverpod dependency injection.
+
+Do not introduce:
+
+get_it
+
+injectable
+
+service locator
+
+unless explicitly approved.
+
+---
+
+# Philosophy
+
+Dependencies should be:
+
+Explicit
+
+Composable
+
+Replaceable
+
+Testable
+
+---
+
+# Ownership
+
+Features own their dependencies.
+
+Global dependencies are limited to:
+
+API Client
+
+Authentication
+
+Secure Storage
+
+Theme
+
+Configuration
+
+Analytics
+
+---
+
+# Provider Graph
+
+Dependencies should flow:
+
+Config
+
+↓
+
+Client
+
+↓
+
+Datasource
+
+↓
+
+Repository
+
+↓
+
+Controller
+
+↓
+
+UI
+
+Never reverse this flow.
+
+---
+
+# Construction
+
+Prefer constructor injection.
+
+Avoid hidden dependencies.
+
+---
+
+# Singletons
+
+Only create singletons for:
+
+Dio
+
+Hive
+
+Secure Storage
+
+Analytics
+
+Everything else should remain scoped.
+
+---
+
+# Testing
+
+Override providers during testing.
+
+Avoid global mutable state.
+
+---
+
+# Feature Isolation
+
+A feature should not directly instantiate another feature's repository.
+
+Communicate through interfaces.
+
+---
+
+# Lazy Initialization
+
+Initialize expensive services lazily.
+
+Avoid unnecessary startup cost.
+
+---
+
+# Lifecycle
+
+Dispose resources correctly.
+
+Examples:
+
+Streams
+
+Controllers
+
+Subscriptions
+
+Timers
+
+---
+
+# Cursor Instructions
+
+Generate dependencies using Riverpod providers.
+
+Avoid manual singleton management.
+
+Prefer constructor injection.
+
+Every dependency should be easily replaceable during testing.

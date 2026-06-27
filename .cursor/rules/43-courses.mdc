@@ -1,0 +1,294 @@
+---
+description:
+Defines the Courses system for LexMastery including course structure, enrollment, progress tracking, offline strategy, AI enhancement, and catalog behavior.
+
+alwaysApply: true
+---
+
+# Courses System
+
+Courses are the backbone of LexMastery learning experience.
+
+Everything in the platform ultimately maps to a course structure.
+
+---
+
+# Product Vision
+
+Courses must:
+
+- Organize legal knowledge clearly
+- Provide structured learning paths
+- Support exam preparation journeys
+- Adapt to user skill levels via AI
+- Enable offline learning
+
+Courses are not static content containers.
+
+They are dynamic learning systems.
+
+---
+
+# Course Hierarchy
+
+Each course follows:
+
+Course
+
+→ Modules
+
+→ Lessons
+
+→ Topics
+
+→ Practice Questions
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+CoursesController (Riverpod)
+
+↓
+
+CoursesState
+
+↓
+
+CoursesRepository
+
+↓
+
+Remote + Local Datasource
+
+---
+
+# State Management
+
+CoursesState must include:
+
+- loading
+- error
+- empty
+- loaded
+- refreshing
+
+Collections:
+
+- allCourses
+- enrolledCourses
+- recommendedCourses
+- continueLearning
+- trendingCourses
+
+Never use booleans like isLoadingCourses.
+
+---
+
+# Course Types
+
+Supported:
+
+- Exam Preparation Courses
+- Skill-based Courses
+- Revision Courses
+- AI-generated Adaptive Courses (future)
+
+Each course must define:
+
+- difficulty level
+- jurisdiction (if legal)
+- estimated duration
+- prerequisites
+
+---
+
+# Enrollment Flow
+
+1. User selects course
+2. AI evaluates readiness
+3. Enrollment confirmed
+4. Progress initialized
+5. Course added to dashboard
+
+---
+
+# Progress Tracking
+
+Progress is tracked at:
+
+- lesson level
+- module level
+- course level
+
+Progress must be:
+
+- real-time updated
+- cached offline
+- resumable
+
+---
+
+# Offline Behaviour
+
+Courses must be fully available offline if downloaded.
+
+Offline support includes:
+
+- viewing course structure
+- reading lessons
+- accessing notes
+- viewing progress
+
+AI features are disabled offline.
+
+---
+
+# API Contracts
+
+GET /courses
+
+GET /courses/{id}
+
+GET /courses/{id}/modules
+
+POST /courses/enroll
+
+POST /courses/progress
+
+GET /courses/recommendations
+
+---
+
+# AI Integration
+
+AI enhances courses by:
+
+- recommending next course
+- adjusting difficulty
+- suggesting revision paths
+- identifying weak modules
+
+AI must never override user choice silently.
+
+---
+
+# Course Discovery
+
+Courses must support:
+
+- search
+- filtering
+- sorting
+- recommendation ranking
+
+Filters:
+
+- difficulty
+- jurisdiction
+- exam type
+- duration
+- popularity
+
+---
+
+# Analytics Events
+
+course_view
+
+course_enroll
+
+course_start
+
+course_complete
+
+course_module_complete
+
+course_lesson_complete
+
+course_recommendation_click
+
+---
+
+# UI Composition Rules
+
+Course UI must include:
+
+- Course card
+- Progress indicator
+- Continue learning button
+- AI recommendation badge
+- Estimated completion time
+
+---
+
+# Error Handling
+
+Course failures must:
+
+- not break dashboard
+- fallback to cached courses
+- allow retry
+
+---
+
+# Performance
+
+Course list must load skeleton immediately.
+
+Progress updates must be non-blocking.
+
+---
+
+# Security Rules
+
+Course progress data must be:
+
+- validated server-side
+- synced securely
+- not tampered with locally
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+CoursesController
+
+Progress calculations
+
+Enrollment logic
+
+Widget Tests:
+
+Course card
+
+Course list
+
+Progress indicators
+
+Integration Tests:
+
+Course enrollment flow
+
+Offline course access
+
+Progress sync flow
+
+---
+
+# Cursor Instructions
+
+When generating course features:
+
+- Always use CoursesController
+- Always implement progress tracking
+- Always support offline access
+- Always include AI recommendations
+- Always include filtering and search
+- Never expose raw API data to UI

@@ -1,0 +1,236 @@
+---
+description:
+Defines the Progress system including learning analytics, mastery tracking, weak area detection, streaks, and performance intelligence.
+
+alwaysApply: true
+---
+
+# Progress System
+
+The Progress System is the intelligence layer of learning measurement.
+
+It answers: "How well is the user learning?"
+
+---
+
+# Product Vision
+
+Progress must:
+
+- track learning effectiveness
+- identify weak areas
+- show mastery levels
+- motivate consistent learning
+- guide AI recommendations
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+ProgressController (Riverpod)
+
+↓
+
+ProgressState
+
+↓
+
+ProgressRepository
+
+↓
+
+Analytics Engine
+
+---
+
+# State Management
+
+ProgressState includes:
+
+- loading
+- updated
+- syncing
+- error
+
+Core Data:
+
+- courseProgress
+- lessonProgress
+- quizPerformance
+- examScores
+- streakData
+- masteryMap
+
+---
+
+# Mastery Model
+
+Each topic has:
+
+- beginner
+- intermediate
+- advanced
+- mastered
+
+Based on:
+
+- quiz performance
+- revision frequency
+- exam results
+
+---
+
+# Weak Area Detection
+
+AI identifies weak areas based on:
+
+- repeated mistakes
+- low accuracy topics
+- slow response time
+- inconsistent performance
+
+---
+
+# Streak System
+
+Tracks:
+
+- daily study streak
+- weekly consistency
+- longest streak
+
+Must include:
+
+- streak freeze logic (future)
+- reset protection rules
+
+---
+
+# Analytics Aggregation
+
+Progress aggregates data from:
+
+- Courses
+- Quizzes
+- Exams
+- Flashcards
+- Lesson interactions
+
+---
+
+# Offline Behaviour
+
+- local progress tracking
+- sync when online
+- merge conflict resolution required
+
+---
+
+# API Contracts
+
+GET /progress
+
+GET /progress/courses
+
+GET /progress/mastery
+
+POST /progress/update
+
+---
+
+# Analytics Events
+
+progress_view
+
+progress_update
+
+progress_milestone_reached
+
+streak_updated
+
+mastery_level_up
+
+---
+
+# UI Composition Rules
+
+Progress UI must include:
+
+- mastery heatmap
+- streak tracker
+- weak topics list
+- performance graphs
+- recommendation panel
+
+---
+
+# UX Rules
+
+- emphasize clarity over complexity
+- highlight improvement trends
+- avoid overwhelming raw stats
+
+---
+
+# Error Handling
+
+- fallback to cached progress
+- retry sync silently
+
+---
+
+# Performance
+
+- progress dashboard load <300ms
+- incremental updates preferred
+
+---
+
+# Accessibility
+
+Must support:
+
+- screen reader data labeling
+- chart accessibility descriptions
+- keyboard navigation
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Mastery calculation logic
+
+Streak logic
+
+Weak area detection
+
+Widget Tests:
+
+Progress dashboard
+
+Heatmap UI
+
+Streak widget
+
+Integration Tests:
+
+Full analytics pipeline
+
+Sync flow
+
+---
+
+# Cursor Instructions
+
+When generating progress features:
+
+- always compute mastery dynamically
+- always aggregate cross-module data
+- always support offline tracking
+- never show raw unprocessed analytics directly

@@ -1,0 +1,292 @@
+---
+description:
+Defines the complete onboarding system for LexMastery including user flow, state management, UX rules, analytics, and adaptive personalization logic.
+
+alwaysApply: true
+---
+
+# Onboarding System
+
+Onboarding is the first learning experience in LexMastery.
+
+It is not a form.
+
+It is a guided personalization system.
+
+---
+
+# Product Vision
+
+Onboarding exists to:
+
+- Understand user intent
+- Personalize learning paths
+- Reduce cognitive overload
+- Increase retention
+- Improve learning outcomes
+
+Every question must improve system intelligence.
+
+---
+
+# Onboarding Philosophy
+
+Onboarding should feel:
+
+- Short
+- Human
+- Intelligent
+- Adaptive
+- Non-intrusive
+
+Never overwhelm users with too many questions at once.
+
+---
+
+# Onboarding Flow
+
+1. Welcome Screen
+2. Account Setup (or Login Redirect)
+3. Jurisdiction Selection
+4. Legal Stage Selection
+5. Learning Goal Selection
+6. Study Time Availability
+7. Preferred Learning Style
+8. AI Personalization Setup
+9. Notification Preferences
+10. Summary & Confirmation
+11. Redirect to Dashboard
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+OnboardingController (Riverpod)
+
+↓
+
+OnboardingState
+
+↓
+
+OnboardingRepository
+
+↓
+
+API / Local Storage
+
+---
+
+# State Management
+
+Use Riverpod only.
+
+OnboardingState types:
+
+- NotStarted
+- InProgress
+- StepLoading
+- StepCompleted
+- Completed
+- Error
+
+Never use boolean flags for step tracking.
+
+---
+
+# Step Model
+
+Each step must define:
+
+- id
+- title
+- description
+- input type
+- validation rules
+- analytics key
+
+---
+
+# Navigation Rules
+
+Onboarding uses stack navigation only.
+
+No bottom navigation during onboarding.
+
+Back navigation is allowed but controlled.
+
+User must not skip required steps.
+
+---
+
+# Data Collection Rules
+
+Collect only what improves:
+
+- Personalization
+- Learning path generation
+- AI tutor configuration
+
+Do not collect irrelevant data.
+
+---
+
+# Personalization Engine Inputs
+
+- Jurisdiction
+- Exam type
+- Experience level
+- Study time
+- Learning preference
+
+---
+
+# API Contracts
+
+POST /onboarding/start
+
+POST /onboarding/step
+
+POST /onboarding/complete
+
+GET /onboarding/status
+
+---
+
+# Offline Behaviour
+
+Onboarding requires connectivity.
+
+If offline:
+
+- Show offline screen
+- Block progression
+- Allow retry
+
+---
+
+# Analytics Events
+
+onboarding_start
+
+onboarding_step_view
+
+onboarding_step_complete
+
+onboarding_abandon
+
+onboarding_complete
+
+---
+
+# UX Rules
+
+Each step must:
+
+- Have a single focus
+- Avoid multi-question screens
+- Provide clear progress indicator
+- Show estimated time remaining
+
+---
+
+# Validation Rules
+
+Validation must occur:
+
+- On input change (light validation)
+- On step submission (strict validation)
+
+Never allow invalid progression.
+
+---
+
+# Error Handling
+
+Errors must:
+
+- Explain clearly
+- Provide recovery action
+- Allow retry without data loss
+
+---
+
+# Accessibility
+
+All onboarding screens must:
+
+- Support screen readers
+- Have clear focus order
+- Support dynamic text size
+- Avoid time pressure interactions
+
+---
+
+# Performance
+
+Each step should load in <200ms after transition.
+
+Avoid heavy computations in UI layer.
+
+---
+
+# AI Integration
+
+Onboarding feeds AI personalization engine:
+
+- Study recommendations
+- Difficulty scaling
+- Content prioritization
+
+---
+
+# Security Rules
+
+Do not store onboarding data permanently until completion.
+
+Temporary cache only.
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+OnboardingController
+
+Step validation logic
+
+State transitions
+
+Widget Tests:
+
+Each onboarding step
+
+Navigation flow
+
+Progress indicator
+
+Integration Tests:
+
+Full onboarding flow
+
+Offline rejection flow
+
+Abandon and resume flow
+
+---
+
+# Cursor Instructions
+
+When generating onboarding features:
+
+- Always use step-based architecture
+- Always implement OnboardingController
+- Always include analytics events
+- Always include validation logic
+- Always include accessibility support
+- Never merge multiple steps into one screen

@@ -1,0 +1,228 @@
+---
+description:
+Defines the Study Planner system including AI scheduling, daily learning plans, workload balancing, reminders, and exam-driven study optimization.
+
+alwaysApply: true
+---
+
+# Study Planner System
+
+The Study Planner is the execution engine of learning discipline.
+
+It turns goals into daily action.
+
+---
+
+# Product Vision
+
+The Study Planner must:
+
+- convert goals into structured schedules
+- optimize study time allocation
+- adapt to user performance
+- reduce procrastination
+- align with exam deadlines
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+StudyPlannerController (Riverpod)
+
+↓
+
+StudyPlannerState
+
+↓
+
+StudyPlannerRepository
+
+↓
+
+AI Scheduling Engine
+
+---
+
+# State Management
+
+StudyPlannerState includes:
+
+- loading
+- generated
+- updated
+- syncing
+- error
+
+Core Data:
+
+- weeklyPlan
+- dailyPlan
+- studySessions
+- examCountdown
+- workloadBalance
+- AIRecommendations
+
+---
+
+# Planning Logic
+
+AI generates plans based on:
+
+- exam date
+- available hours per day
+- weak topics
+- course progress
+- user consistency
+
+---
+
+# Plan Types
+
+- Daily Plan
+- Weekly Plan
+- Revision Plan
+- Exam Countdown Plan
+
+---
+
+# AI Scheduling Rules
+
+AI must:
+
+- avoid overload
+- prioritize weak topics
+- distribute revision cycles
+- include rest periods
+- adjust dynamically
+
+---
+
+# Navigation Rules
+
+Study Planner connects to:
+
+- Courses
+- Flashcards
+- Quiz Engine
+- Mock Exams
+
+---
+
+# Offline Behaviour
+
+- view-only offline mode
+- no AI recalculation offline
+- cached plans remain accessible
+
+---
+
+# API Contracts
+
+GET /planner
+
+POST /planner/generate
+
+POST /planner/update
+
+GET /planner/status
+
+---
+
+# Analytics Events
+
+planner_generate
+
+planner_view
+
+planner_session_started
+
+planner_session_completed
+
+planner_adjusted
+
+---
+
+# UI Composition Rules
+
+Study Planner must include:
+
+- calendar view
+- daily task list
+- progress indicators
+- AI suggestion panel
+- exam countdown widget
+
+---
+
+# UX Rules
+
+- reduce overwhelm
+- focus on 3–5 tasks per day
+- highlight priority tasks
+- show time estimates
+
+---
+
+# Error Handling
+
+- fallback to cached plan
+- allow manual override
+- retry AI generation safely
+
+---
+
+# Performance
+
+- plan generation <2s target
+- UI load <200ms
+
+---
+
+# Accessibility
+
+Must support:
+
+- calendar accessibility navigation
+- readable task structure
+- screen reader compatibility
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Scheduling engine
+
+Task prioritization logic
+
+State updates
+
+Widget Tests:
+
+Calendar UI
+
+Daily plan UI
+
+AI suggestions panel
+
+Integration Tests:
+
+Full plan generation flow
+
+Plan adjustment flow
+
+---
+
+# Cursor Instructions
+
+When generating study planner features:
+
+- always use AI-driven scheduling
+- always prioritize weak topics
+- always enforce workload balance
+- never overload daily plans

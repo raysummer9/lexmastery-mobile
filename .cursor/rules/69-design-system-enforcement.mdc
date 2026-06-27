@@ -1,0 +1,117 @@
+---
+description:
+Defines the Design System Enforcement layer including UI consistency rules, spacing system, typography rules, motion guidelines, and component usage constraints.
+
+alwaysApply: true
+---
+
+# Design System Enforcement
+
+This system ensures UI consistency across LexMastery.
+
+It prevents design drift.
+
+---
+
+# Product Vision
+
+Design system must:
+
+- enforce visual consistency
+- standardize spacing and typography
+- control UI behavior patterns
+- ensure accessibility compliance
+- maintain brand identity
+
+---
+
+# Design Tokens
+
+- spacing scale (4, 8, 12, 16, 24, 32, 48)
+- font scale (caption → display)
+- color tokens (primary, secondary, surface, error)
+- radius tokens (small, medium, large)
+
+---
+
+# Typography Rules
+
+- headings must follow hierarchy strictly
+- no arbitrary font sizes
+- consistent line height rules
+
+---
+
+# Layout Rules
+
+- use grid-based spacing
+- avoid manual margins
+- enforce padding consistency
+
+---
+
+# Component Rules
+
+- reuse components only
+- no ad-hoc UI construction
+- enforce design library usage
+
+---
+
+# Motion Rules
+
+- transitions must be subtle
+- avoid excessive animation
+- use consistent easing curves
+
+---
+
+# AI UI Rules
+
+- AI components must use distinct styling
+- avoid mixing AI responses with static content
+- ensure readability-first design
+
+---
+
+# Accessibility Rules
+
+- color contrast must meet standards
+- focus states required
+- screen reader labels mandatory
+
+---
+
+# Offline Behaviour
+
+- design system fully available offline
+- no runtime dependency required
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Token validation
+
+Component usage rules
+
+Spacing enforcement
+
+Integration Tests:
+
+UI consistency checks
+
+Theme switching validation
+
+---
+
+# Cursor Instructions
+
+When generating UI:
+
+- always use design tokens
+- never hardcode spacing or colors
+- always follow typography scale
+- never create one-off components

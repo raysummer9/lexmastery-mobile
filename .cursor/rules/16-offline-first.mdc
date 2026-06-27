@@ -1,0 +1,177 @@
+---
+description:
+Defines the offline-first architecture for the LexMastery mobile application.
+
+alwaysApply: true
+---
+
+# Offline First
+
+LexMastery is designed to function even when internet connectivity is poor or unavailable.
+
+Offline capability is a product requirement, not an enhancement.
+
+---
+
+# Philosophy
+
+The application should remain useful without an internet connection.
+
+Users should be able to:
+
+- Read downloaded lessons
+- Review flashcards
+- Access bookmarks
+- View cached progress
+- Continue quizzes where possible
+
+Connectivity should enhance the experience, not enable it.
+
+---
+
+# Data Priority
+
+Every feature must define its data strategy.
+
+Example:
+
+Static Content
+→ Cache aggressively
+
+User Profile
+→ Cache and synchronize
+
+Quiz Results
+→ Queue if offline
+
+Authentication
+→ Secure storage only
+
+AI Chat
+→ Online only
+
+---
+
+# Cache Strategy
+
+Prefer:
+
+Cache First
+
+↓
+
+Background Refresh
+
+↓
+
+Update UI
+
+Avoid unnecessary network requests.
+
+---
+
+# Synchronization
+
+When connectivity returns:
+
+- Sync pending mutations
+- Refresh stale content
+- Resolve conflicts
+- Notify users only when necessary
+
+Synchronization must occur in the background.
+
+---
+
+# Offline Queue
+
+Mutations created while offline should be queued.
+
+Examples:
+
+Bookmarks
+
+Study Progress
+
+Lesson Completion
+
+Quiz Submission
+
+Notes
+
+Retry automatically.
+
+---
+
+# Connectivity
+
+Monitor network status globally.
+
+Controllers should react to connectivity changes.
+
+Avoid repeated polling.
+
+---
+
+# Conflict Resolution
+
+Server is the source of truth.
+
+When conflicts occur:
+
+- Merge where possible
+- Preserve user-generated content
+- Never silently discard user work
+
+---
+
+# Expiration
+
+Cached data should include metadata.
+
+Example:
+
+- createdAt
+- updatedAt
+- expiresAt
+
+Repositories decide when data becomes stale.
+
+---
+
+# UI Indicators
+
+Clearly communicate offline state.
+
+Examples:
+
+Offline banner
+
+Syncing indicator
+
+Cached badge
+
+Never block reading cached content.
+
+---
+
+# Testing
+
+Test:
+
+- Offline launch
+- Reconnection
+- Queue replay
+- Cache expiration
+- Conflict resolution
+
+---
+
+# Cursor Instructions
+
+Every new feature must define:
+
+- Cache strategy
+- Sync strategy
+- Offline behavior
+- Expiration policy

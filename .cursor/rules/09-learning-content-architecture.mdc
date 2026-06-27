@@ -1,0 +1,530 @@
+---
+description:
+Defines how educational content should be structured throughout the LexMastery application.
+
+alwaysApply: true
+---
+
+# Learning Content Architecture
+
+LexMastery is a learning platform.
+
+Not a documentation platform.
+
+Not a chatbot.
+
+Not a news application.
+
+Every screen should improve understanding.
+
+Every content block should increase learning.
+
+Every interaction should reinforce memory.
+
+---
+
+# Learning Philosophy
+
+Every piece of content should help users
+
+Understand
+
+↓
+
+Remember
+
+↓
+
+Apply
+
+↓
+
+Analyze
+
+↓
+
+Master
+
+Never present information without educational intent.
+
+---
+
+# Learning Flow
+
+Every educational experience follows this progression.
+
+Context
+
+↓
+
+Objective
+
+↓
+
+Explanation
+
+↓
+
+Example
+
+↓
+
+Practice
+
+↓
+
+Feedback
+
+↓
+
+Reflection
+
+↓
+
+Next Step
+
+Never skip directly to large bodies of information.
+
+---
+
+# Information Hierarchy
+
+Every screen should clearly communicate:
+
+Primary Topic
+
+↓
+
+Supporting Concepts
+
+↓
+
+Evidence
+
+↓
+
+Examples
+
+↓
+
+Actions
+
+↓
+
+References
+
+Avoid presenting unrelated information together.
+
+---
+
+# Chunking
+
+Break complex information into digestible sections.
+
+Prefer
+
+Multiple short sections
+
+over
+
+One long page.
+
+Each section should communicate one idea.
+
+---
+
+# Progressive Disclosure
+
+Reveal information gradually.
+
+Start with the essentials.
+
+Allow users to expand into deeper explanations.
+
+Avoid overwhelming first-time users.
+
+---
+
+# AI Response Structure
+
+AI responses should follow a consistent educational pattern.
+
+Question
+
+↓
+
+Direct Answer
+
+↓
+
+Explanation
+
+↓
+
+Legal Basis
+
+↓
+
+Example
+
+↓
+
+Memory Tip
+
+↓
+
+Related Concept
+
+↓
+
+Suggested Next Step
+
+Never return long, unstructured paragraphs.
+
+---
+
+# Lesson Structure
+
+Every lesson should contain
+
+Title
+
+↓
+
+Learning Objectives
+
+↓
+
+Introduction
+
+↓
+
+Core Concepts
+
+↓
+
+Worked Example
+
+↓
+
+Practice Activity
+
+↓
+
+Summary
+
+↓
+
+Key Takeaways
+
+↓
+
+Continue Learning
+
+---
+
+# Quiz Review Structure
+
+Every reviewed question should display
+
+Question
+
+↓
+
+User Answer
+
+↓
+
+Correct Answer
+
+↓
+
+Explanation
+
+↓
+
+Legal Authority
+
+↓
+
+Common Mistake
+
+↓
+
+Memory Technique
+
+↓
+
+Related Topic
+
+The explanation is more important than the score.
+
+---
+
+# Flashcard Structure
+
+Front
+
+Question
+
+↓
+
+Back
+
+Answer
+
+↓
+
+Explanation
+
+↓
+
+Example
+
+↓
+
+Related Principle
+
+Avoid placing excessive information on the front.
+
+---
+
+# AI Tutor Structure
+
+The AI Tutor should teach.
+
+Not merely answer.
+
+Preferred response flow
+
+Greeting
+
+↓
+
+Understanding Confirmation
+
+↓
+
+Explanation
+
+↓
+
+Example
+
+↓
+
+Practical Application
+
+↓
+
+Knowledge Check
+
+↓
+
+Follow-up Suggestion
+
+The AI should guide learning rather than end the conversation.
+
+---
+
+# Comparative Law Structure
+
+Comparisons should follow
+
+Jurisdiction A
+
+↓
+
+Jurisdiction B
+
+↓
+
+Key Differences
+
+↓
+
+Similarities
+
+↓
+
+Practical Implications
+
+↓
+
+Examination Relevance
+
+Avoid mixing unrelated jurisdictions.
+
+---
+
+# Diagnostic Reports
+
+Diagnostics should present
+
+Overall Score
+
+↓
+
+Strength Areas
+
+↓
+
+Weak Areas
+
+↓
+
+Performance Trends
+
+↓
+
+Recommended Study Plan
+
+↓
+
+Suggested Lessons
+
+↓
+
+Estimated Improvement
+
+Focus on actionable insights.
+
+---
+
+# Legal Citations
+
+Legal authorities should be clearly separated from explanations.
+
+Support
+
+Cases
+
+Statutes
+
+Sections
+
+Rules
+
+Regulations
+
+Authorities should remain visually distinct.
+
+---
+
+# Memory Reinforcement
+
+Every educational experience should include at least one reinforcement element.
+
+Examples
+
+Summary
+
+Key Point
+
+Flashcard
+
+Practice Question
+
+Memory Tip
+
+AI Reflection
+
+Learning improves through repetition.
+
+---
+
+# Empty States
+
+Educational empty states should teach.
+
+Instead of
+
+"No flashcards."
+
+Prefer
+
+"You haven't created any flashcards yet. Reviewing flashcards regularly improves long-term retention."
+
+---
+
+# Error Messages
+
+Errors should educate when possible.
+
+Explain
+
+What happened
+
+↓
+
+Why
+
+↓
+
+How to fix it
+
+Never leave users uncertain.
+
+---
+
+# Reading Experience
+
+Avoid giant paragraphs.
+
+Prefer
+
+Lists
+
+Tables
+
+Cards
+
+Quotes
+
+Highlights
+
+Examples
+
+Break information into manageable units.
+
+---
+
+# Calls to Action
+
+Every educational screen should end with a meaningful next action.
+
+Examples
+
+Practice
+
+Review
+
+Continue Lesson
+
+Generate Quiz
+
+Ask AI
+
+Bookmark
+
+Revise Later
+
+Never leave learning journeys unfinished.
+
+---
+
+# Cursor Instructions
+
+Whenever generating educational content
+
+Optimize for learning.
+
+Optimize for retention.
+
+Optimize for confidence.
+
+Optimize for comprehension.
+
+Never optimize merely for visual appearance.
+
+Every screen should help the learner make measurable progress.

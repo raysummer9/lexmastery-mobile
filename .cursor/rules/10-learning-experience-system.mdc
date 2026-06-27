@@ -1,0 +1,478 @@
+---
+description:
+Defines the Learning Experience System (LXS) that governs how users interact with educational content, receive feedback, build confidence, and progress through LexMastery.
+
+alwaysApply: true
+---
+
+# Learning Experience System
+
+LexMastery is not a content platform.
+
+LexMastery is not an AI chatbot.
+
+LexMastery is an intelligent legal mentor.
+
+Every interaction should move the learner closer to mastery.
+
+Every interaction should reduce friction.
+
+Every interaction should increase confidence.
+
+---
+
+# Core Learning Principles
+
+Every feature should improve one or more of the following:
+
+Understanding
+
+Retention
+
+Recall
+
+Application
+
+Confidence
+
+Consistency
+
+Reflection
+
+Mastery
+
+If an interaction supports none of these,
+
+reconsider the design.
+
+---
+
+# Cognitive Load
+
+Reduce unnecessary mental effort.
+
+Never overload the learner.
+
+Prefer:
+
+One clear decision
+
+over
+
+Multiple competing actions.
+
+Break difficult concepts into smaller steps.
+
+Avoid overwhelming interfaces.
+
+---
+
+# Focus Mode
+
+Every learning screen should prioritize focus.
+
+Hide unnecessary actions.
+
+Reduce visual noise.
+
+Emphasize the current task.
+
+Learning is the primary action.
+
+Everything else is secondary.
+
+---
+
+# Confidence Building
+
+Users should leave every session feeling:
+
+Smarter
+
+More prepared
+
+More capable
+
+Avoid language that discourages learners.
+
+Instead of:
+
+"Incorrect."
+
+Prefer:
+
+"Almost there. Let's look at why."
+
+Feedback should teach, not judge.
+
+---
+
+# Learning Momentum
+
+Always encourage the next meaningful action.
+
+Examples:
+
+Continue Lesson
+
+Review Weak Topics
+
+Practice Again
+
+Ask AI
+
+Bookmark
+
+Revise Later
+
+Never leave users at a dead end.
+
+---
+
+# Error Recovery
+
+Mistakes are learning opportunities.
+
+Every mistake should include:
+
+Explanation
+
+↓
+
+Legal Authority
+
+↓
+
+Example
+
+↓
+
+Memory Tip
+
+↓
+
+Related Topic
+
+Never stop at "Correct Answer."
+
+---
+
+# Reflection
+
+Every major learning activity should end with reflection.
+
+Examples:
+
+What did you learn?
+
+What surprised you?
+
+What needs more review?
+
+Reflection strengthens retention.
+
+---
+
+# Active Recall
+
+Prefer asking over telling.
+
+Instead of displaying answers immediately,
+
+encourage users to think first.
+
+Examples:
+
+Predict
+
+Recall
+
+Explain
+
+Choose
+
+Reflect
+
+Then reveal.
+
+---
+
+# Spaced Reinforcement
+
+Support repeated exposure over time.
+
+Encourage:
+
+Flashcards
+
+Review Sessions
+
+Weak Topic Practice
+
+Daily Revision
+
+Mastery improves through repetition.
+
+---
+
+# Motivation
+
+Use encouragement sparingly.
+
+Avoid excessive celebration.
+
+The tone should remain:
+
+Professional
+
+Supportive
+
+Calm
+
+Respectful
+
+Never infantilize users.
+
+---
+
+# AI Interaction
+
+The AI is a mentor.
+
+Not a search engine.
+
+Not a friend.
+
+Not a comedian.
+
+The AI should:
+
+Guide
+
+Question
+
+Explain
+
+Challenge
+
+Encourage
+
+Clarify
+
+Always teach.
+
+---
+
+# Feedback Hierarchy
+
+Every feedback sequence follows:
+
+Outcome
+
+↓
+
+Explanation
+
+↓
+
+Reasoning
+
+↓
+
+Legal Basis
+
+↓
+
+Practical Example
+
+↓
+
+Memory Aid
+
+↓
+
+Suggested Next Step
+
+Never reveal answers without explanation.
+
+---
+
+# Progress
+
+Progress should communicate growth.
+
+Avoid vanity metrics.
+
+Emphasize:
+
+Skills
+
+Knowledge
+
+Consistency
+
+Improvement
+
+Mastery
+
+Rather than:
+
+Points
+
+Coins
+
+XP
+
+---
+
+# Assessment
+
+Assessments exist to diagnose learning.
+
+Not punish mistakes.
+
+Results should guide future study.
+
+Every assessment ends with recommendations.
+
+---
+
+# Streaks
+
+Streaks encourage consistency.
+
+Never shame users for losing streaks.
+
+If a streak is broken,
+
+focus on restarting,
+
+not failure.
+
+---
+
+# Notifications
+
+Notifications should be educational.
+
+Examples:
+
+Review today's weak topic.
+
+Practice one question.
+
+Revise Contract Law.
+
+Continue yesterday's lesson.
+
+Avoid meaningless engagement notifications.
+
+---
+
+# Empty States
+
+Every empty state should motivate action.
+
+Explain the benefit.
+
+Guide the learner.
+
+Offer one clear next step.
+
+---
+
+# Microcopy
+
+Language should be:
+
+Clear
+
+Professional
+
+Encouraging
+
+Concise
+
+Educational
+
+Never sarcastic.
+
+Never condescending.
+
+Never overly playful.
+
+---
+
+# Learning Journey
+
+Every educational experience should feel like:
+
+Discover
+
+↓
+
+Understand
+
+↓
+
+Practice
+
+↓
+
+Receive Feedback
+
+↓
+
+Reflect
+
+↓
+
+Improve
+
+↓
+
+Master
+
+---
+
+# Accessibility
+
+Learning must be inclusive.
+
+Support:
+
+Screen Readers
+
+Large Text
+
+Reduced Motion
+
+Color Independence
+
+Keyboard Navigation
+
+Touch Accessibility
+
+Accessibility improves learning for everyone.
+
+---
+
+# Cursor Instructions
+
+When generating educational screens:
+
+Ask:
+
+Does this interaction improve learning?
+
+Does it reduce anxiety?
+
+Does it encourage progress?
+
+Does it reinforce understanding?
+
+If not,
+
+redesign the interaction before implementation.
+
+Every screen should contribute to mastery.

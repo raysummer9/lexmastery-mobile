@@ -1,0 +1,204 @@
+---
+description:
+Defines the Analytics Pipeline system including event tracking, learning analytics, funnel analysis, AI usage metrics, and product intelligence layer.
+
+alwaysApply: true
+---
+
+# Analytics Pipeline System
+
+The Analytics Pipeline is the intelligence backbone of LexMastery.
+
+It turns user behavior into actionable insights.
+
+---
+
+# Product Vision
+
+Analytics must:
+
+- track every meaningful user interaction
+- measure learning effectiveness
+- power AI personalization
+- improve product decisions
+- detect user drop-off patterns
+
+---
+
+# Architecture
+
+EventEmitter Layer
+
+↓
+
+AnalyticsController (Riverpod)
+
+↓
+
+Event Queue
+
+↓
+
+AnalyticsProcessor
+
+↓
+
+Remote Analytics Service + Local Cache
+
+---
+
+# Event System
+
+All events must be:
+
+- structured
+- typed
+- timestamped
+- user-scoped
+
+---
+
+# Core Event Categories
+
+## Learning Events
+- lesson_started
+- lesson_completed
+- quiz_attempted
+- exam_completed
+
+## AI Events
+- ai_query_sent
+- ai_response_received
+- rag_used
+- memory_used
+
+## Engagement Events
+- session_started
+- session_ended
+- streak_updated
+- notification_clicked
+
+## Navigation Events
+- screen_viewed
+- search_used
+- feature_opened
+
+---
+
+# Learning Metrics
+
+System must compute:
+
+- completion rate
+- retention rate
+- accuracy rate
+- revision frequency
+- mastery progression
+
+---
+
+# Funnel Tracking
+
+Tracks full lifecycle:
+
+- onboarding → first lesson → first quiz → retention → subscription intent
+
+---
+
+# AI Analytics
+
+Tracks:
+
+- response usefulness
+- query types
+- hallucination risk flags
+- RAG dependency rate
+
+---
+
+# Offline Behaviour
+
+- events queued locally
+- batch sync when online
+- guaranteed delivery strategy
+
+---
+
+# API Contracts
+
+POST /analytics/event
+
+POST /analytics/batch
+
+GET /analytics/summary
+
+---
+
+# State Management
+
+AnalyticsState includes:
+
+- idle
+- collecting
+- syncing
+- failed
+
+---
+
+# Performance Rules
+
+- event logging must be <10ms
+- must never block UI
+- batch uploads preferred
+
+---
+
+# Data Integrity Rules
+
+- no event loss allowed
+- deduplication required
+- retry mechanism mandatory
+
+---
+
+# Privacy Rules
+
+- anonymize sensitive data
+- allow opt-out
+- no raw AI prompt storage unless allowed
+
+---
+
+# UX Rules
+
+- analytics is invisible to user
+- only reflected in personalization
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Event validation
+
+Queue system
+
+Batch processing
+
+Integration Tests:
+
+Full analytics pipeline
+
+Offline → online sync flow
+
+---
+
+# Cursor Instructions
+
+When generating analytics features:
+
+- always log structured events
+- always batch requests
+- never block UI
+- always ensure offline persistence

@@ -1,0 +1,132 @@
+---
+description:
+Responsive layout standards for phones, tablets and foldables.
+
+alwaysApply: true
+---
+
+# Responsive Layouts
+
+LexMastery supports:
+
+Phones
+
+Large Phones
+
+Tablets
+
+Foldables
+
+Desktop (future)
+
+---
+
+# Philosophy
+
+Design mobile-first.
+
+Enhance progressively.
+
+Never build desktop-first.
+
+---
+
+# Breakpoints
+
+Compact
+
+Medium
+
+Expanded
+
+Use adaptive layouts.
+
+Never hardcode widths.
+
+---
+
+# Layout Rules
+
+Compact
+
+Single column
+
+Medium
+
+Adaptive spacing
+
+Expanded
+
+Multi-column where appropriate
+
+---
+
+# Cards
+
+Cards should expand naturally.
+
+Never use fixed widths.
+
+---
+
+# Lists
+
+Support adaptive grid layouts.
+
+Examples
+
+2 columns
+
+3 columns
+
+4 columns
+
+based on available width.
+
+---
+
+# Navigation
+
+Phone
+
+Bottom Navigation
+
+Tablet
+
+Navigation Rail
+
+Desktop
+
+Navigation Drawer
+
+---
+
+# Dialog Width
+
+Dialogs should adapt to screen size.
+
+Avoid full-width dialogs on tablets.
+
+---
+
+# Images
+
+Images scale proportionally.
+
+Never distort aspect ratio.
+
+---
+
+# Typography
+
+Scale typography with screen size.
+
+Maintain readability.
+
+---
+
+# Cursor Instructions
+
+Generate adaptive layouts.
+
+Avoid pixel-perfect assumptions.

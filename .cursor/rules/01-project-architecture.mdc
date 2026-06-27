@@ -1,0 +1,549 @@
+---
+description: Defines the official software architecture for the LexMastery Flutter application.
+
+alwaysApply: true
+---
+
+# Project Architecture
+
+This document defines the architecture of the LexMastery Flutter application.
+
+This architecture is mandatory.
+
+Never introduce architectural patterns that conflict with this document.
+
+---
+
+# Architecture Philosophy
+
+LexMastery uses
+
+Feature-First Modular Clean Architecture.
+
+The application is divided into independent business features.
+
+Each feature owns its
+
+UI
+
+Business Logic
+
+Data
+
+Routing
+
+Dependencies
+
+Testing
+
+A feature should be understandable in isolation.
+
+---
+
+# Architectural Layers
+
+Every feature follows
+
+Presentation
+
+↓
+
+Domain
+
+↓
+
+Data
+
+↓
+
+External Services
+
+Dependencies only flow downward.
+
+Presentation must never depend on Data.
+
+Data must never depend on Presentation.
+
+---
+
+# Presentation Layer
+
+Responsible for
+
+UI
+
+Widgets
+
+Controllers
+
+State
+
+Navigation
+
+Animations
+
+Validation feedback
+
+Presentation MUST NOT
+
+call APIs
+
+contain business logic
+
+parse JSON
+
+contain SQL
+
+---
+
+# Domain Layer
+
+Contains
+
+Entities
+
+Use Cases
+
+Repository Interfaces
+
+Business Rules
+
+Domain must never depend on Flutter.
+
+Domain should remain pure Dart.
+
+---
+
+# Data Layer
+
+Contains
+
+DTOs
+
+Repositories
+
+Datasource
+
+API Clients
+
+Local Cache
+
+Serialization
+
+The Data layer translates external data into Domain objects.
+
+---
+
+# Core Module
+
+The Core module contains shared infrastructure.
+
+Examples
+
+Networking
+
+Theme
+
+Navigation
+
+Analytics
+
+Storage
+
+Logging
+
+Utilities
+
+Dependency registration
+
+Error models
+
+Core should not contain feature logic.
+
+---
+
+# Shared Module
+
+Shared contains reusable UI.
+
+Examples
+
+Buttons
+
+Cards
+
+Dialogs
+
+Inputs
+
+Icons
+
+Spacing
+
+Typography
+
+Extensions
+
+Shared Widgets
+
+A shared component should only exist if reused by at least three features.
+
+Otherwise keep it inside the feature.
+
+---
+
+# Features
+
+Every business capability belongs inside a Feature.
+
+Examples
+
+authentication
+
+onboarding
+
+dashboard
+
+courses
+
+quizzes
+
+flashcards
+
+ai_tutor
+
+diagnostics
+
+analytics
+
+profile
+
+settings
+
+notifications
+
+---
+
+# Feature Independence
+
+A feature should not import another feature directly.
+
+Communication happens through
+
+Repositories
+
+Interfaces
+
+Core Services
+
+Events
+
+Never create circular dependencies.
+
+---
+
+# Dependency Direction
+
+Allowed
+
+Presentation
+
+↓
+
+Domain
+
+↓
+
+Data
+
+↓
+
+Core
+
+Forbidden
+
+Data
+
+↓
+
+Presentation
+
+Feature A
+
+↓
+
+Feature B
+
+Presentation
+
+↓
+
+Presentation
+
+---
+
+# Widgets
+
+Widgets should remain small.
+
+Prefer
+
+Stateless Widgets
+
+Consumer Widgets
+
+Small compositions
+
+Avoid massive build methods.
+
+---
+
+# Controllers
+
+Each screen owns one Controller.
+
+Controllers coordinate
+
+UI state
+
+Use Cases
+
+Repositories
+
+Navigation
+
+Controllers never contain rendering logic.
+
+---
+
+# Use Cases
+
+Every meaningful business action becomes a Use Case.
+
+Examples
+
+LoginUser
+
+FetchDashboard
+
+GenerateStudyPlan
+
+SubmitAssessment
+
+StartQuiz
+
+CompleteLesson
+
+Never place business rules inside Controllers.
+
+---
+
+# Repositories
+
+Repositories expose business operations.
+
+Controllers never know whether data comes from
+
+REST
+
+Cache
+
+Offline Storage
+
+Mock
+
+Repository handles that complexity.
+
+---
+
+# Data Sources
+
+Split Data Sources.
+
+Remote
+
+REST API
+
+Local
+
+Hive
+
+Secure Storage
+
+Memory Cache
+
+Repositories coordinate both.
+
+---
+
+# DTOs
+
+DTOs exist only in Data.
+
+Entities exist only in Domain.
+
+Never expose DTOs to UI.
+
+---
+
+# Models
+
+Always immutable.
+
+Always generated using Freezed.
+
+Never mutate state.
+
+---
+
+# Routing
+
+Each feature owns its routes.
+
+Global routing lives inside Core.
+
+Features register routes.
+
+Do not centralize feature logic inside routing.
+
+---
+
+# Themes
+
+One global theme.
+
+No feature should create its own ThemeData.
+
+Use Theme Extensions.
+
+---
+
+# Assets
+
+Assets belong in
+
+assets/
+
+Never inside features.
+
+---
+
+# Localization
+
+Every feature supports localization.
+
+Never hardcode strings.
+
+---
+
+# Analytics
+
+Every feature should expose analytics events.
+
+Analytics lives in Core.
+
+Never call Firebase directly from features.
+
+---
+
+# Logging
+
+Logging lives in Core.
+
+Features log through interfaces.
+
+---
+
+# Authentication
+
+Authentication belongs to the Authentication feature.
+
+Other features should never manage authentication state.
+
+---
+
+# Networking
+
+Networking belongs inside Core.
+
+Features never configure Dio.
+
+---
+
+# Design System
+
+Every feature uses the Design System.
+
+Never hardcode
+
+Colors
+
+Spacing
+
+Radius
+
+Typography
+
+Elevation
+
+Everything comes from Design Tokens.
+
+---
+
+# Reusability Rule
+
+Before creating a Widget
+
+Search existing Widgets.
+
+Before creating a Repository
+
+Search existing Repositories.
+
+Before creating a Service
+
+Search existing Services.
+
+Never duplicate.
+
+---
+
+# Folder Ownership
+
+Every file has one owner.
+
+One feature owns one responsibility.
+
+Never place unrelated code together.
+
+---
+
+# Cursor Instructions
+
+When generating any code:
+
+1.
+
+Identify the Feature.
+
+2.
+
+Identify the Layer.
+
+3.
+
+Identify dependencies.
+
+4.
+
+Reuse existing architecture.
+
+5.
+
+Generate production-quality implementation.
+
+If uncertain,
+
+prefer the existing architecture over creating new patterns.
+
+Architecture consistency is more important than implementation speed.

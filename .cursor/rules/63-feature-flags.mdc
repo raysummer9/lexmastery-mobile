@@ -1,0 +1,160 @@
+---
+description:
+Defines the Feature Flags system including rollout control, experimentation, A/B testing, and dynamic feature toggling.
+
+alwaysApply: true
+---
+
+# Feature Flags System
+
+Feature Flags control the release behavior of LexMastery features.
+
+They enable safe iteration.
+
+---
+
+# Product Vision
+
+Feature Flags must:
+
+- enable gradual rollout
+- support A/B testing
+- control AI feature exposure
+- allow safe rollback
+- support experimentation
+
+---
+
+# Architecture
+
+FeatureFlagController
+
+↓
+
+FeatureFlagState
+
+↓
+
+FeatureFlagRepository
+
+↓
+
+Remote Config Service
+
+---
+
+# State Management
+
+FeatureFlagState includes:
+
+- activeFlags
+- disabledFlags
+- rolloutPercentages
+- userOverrides
+
+---
+
+# Flag Types
+
+- Boolean Flags
+- Percentage Rollouts
+- User-Specific Flags
+- Environment Flags
+
+---
+
+# Use Cases
+
+- Enable AI Tutor updates
+- Gradually roll out quiz engine changes
+- Test new onboarding flows
+- Disable unstable features safely
+
+---
+
+# AI Integration
+
+Feature flags can control:
+
+- AI model versions
+- prompt versions
+- RAG activation levels
+
+---
+
+# Offline Behaviour
+
+- cached flags used offline
+- no remote sync offline
+
+---
+
+# API Contracts
+
+GET /flags
+
+POST /flags/update
+
+GET /flags/user
+
+---
+
+# Analytics Events
+
+flag_enabled
+
+flag_disabled
+
+flag_evaluated
+
+flag_override_used
+
+---
+
+# UX Rules
+
+- feature flags are invisible to users
+- only affect system behavior
+
+---
+
+# Safety Rules
+
+- never expose experimental features without flags
+- always allow rollback
+
+---
+
+# Performance
+
+- flag resolution <10ms target
+- cached evaluation preferred
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Flag evaluation logic
+
+Rollout system
+
+Override handling
+
+Integration Tests:
+
+Feature toggle behavior
+
+AI feature switching
+
+---
+
+# Cursor Instructions
+
+When generating features:
+
+- always wrap experimental logic in flags
+- always support rollback capability
+- always separate stable vs experimental logic
+- never hardcode experimental behavior

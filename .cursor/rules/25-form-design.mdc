@@ -1,0 +1,70 @@
+---
+description:
+Standards for forms and data entry.
+
+alwaysApply: true
+---
+
+# Forms
+
+Forms should be:
+
+Simple
+
+Guided
+
+Forgiving
+
+Accessible
+
+---
+
+# Validation
+
+Validate progressively.
+
+Avoid validating before interaction.
+
+---
+
+# Errors
+
+Display errors inline.
+
+Explain how to fix them.
+
+---
+
+# Labels
+
+Every field has:
+
+Label
+
+Helper text (optional)
+
+Validation
+
+---
+
+# Keyboard
+
+Use appropriate keyboard types.
+
+Support autofill.
+
+---
+
+# Buttons
+
+Disable submit only when necessary.
+
+Show loading during submission.
+
+---
+
+# Cursor Instructions
+
+Forms should reduce friction.
+
+Never overwhelm users.

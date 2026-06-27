@@ -1,0 +1,58 @@
+---
+description:
+Standard UI states for all screens.
+
+alwaysApply: true
+---
+
+# Required States
+
+Every screen must implement:
+
+Loading
+
+Empty
+
+Error
+
+Offline
+
+Success
+
+---
+
+# Loading
+
+Prefer skeleton screens.
+
+Avoid indefinite spinners.
+
+---
+
+# Empty
+
+Explain why content is empty.
+
+Provide one clear action.
+
+---
+
+# Error
+
+Explain the issue.
+
+Offer retry.
+
+---
+
+# Offline
+
+Show cached data when possible.
+
+Provide sync status.
+
+---
+
+# Cursor Instructions
+
+Never ship a screen without all required states.

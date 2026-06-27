@@ -1,0 +1,219 @@
+---
+description:
+Defines the Notes system including rich text notes, lesson-linked annotations, AI summarization, and cross-reference capabilities.
+
+alwaysApply: true
+---
+
+# Notes System
+
+Notes are the user's personal knowledge layer in LexMastery.
+
+They extend learning beyond consumption.
+
+---
+
+# Product Vision
+
+Notes must:
+
+- capture insights during learning
+- link directly to lessons and concepts
+- support AI summarization
+- enable revision and recall
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+NotesController (Riverpod)
+
+↓
+
+NotesState
+
+↓
+
+NotesRepository
+
+↓
+
+Local DB + Sync Service
+
+---
+
+# State Management
+
+NotesState includes:
+
+- loading
+- saved
+- syncing
+- error
+
+Core Data:
+
+- noteContent
+- linkedLessonId
+- tags
+- timestamps
+- AI summaries
+
+---
+
+# Note Types
+
+- Lesson Notes
+- AI-generated Notes
+- Manual Notes
+- Revision Notes
+
+---
+
+# Editing Rules
+
+Notes must support:
+
+- rich text editing
+- highlight linking
+- inline tagging
+- auto-save
+
+---
+
+# AI Integration
+
+AI can:
+
+- summarize notes
+- expand explanations
+- generate revision summaries
+- link related concepts
+
+---
+
+# Navigation Rules
+
+Notes accessible from:
+
+- Lesson Player
+- Dashboard
+- Profile
+- AI Tutor
+
+---
+
+# Offline Behaviour
+
+- full offline editing
+- sync when online
+- conflict resolution supported
+
+---
+
+# API Contracts
+
+GET /notes
+
+POST /notes/create
+
+PUT /notes/update
+
+DELETE /notes/delete
+
+POST /notes/sync
+
+---
+
+# Analytics Events
+
+note_created
+
+note_updated
+
+note_deleted
+
+note_ai_summary_generated
+
+---
+
+# UI Composition Rules
+
+Notes UI must include:
+
+- editor view
+- note list
+- tag filters
+- linked lesson indicator
+- AI assist button
+
+---
+
+# UX Rules
+
+- auto-save every change
+- no manual save button required
+- keep writing flow uninterrupted
+
+---
+
+# Error Handling
+
+- local persistence must prevent data loss
+- retry sync silently
+
+---
+
+# Performance
+
+- instant typing response
+- debounce sync operations
+
+---
+
+# Accessibility
+
+Must support:
+
+- screen reader editing support
+- keyboard shortcuts
+- readable formatting
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Note CRUD logic
+
+Sync engine
+
+AI summarization
+
+Widget Tests:
+
+Editor UI
+
+Note list UI
+
+Integration Tests:
+
+Full note lifecycle
+
+Offline editing flow
+
+---
+
+# Cursor Instructions
+
+When generating notes:
+
+- always use auto-save
+- always support offline editing
+- always link notes to lessons
+- never interrupt writing flow

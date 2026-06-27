@@ -1,0 +1,289 @@
+---
+description:
+Defines the AI Tutor system for LexMastery including reasoning engine, legal explanations, memory handling, streaming responses, and learning reinforcement logic.
+
+alwaysApply: true
+---
+
+# AI Tutor System
+
+The AI Tutor is the core intelligence layer of LexMastery.
+
+It is not a chatbot.
+
+It is a legal reasoning engine.
+
+---
+
+# Product Vision
+
+The AI Tutor must:
+
+- Teach legal concepts clearly
+- Explain reasoning step-by-step
+- Adapt to user knowledge level
+- Reinforce learning through repetition
+- Reduce dependency on static content
+
+Every response must improve understanding.
+
+---
+
+# Core Capabilities
+
+- Socratic questioning
+- Legal reasoning breakdown
+- Example generation
+- Jurisdiction comparison
+- Exam-style answers
+- Misconception correction
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+AITutorController (Riverpod)
+
+↓
+
+AITutorState
+
+↓
+
+AIService (Streaming Engine)
+
+↓
+
+Prompt Builder
+
+↓
+
+RAG Layer (Future-ready)
+
+---
+
+# State Management
+
+AITutorState includes:
+
+- idle
+- loading
+- streaming
+- responding
+- error
+- completed
+
+Core Data:
+
+- messages
+- context
+- citations
+- topic
+- difficulty level
+- conversation memory
+
+---
+
+# Streaming Engine
+
+All AI responses must stream:
+
+- token-by-token updates
+- partial UI rendering
+- real-time feedback
+
+Never wait for full response.
+
+---
+
+# Prompt Engineering Rules
+
+Prompts must include:
+
+- user level
+- jurisdiction context
+- topic context
+- learning objective
+- constraints (exam format if applicable)
+
+---
+
+# Memory System
+
+AI Tutor must remember:
+
+- user progress
+- weak topics
+- prior questions
+- misconceptions
+
+Memory must be:
+
+- structured
+- retrievable
+- editable
+
+---
+
+# RAG Strategy (Future)
+
+AI must retrieve:
+
+- course content
+- lesson references
+- legal rules
+- past answers
+
+Never hallucinate legal rules.
+
+---
+
+# Citation Rules
+
+Every legal explanation must:
+
+- reference course content
+- avoid fabricated statutes
+- clearly distinguish explanation vs fact
+
+---
+
+# Interaction Modes
+
+1. Explanation Mode
+2. Exam Mode
+3. Practice Mode
+4. Revision Mode
+5. Socratic Mode
+
+---
+
+# Offline Behaviour
+
+AI Tutor is offline-disabled.
+
+Fallback:
+
+- cached explanations
+- static content
+- no generation
+
+---
+
+# Safety Rules
+
+AI must NOT:
+
+- provide false legal advice
+- fabricate jurisdiction laws
+- override user corrections silently
+
+---
+
+# Analytics Events
+
+ai_tutor_open
+
+ai_tutor_query
+
+ai_tutor_stream_start
+
+ai_tutor_stream_complete
+
+ai_tutor_error
+
+ai_tutor_mode_switch
+
+---
+
+# UI Composition Rules
+
+AI Tutor must include:
+
+- chat interface
+- streaming indicator
+- citation panel
+- mode selector
+- memory summary
+- suggested questions
+
+---
+
+# UX Rules
+
+- responses must be structured
+- use headings and bullets
+- avoid long unstructured text
+- prioritize clarity over verbosity
+
+---
+
+# Error Handling
+
+If AI fails:
+
+- show retry option
+- preserve conversation
+- fallback to cached explanation if available
+
+---
+
+# Performance
+
+- first token < 500ms target
+- streaming must not block UI
+- cancel previous requests on new input
+
+---
+
+# Accessibility
+
+Must support:
+
+- screen reader output of streamed text
+- adjustable text size
+- clear reading structure
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Prompt builder
+
+Memory system
+
+Mode switching
+
+Widget Tests:
+
+Chat UI
+
+Streaming UI
+
+Citation panel
+
+Integration Tests:
+
+Full AI interaction flow
+
+Mode switching behavior
+
+Offline fallback behavior
+
+---
+
+# Cursor Instructions
+
+When generating AI Tutor features:
+
+- Always use streaming responses
+- Always include memory context
+- Always enforce citation safety rules
+- Always support multiple interaction modes
+- Never return unstructured raw AI output to UI

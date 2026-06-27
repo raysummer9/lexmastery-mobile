@@ -1,0 +1,196 @@
+---
+description:
+Defines the AI Memory system including long-term user memory, learning history graph, personalization persistence, and adaptive learning intelligence.
+
+alwaysApply: true
+---
+
+# AI Memory System
+
+The AI Memory system is the intelligence backbone of personalization.
+
+It remembers how users learn.
+
+---
+
+# Product Vision
+
+AI Memory must:
+
+- store long-term learning patterns
+- improve personalization over time
+- track user weaknesses
+- adapt AI responses dynamically
+- support contextual recall
+
+---
+
+# Memory Types
+
+1. Short-term session memory
+2. Long-term learning memory
+3. Preference memory
+4. Performance memory
+5. Concept mastery memory
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+MemoryController (Riverpod)
+
+↓
+
+MemoryState
+
+↓
+
+MemoryRepository
+
+↓
+
+Vector Store + Structured DB
+
+---
+
+# State Management
+
+MemoryState includes:
+
+- loading
+- syncing
+- updated
+- error
+
+Core Data:
+
+- userConceptGraph
+- weakAreas
+- masteredTopics
+- preferences
+- interactionHistory
+
+---
+
+# Memory Graph
+
+The system builds:
+
+- concept relationships
+- performance links
+- revision frequency patterns
+
+---
+
+# AI Integration
+
+AI uses memory to:
+
+- personalize explanations
+- adjust difficulty
+- recommend content
+- avoid repeating mastered concepts
+
+---
+
+# Privacy Rules
+
+- user controls memory
+- memory can be cleared
+- sensitive data is never stored
+- full transparency required
+
+---
+
+# Offline Behaviour
+
+- local memory cache
+- sync when online
+- conflict resolution required
+
+---
+
+# API Contracts
+
+GET /memory
+
+POST /memory/update
+
+DELETE /memory/clear
+
+GET /memory/insights
+
+---
+
+# Analytics Events
+
+memory_updated
+
+memory_cleared
+
+memory_used_in_response
+
+memory_insight_generated
+
+---
+
+# UX Rules
+
+- memory must be invisible but impactful
+- users should not feel system complexity
+- provide optional memory summary view
+
+---
+
+# Performance
+
+- memory retrieval <100ms target
+- updates must be async
+
+---
+
+# Accessibility
+
+Must support:
+
+- readable memory summaries
+- accessible insight panels
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Memory graph logic
+
+Preference storage
+
+Concept linking
+
+Widget Tests:
+
+Memory insights UI
+
+Preference views
+
+Integration Tests:
+
+AI personalization flow
+
+Memory-driven recommendation flow
+
+---
+
+# Cursor Instructions
+
+When generating AI memory features:
+
+- always treat memory as adaptive system
+- always respect privacy controls
+- always use memory to improve AI outputs
+- never expose raw memory graph directly to UI

@@ -1,0 +1,220 @@
+---
+description:
+Defines the Settings system including app configuration, notifications, privacy controls, theme settings, and AI behavior preferences.
+
+alwaysApply: true
+---
+
+# Settings System
+
+Settings control how LexMastery behaves at runtime.
+
+They must be flexible but safe.
+
+---
+
+# Product Vision
+
+Settings must:
+
+- give users control
+- protect privacy
+- configure AI behavior
+- manage notifications
+- allow UI customization
+
+---
+
+# Architecture
+
+Presentation Layer
+
+↓
+
+SettingsController (Riverpod)
+
+↓
+
+SettingsState
+
+↓
+
+SettingsRepository
+
+↓
+
+Local Storage + API Sync
+
+---
+
+# State Management
+
+SettingsState includes:
+
+- loading
+- loaded
+- updating
+- error
+
+Core Data:
+
+- themeMode
+- notificationSettings
+- privacySettings
+- aiBehaviorSettings
+- accessibilitySettings
+
+---
+
+# Settings Categories
+
+1. Appearance
+2. Notifications
+3. Privacy
+4. AI Behavior
+5. Accessibility
+6. Account
+
+---
+
+# AI Behavior Settings
+
+User can control:
+
+- explanation depth
+- verbosity level
+- tutoring mode intensity
+- suggestion frequency
+
+---
+
+# Notification Settings
+
+- study reminders
+- exam alerts
+- AI suggestions
+- streak notifications
+
+---
+
+# Privacy Settings
+
+- data sharing
+- analytics opt-in
+- AI memory control
+
+---
+
+# Navigation Rules
+
+Settings accessible from:
+
+- Profile
+- Dashboard
+
+---
+
+# Offline Behaviour
+
+- settings fully accessible offline
+- changes queued for sync
+
+---
+
+# API Contracts
+
+GET /settings
+
+PUT /settings/update
+
+POST /settings/sync
+
+---
+
+# Analytics Events
+
+settings_view
+
+settings_update
+
+ai_behavior_changed
+
+notification_preferences_updated
+
+---
+
+# UI Composition Rules
+
+Settings UI must include:
+
+- categorized sections
+- toggles
+- sliders (AI behavior)
+- confirmation dialogs for sensitive changes
+
+---
+
+# UX Rules
+
+- avoid overwhelming users
+- group logically
+- provide defaults
+
+---
+
+# Error Handling
+
+- retry sync silently
+- preserve local state
+
+---
+
+# Performance
+
+- instant toggle response
+- deferred sync allowed
+
+---
+
+# Accessibility
+
+Must support:
+
+- screen reader navigation
+- keyboard toggles
+- clear labels
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Settings updates
+
+AI behavior logic
+
+Notification toggles
+
+Widget Tests:
+
+Settings screen
+
+Toggle components
+
+Section grouping
+
+Integration Tests:
+
+Full settings sync flow
+
+---
+
+# Cursor Instructions
+
+When generating settings features:
+
+- always allow offline changes
+- always respect user privacy settings
+- always make AI behavior configurable
+- never force AI behavior changes without user consent

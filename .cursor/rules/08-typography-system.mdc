@@ -1,0 +1,472 @@
+---
+description:
+Defines the official Typography System for the LexMastery Design Language.
+
+alwaysApply: true
+---
+
+# Typography System
+
+Typography is the primary interface of LexMastery.
+
+Reading is the core user activity.
+
+Typography must optimize:
+
+Comprehension
+
+Retention
+
+Scanning
+
+Accessibility
+
+Comfort
+
+Confidence
+
+Never optimize typography for visual decoration.
+
+Always optimize for readability.
+
+---
+
+# Typography Philosophy
+
+LexMastery typography should feel:
+
+Professional
+
+Academic
+
+Premium
+
+Modern
+
+Calm
+
+Editorial
+
+Structured
+
+Trustworthy
+
+The experience should resemble:
+
+Apple Books
+
+Medium
+
+Notion
+
+Kindle
+
+Financial Times
+
+Harvard Business Review
+
+—not—
+
+Social media feeds.
+
+---
+
+# Typography Hierarchy
+
+Every text belongs to one category.
+
+Display
+
+↓
+
+Headline
+
+↓
+
+Title
+
+↓
+
+Body
+
+↓
+
+Supporting
+
+↓
+
+Caption
+
+↓
+
+Label
+
+Never invent additional hierarchy levels.
+
+---
+
+# Font Family
+
+The project uses a single primary font family.
+
+Primary Font
+
+Inter
+
+Fallback
+
+System Sans Serif
+
+Do not mix font families unless explicitly approved.
+
+---
+
+# Font Weights
+
+Use only approved weights.
+
+Regular
+
+Medium
+
+SemiBold
+
+Bold
+
+Avoid Light and Thin weights for body text.
+
+Avoid Black and ExtraBold except for display headings.
+
+---
+
+# Line Height
+
+Reading comfort is more important than density.
+
+Body text should use generous line height.
+
+Headings should use tighter line height.
+
+Never compress multiline text.
+
+---
+
+# Letter Spacing
+
+Use neutral tracking.
+
+Never apply excessive letter spacing.
+
+Avoid negative tracking except for large display text.
+
+---
+
+# Text Alignment
+
+Default alignment:
+
+Left
+
+Never justify paragraphs.
+
+Center alignment is reserved for:
+
+Hero sections
+
+Empty states
+
+Celebration screens
+
+Everything else remains left aligned.
+
+---
+
+# Paragraph Width
+
+Never allow excessively wide reading columns.
+
+Optimize for comfortable reading.
+
+Break long content into sections.
+
+Use headings frequently.
+
+---
+
+# Heading Rules
+
+Headings communicate structure.
+
+Every screen should have one primary heading.
+
+Avoid multiple competing headlines.
+
+---
+
+# Body Text
+
+Body text is the most important typography style.
+
+It should remain:
+
+Readable
+
+Comfortable
+
+Accessible
+
+Never sacrifice readability for aesthetics.
+
+---
+
+# Supporting Text
+
+Supporting text provides context.
+
+Use reduced emphasis.
+
+Never reduce readability.
+
+---
+
+# Captions
+
+Captions communicate metadata.
+
+Examples:
+
+Dates
+
+Progress
+
+Question numbers
+
+Sources
+
+Time estimates
+
+Avoid long paragraphs in captions.
+
+---
+
+# Labels
+
+Labels identify UI controls.
+
+Labels should remain concise.
+
+Never use labels for explanatory text.
+
+---
+
+# Legal References
+
+Legal citations have dedicated styling.
+
+Examples:
+
+Case Names
+
+Statutes
+
+Sections
+
+Acts
+
+Regulations
+
+Citations should stand out without disrupting reading.
+
+---
+
+# AI Responses
+
+AI responses prioritize readability.
+
+Support:
+
+Headings
+
+Lists
+
+Tables
+
+Code blocks
+
+Legal citations
+
+Block quotes
+
+Definitions
+
+Examples
+
+Warnings
+
+AI should never produce large walls of text.
+
+---
+
+# Question Typography
+
+Quiz questions require high emphasis.
+
+Options require medium emphasis.
+
+Explanations prioritize readability.
+
+Correct answers should never rely solely on color.
+
+---
+
+# Flashcards
+
+Front side
+
+High emphasis
+
+Back side
+
+Comfortable reading
+
+Hints
+
+Supporting typography
+
+---
+
+# Progress Numbers
+
+Scores
+
+Percentages
+
+Statistics
+
+Use tabular numerals when appropriate.
+
+Align numbers consistently.
+
+---
+
+# Accessibility
+
+Support Dynamic Type.
+
+Support large font sizes.
+
+Never truncate important content.
+
+Allow text to wrap naturally.
+
+Avoid fixed-height text containers.
+
+---
+
+# Responsive Typography
+
+Typography scales gracefully.
+
+Do not create separate font systems for phones and tablets.
+
+Use responsive scaling through typography tokens.
+
+---
+
+# Text Styles
+
+Expose typography through Theme Extensions.
+
+Example:
+
+context.typography.displayLarge
+
+context.typography.headlineMedium
+
+context.typography.bodyLarge
+
+context.typography.captionSmall
+
+Never create TextStyle directly inside widgets.
+
+---
+
+# Rich Text
+
+Prefer semantic formatting.
+
+Avoid excessive bold text.
+
+Avoid excessive italics.
+
+Use emphasis sparingly.
+
+---
+
+# Reading Rhythm
+
+Large blocks of text should include:
+
+Headings
+
+Lists
+
+Spacing
+
+Quotes
+
+Examples
+
+Dividers
+
+Never overwhelm the user.
+
+---
+
+# AI Thinking Panels
+
+AI reasoning panels use a slightly reduced emphasis than the final answer.
+
+Reasoning should appear informative, not authoritative.
+
+---
+
+# Error Messages
+
+Errors should remain calm.
+
+Avoid alarming typography.
+
+Use concise language.
+
+---
+
+# Empty States
+
+Empty states should:
+
+Explain
+
+Guide
+
+Encourage
+
+Typography should reduce anxiety.
+
+---
+
+# Cursor Instructions
+
+Whenever generating UI:
+
+Use typography tokens only.
+
+Never hardcode TextStyle.
+
+Never hardcode font size.
+
+Never hardcode font weight.
+
+Always preserve reading comfort.
+
+Optimize every screen for prolonged study sessions.

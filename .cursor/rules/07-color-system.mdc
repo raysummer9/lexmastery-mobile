@@ -1,0 +1,492 @@
+---
+description:
+Defines the LexMastery Color System.
+
+alwaysApply: true
+---
+
+# Color System
+
+Colors communicate meaning.
+
+Never decorate.
+
+Never use color because it "looks nice."
+
+Every color has a purpose.
+
+---
+
+# Brand Personality
+
+The visual language should feel
+
+Professional
+
+Trustworthy
+
+Academic
+
+Premium
+
+Editorial
+
+Modern
+
+Minimal
+
+Calm
+
+Confident
+
+Never create
+
+Neon interfaces
+
+Gaming interfaces
+
+Social media interfaces
+
+Overly saturated interfaces
+
+---
+
+# Color Hierarchy
+
+Primitive Colors
+
+↓
+
+Semantic Colors
+
+↓
+
+Component Colors
+
+↓
+
+Feature Colors
+
+Never bypass the hierarchy.
+
+---
+
+# Primitive Colors
+
+Primitive colors represent raw values.
+
+Examples
+
+Blue 50
+
+Blue 100
+
+Blue 200
+
+...
+
+Gray 50
+
+Gray 100
+
+Gray 900
+
+Success Green
+
+Warning Amber
+
+Error Red
+
+Primitive colors should never be consumed directly.
+
+---
+
+# Semantic Colors
+
+Semantic colors describe intent.
+
+Examples
+
+color.background.primary
+
+color.background.secondary
+
+color.surface.primary
+
+color.surface.secondary
+
+color.surface.elevated
+
+color.surface.inverse
+
+color.text.primary
+
+color.text.secondary
+
+color.text.tertiary
+
+color.text.inverse
+
+color.action.primary
+
+color.action.secondary
+
+color.action.disabled
+
+color.border.default
+
+color.border.focus
+
+color.border.error
+
+color.success
+
+color.warning
+
+color.error
+
+color.info
+
+color.overlay
+
+color.shadow
+
+Widgets consume Semantic Colors.
+
+---
+
+# Surface Levels
+
+Support multiple surface elevations.
+
+Examples
+
+surface.level0
+
+surface.level1
+
+surface.level2
+
+surface.level3
+
+surface.level4
+
+Higher surfaces should have subtle contrast.
+
+Never rely on heavy shadows.
+
+---
+
+# Background Layers
+
+Support
+
+App Background
+
+Screen Background
+
+Section Background
+
+Card Background
+
+Modal Background
+
+Overlay Background
+
+Every layer must be distinguishable.
+
+---
+
+# Text Hierarchy
+
+Primary Text
+
+Highest emphasis.
+
+Secondary Text
+
+Supporting information.
+
+Tertiary Text
+
+Metadata.
+
+Disabled Text
+
+Unavailable actions.
+
+Inverse Text
+
+Dark backgrounds.
+
+Never invent additional text colors.
+
+---
+
+# Action Colors
+
+Actions communicate intent.
+
+Primary
+
+Secondary
+
+Destructive
+
+Success
+
+Disabled
+
+Loading
+
+Avoid unnecessary variants.
+
+---
+
+# Feedback Colors
+
+Feedback should always be consistent.
+
+Success
+
+Warning
+
+Error
+
+Information
+
+Neutral
+
+Never invent custom alert colors.
+
+---
+
+# Border Colors
+
+Support
+
+Default
+
+Focused
+
+Hovered
+
+Pressed
+
+Selected
+
+Disabled
+
+Error
+
+Success
+
+---
+
+# Selection Colors
+
+Support
+
+Text Selection
+
+Checkbox
+
+Radio
+
+Switch
+
+Chip
+
+Quiz Option
+
+Flashcard
+
+AI Citation
+
+---
+
+# Component Colors
+
+Every reusable component owns its own semantic mapping.
+
+Example
+
+Primary Button
+
+↓
+
+button.primary.background
+
+↓
+
+color.action.primary
+
+↓
+
+primitive.blue600
+
+The component never references primitive colors.
+
+---
+
+# AI Colors
+
+AI interactions have dedicated semantic colors.
+
+Examples
+
+assistant.background
+
+assistant.border
+
+assistant.text
+
+assistant.citation
+
+assistant.reasoning
+
+assistant.confidence
+
+assistant.streaming
+
+user.background
+
+user.text
+
+system.background
+
+Never reuse chat colors from messaging apps.
+
+AI should feel professional.
+
+---
+
+# Quiz Colors
+
+Quiz colors belong to Quiz.
+
+Examples
+
+quiz.correct
+
+quiz.incorrect
+
+quiz.unanswered
+
+quiz.selected
+
+quiz.review
+
+quiz.flagged
+
+---
+
+# Flashcard Colors
+
+Support
+
+Front
+
+Back
+
+Reveal
+
+Hint
+
+Bookmark
+
+Review
+
+---
+
+# Diagnostic Colors
+
+Support
+
+Excellent
+
+Good
+
+Average
+
+Weak
+
+Critical
+
+Never expose numeric meaning through color alone.
+
+Always combine with text.
+
+---
+
+# Progress Colors
+
+Support
+
+Current
+
+Completed
+
+Locked
+
+In Progress
+
+Pending
+
+Streak
+
+Milestone
+
+---
+
+# Accessibility
+
+Every color combination must satisfy WCAG AA.
+
+Never rely solely on color.
+
+Always support icons or labels.
+
+---
+
+# Dark Theme
+
+Dark Mode should not simply invert colors.
+
+Dark Mode has its own semantic palette.
+
+Reduce glare.
+
+Increase readability.
+
+Preserve hierarchy.
+
+---
+
+# Future Themes
+
+The color system must support
+
+Institution branding
+
+White-label deployments
+
+Seasonal branding
+
+Accessibility themes
+
+without changing widgets.
+
+---
+
+# Cursor Instructions
+
+Never use Color().
+
+Never use hex values.
+
+Never reference primitive colors.
+
+Always consume semantic color tokens.
+
+Every widget must remain brand-independent.

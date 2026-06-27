@@ -1,0 +1,366 @@
+---
+description:
+Defines the Design Token Architecture for the LexMastery Design System.
+
+alwaysApply: true
+---
+
+# Token Architecture
+
+LexMastery follows a four-layer Design Token system.
+
+Never use raw values inside widgets.
+
+Every visual value must originate from Design Tokens.
+
+---
+
+# Token Hierarchy
+
+Primitive Tokens
+
+↓
+
+Semantic Tokens
+
+↓
+
+Component Tokens
+
+↓
+
+Feature Tokens
+
+Never skip layers.
+
+---
+
+# Primitive Tokens
+
+Primitive Tokens are raw design values.
+
+They never describe meaning.
+
+Examples:
+
+Blue 500
+
+Gray 100
+
+16 px
+
+8 px
+
+24 px
+
+Font Weight 700
+
+Duration 200 ms
+
+Primitive tokens are never used directly inside widgets.
+
+---
+
+# Semantic Tokens
+
+Semantic Tokens describe purpose.
+
+Examples:
+
+color.background.primary
+
+color.background.secondary
+
+color.surface.primary
+
+color.surface.elevated
+
+color.text.primary
+
+color.text.secondary
+
+color.text.inverse
+
+color.border.default
+
+color.border.focus
+
+color.success
+
+color.warning
+
+color.error
+
+spacing.xs
+
+spacing.sm
+
+spacing.md
+
+spacing.lg
+
+spacing.xl
+
+radius.sm
+
+radius.md
+
+radius.lg
+
+radius.xl
+
+elevation.card
+
+motion.fast
+
+motion.normal
+
+motion.slow
+
+Widgets consume Semantic Tokens.
+
+Never consume Primitive Tokens.
+
+---
+
+# Component Tokens
+
+Component Tokens specialize semantic tokens for reusable UI.
+
+Examples:
+
+button.primary.background
+
+button.primary.foreground
+
+button.primary.padding
+
+button.primary.radius
+
+button.secondary.background
+
+textfield.background
+
+textfield.border
+
+textfield.focus
+
+textfield.padding
+
+card.background
+
+card.radius
+
+card.padding
+
+dialog.background
+
+dialog.radius
+
+navigation.background
+
+navigation.icon.active
+
+navigation.icon.inactive
+
+Only reusable components may own Component Tokens.
+
+---
+
+# Feature Tokens
+
+Feature Tokens belong to a business capability.
+
+Examples:
+
+quiz.correct.background
+
+quiz.correct.border
+
+quiz.incorrect.background
+
+quiz.progress.indicator
+
+flashcard.front.background
+
+flashcard.back.background
+
+flashcard.shadow
+
+diagnostic.score.high
+
+diagnostic.score.medium
+
+diagnostic.score.low
+
+study.streak.active
+
+study.streak.inactive
+
+ai.message.user.background
+
+ai.message.assistant.background
+
+ai.message.system.background
+
+course.completed.badge
+
+course.locked.overlay
+
+Feature Tokens must never be reused across unrelated features.
+
+---
+
+# Theme Resolution
+
+Theme lookup order:
+
+Feature Token
+
+↓
+
+Component Token
+
+↓
+
+Semantic Token
+
+↓
+
+Primitive Token
+
+Never bypass this chain.
+
+---
+
+# Dark Mode
+
+Dark Mode overrides Semantic Tokens.
+
+Primitive Tokens remain unchanged.
+
+Component Tokens inherit automatically.
+
+Feature Tokens inherit automatically unless explicitly overridden.
+
+---
+
+# Accessibility Themes
+
+Accessibility themes modify Semantic Tokens.
+
+Examples:
+
+High Contrast
+
+Reduced Motion
+
+Large Text
+
+Institution Theme
+
+Color Blind Theme
+
+Do not modify components directly.
+
+---
+
+# White Label Support
+
+Future institution branding must only override
+
+Primitive Tokens
+
+or
+
+Semantic Tokens.
+
+Never duplicate components.
+
+---
+
+# Token Naming
+
+Use dot notation.
+
+Good:
+
+color.text.primary
+
+button.primary.background
+
+quiz.correct.background
+
+Bad:
+
+blueColor
+
+primaryBlue
+
+buttonColor
+
+textColor
+
+---
+
+# Token Storage
+
+Tokens should exist as strongly typed Dart classes.
+
+Never store tokens as arbitrary maps.
+
+Avoid string lookups.
+
+Use compile-time safety wherever possible.
+
+---
+
+# Theme Extensions
+
+Expose tokens through Theme Extensions.
+
+Widgets should access tokens through BuildContext extensions.
+
+Example:
+
+context.tokens.color.text.primary
+
+Never access raw Color values.
+
+---
+
+# Hardcoded Values
+
+Forbidden inside widgets:
+
+Color()
+
+EdgeInsets.all(16)
+
+SizedBox(height: 24)
+
+BorderRadius.circular(12)
+
+Duration(milliseconds: 200)
+
+TextStyle(fontSize: 16)
+
+Always reference tokens.
+
+---
+
+# Cursor Instructions
+
+Whenever generating UI:
+
+Never hardcode visual values.
+
+Always consume Design Tokens.
+
+Always resolve through Theme Extensions.
+
+If a required token does not exist,
+
+create the token,
+
+not a hardcoded value.

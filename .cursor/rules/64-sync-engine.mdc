@@ -1,0 +1,181 @@
+---
+description:
+Defines the Sync Engine system including offline-first synchronization, conflict resolution, queue management, and data consistency across devices.
+
+alwaysApply: true
+---
+
+# Sync Engine System
+
+The Sync Engine ensures data consistency across devices and offline usage.
+
+It is critical for reliability.
+
+---
+
+# Product Vision
+
+Sync Engine must:
+
+- support offline-first usage
+- synchronize data reliably
+- resolve conflicts intelligently
+- prevent data loss
+- maintain cross-device consistency
+
+---
+
+# Architecture
+
+SyncController
+
+↓
+
+SyncState
+
+↓
+
+SyncQueueManager
+
+↓
+
+ConflictResolver
+
+↓
+
+Remote API + Local DB
+
+---
+
+# State Management
+
+SyncState includes:
+
+- idle
+- syncing
+- queued
+- failed
+- resolved
+
+Core Data:
+
+- pendingChanges
+- syncedItems
+- conflictItems
+- retryQueue
+
+---
+
+# Sync Strategy
+
+- optimistic local updates
+- background sync
+- queued retries
+- exponential backoff
+
+---
+
+# Conflict Resolution
+
+Rules:
+
+- last-write-wins (default)
+- AI-assisted merge (future)
+- manual resolution fallback
+
+---
+
+# Offline Behaviour
+
+- full offline support
+- queue all actions locally
+- sync when connection restored
+
+---
+
+# Data Sources
+
+Sync applies to:
+
+- Notes
+- Bookmarks
+- Progress
+- Profile changes
+- Settings
+
+---
+
+# API Contracts
+
+POST /sync/push
+
+GET /sync/pull
+
+POST /sync/conflict-resolve
+
+---
+
+# Analytics Events
+
+sync_started
+
+sync_completed
+
+sync_failed
+
+conflict_detected
+
+conflict_resolved
+
+---
+
+# UX Rules
+
+- sync must be invisible
+- only show errors when necessary
+- never block user actions
+
+---
+
+# Performance
+
+- sync must not block UI
+- batch network requests
+- minimize payload size
+
+---
+
+# Reliability Rules
+
+- retry failed sync automatically
+- preserve local state at all times
+- never overwrite local data without confirmation
+
+---
+
+# Testing Requirements
+
+Unit Tests:
+
+Queue manager
+
+Conflict resolver
+
+Sync state transitions
+
+Integration Tests:
+
+Offline → online sync flow
+
+Conflict resolution flow
+
+---
+
+# Cursor Instructions
+
+When generating sync features:
+
+- always implement offline-first behavior
+- always queue local actions
+- always handle conflicts safely
+- never block UI on sync operations

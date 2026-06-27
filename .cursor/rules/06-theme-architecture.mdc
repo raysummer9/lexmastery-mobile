@@ -1,0 +1,436 @@
+---
+description:
+Defines the Theme Engine for the LexMastery Flutter application.
+
+alwaysApply: true
+---
+
+# Theme Architecture
+
+LexMastery uses a token-driven Theme Engine.
+
+Widgets never consume colors directly.
+
+Widgets consume Theme Extensions.
+
+The Theme Engine is the single source of truth for all visual styling.
+
+---
+
+# Theme Philosophy
+
+The theme is responsible for expressing the LexMastery brand.
+
+It should create an experience that feels:
+
+Professional
+
+Premium
+
+Editorial
+
+Minimal
+
+Academic
+
+Calm
+
+Trustworthy
+
+Elegant
+
+The theme should never feel:
+
+Playful
+
+Cartoonish
+
+Gamified
+
+Busy
+
+Overly decorative
+
+---
+
+# Theme Layers
+
+The visual hierarchy is:
+
+Primitive Tokens
+
+↓
+
+Semantic Tokens
+
+↓
+
+Theme Extensions
+
+↓
+
+Component Themes
+
+↓
+
+Widgets
+
+Widgets must never bypass this hierarchy.
+
+---
+
+# Theme Organization
+
+The app theme is composed of independent theme extensions.
+
+Example:
+
+AppColorTheme
+
+AppTypographyTheme
+
+AppSpacingTheme
+
+AppRadiusTheme
+
+AppElevationTheme
+
+AppMotionTheme
+
+AppBorderTheme
+
+AppIconTheme
+
+AppIllustrationTheme
+
+AppAITheme
+
+Never place everything inside a single ThemeData.
+
+---
+
+# Theme Extensions
+
+Every design category must expose a ThemeExtension.
+
+Example:
+
+context.colors
+
+context.typography
+
+context.spacing
+
+context.radius
+
+context.motion
+
+context.elevation
+
+context.icons
+
+context.ai
+
+Never expose raw Color values.
+
+Never expose primitive values directly.
+
+---
+
+# ThemeData
+
+ThemeData should remain lightweight.
+
+ThemeData configures:
+
+Material3
+
+Brightness
+
+Page Transitions
+
+Typography Bridge
+
+Color Scheme
+
+Theme Extensions
+
+Avoid placing business-specific styling inside ThemeData.
+
+---
+
+# Color Scheme
+
+Material ColorScheme exists only as a compatibility layer.
+
+The application should consume AppColorTheme instead.
+
+Do not build directly against ColorScheme.
+
+---
+
+# Typography
+
+TextTheme should bridge to AppTypographyTheme.
+
+Widgets should access typography through:
+
+context.typography
+
+Never create TextStyle manually inside widgets.
+
+---
+
+# Spacing
+
+All spacing values originate from:
+
+AppSpacingTheme
+
+Never use:
+
+EdgeInsets.all(16)
+
+SizedBox(height: 24)
+
+Padding(12)
+
+Always consume spacing tokens.
+
+Example:
+
+context.spacing.md
+
+---
+
+# Radius
+
+Border radii belong to:
+
+AppRadiusTheme
+
+Never use:
+
+BorderRadius.circular(12)
+
+Always use:
+
+context.radius.card
+
+---
+
+# Elevation
+
+Shadows belong to:
+
+AppElevationTheme
+
+Avoid arbitrary BoxShadows.
+
+Every elevation level should be predefined.
+
+---
+
+# Motion
+
+Animations belong to:
+
+AppMotionTheme
+
+Motion defines:
+
+Duration
+
+Curve
+
+Delay
+
+Spring
+
+Never hardcode animation durations.
+
+---
+
+# Borders
+
+Border styling belongs to:
+
+AppBorderTheme
+
+Examples:
+
+Default Border
+
+Focused Border
+
+Error Border
+
+Disabled Border
+
+---
+
+# Icons
+
+Icon sizing belongs to:
+
+AppIconTheme
+
+Never hardcode icon sizes.
+
+Never hardcode stroke widths.
+
+---
+
+# AI Theme
+
+LexMastery AI has its own visual language.
+
+The AI Theme defines:
+
+Assistant Bubble
+
+User Bubble
+
+Thinking Indicator
+
+Streaming Cursor
+
+Citation Card
+
+Confidence Badge
+
+Suggestion Chip
+
+Legal Reference Card
+
+Reasoning Panel
+
+Voice Indicator
+
+AI widgets must consume AppAITheme.
+
+---
+
+# Component Themes
+
+Reusable components expose their own theme layer.
+
+Examples:
+
+PrimaryButtonTheme
+
+SecondaryButtonTheme
+
+TextFieldTheme
+
+CardTheme
+
+NavigationTheme
+
+DialogTheme
+
+ProgressTheme
+
+QuizTheme
+
+FlashcardTheme
+
+AIMessageTheme
+
+These themes consume semantic tokens.
+
+---
+
+# Dark Mode
+
+Dark Mode overrides Semantic Tokens.
+
+Components should adapt automatically.
+
+Widgets must not know whether the application is in Dark Mode.
+
+---
+
+# Accessibility Themes
+
+Support future accessibility themes.
+
+Examples:
+
+High Contrast
+
+Reduced Motion
+
+Large Text
+
+Institution Branding
+
+Color Blind Modes
+
+The architecture must support these without widget changes.
+
+---
+
+# White Label Support
+
+Future institution branding should override:
+
+Primitive Tokens
+
+Semantic Tokens
+
+Only.
+
+Components remain unchanged.
+
+---
+
+# Theme Access
+
+Preferred:
+
+context.colors
+
+context.spacing
+
+context.typography
+
+context.motion
+
+context.ai
+
+Avoid:
+
+Theme.of(context).colorScheme
+
+Avoid:
+
+Theme.of(context).textTheme
+
+---
+
+# Widget Rules
+
+Widgets should never define appearance.
+
+Widgets request appearance from the Theme Engine.
+
+The Theme Engine decides presentation.
+
+---
+
+# Cursor Instructions
+
+Whenever generating UI:
+
+Never hardcode visual values.
+
+Always use Theme Extensions.
+
+Always consume Design Tokens.
+
+Never bypass the Theme Engine.
+
+Every widget should remain theme-agnostic.
+
+Future redesigns should require changing the theme—not the widgets.
