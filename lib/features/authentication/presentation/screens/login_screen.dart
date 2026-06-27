@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lexmastery_mobile/features/authentication/presentation/controllers/auth_controller.dart';
 import 'package:lexmastery_mobile/features/authentication/presentation/state/auth_state.dart';
+import 'package:lexmastery_mobile/features/dashboard/routes/dashboard_routes.dart';
 import 'package:lexmastery_mobile/shared/theme_extensions/theme_context_extensions.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
@@ -28,7 +29,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     final authState = ref.watch(authControllerProvider);
     ref.listen<AuthState>(authControllerProvider, (previous, next) {
       if (next.status == AuthStatus.authenticated) {
-        context.go('/');
+        context.go(DashboardRoutes.dashboardPath);
       }
     });
     return Scaffold(

@@ -7,8 +7,12 @@ import 'package:lexmastery_mobile/core/navigation/app_routes.dart';
 import 'package:lexmastery_mobile/features/authentication/presentation/controllers/auth_controller.dart';
 import 'package:lexmastery_mobile/features/authentication/presentation/state/auth_state.dart';
 import 'package:lexmastery_mobile/features/authentication/routes/authentication_routes.dart';
+import 'package:lexmastery_mobile/features/course_details/routes/course_details_routes.dart';
+import 'package:lexmastery_mobile/features/courses/routes/courses_routes.dart';
+import 'package:lexmastery_mobile/features/dashboard/routes/dashboard_routes.dart';
 import 'package:lexmastery_mobile/features/notifications/routes/notifications_routes.dart';
 import 'package:lexmastery_mobile/features/app_shell/presentation/screens/app_shell_screen.dart';
+import 'package:lexmastery_mobile/features/lesson_player/routes/lesson_player_routes.dart';
 import 'package:lexmastery_mobile/features/profile/routes/profile_routes.dart';
 import 'package:lexmastery_mobile/features/settings/routes/settings_routes.dart';
 
@@ -24,6 +28,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => const AppShellScreen(),
       ),
       ...AuthenticationRoutes.routes,
+      ...DashboardRoutes.routes,
+      ...CoursesRoutes.routes,
+      ...CourseDetailsRoutes.routes,
+      ...LessonPlayerRoutes.routes,
       ...ProfileRoutes.routes,
       ...SettingsRoutes.routes,
       ...NotificationsRoutes.routes,
@@ -36,7 +44,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         return AuthenticationRoutes.loginPath;
       }
       if (isAuthenticated && isLoginRoute) {
-        return AppRoutes.appShellPath;
+        return DashboardRoutes.dashboardPath;
       }
       return null;
     },

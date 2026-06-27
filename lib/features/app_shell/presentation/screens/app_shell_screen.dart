@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lexmastery_mobile/features/authentication/presentation/controllers/auth_controller.dart';
 import 'package:lexmastery_mobile/features/authentication/routes/authentication_routes.dart';
+import 'package:lexmastery_mobile/features/courses/routes/courses_routes.dart';
+import 'package:lexmastery_mobile/features/dashboard/routes/dashboard_routes.dart';
 import 'package:lexmastery_mobile/features/notifications/routes/notifications_routes.dart';
 import 'package:lexmastery_mobile/features/profile/routes/profile_routes.dart';
 import 'package:lexmastery_mobile/features/settings/routes/settings_routes.dart';
@@ -32,10 +34,20 @@ class AppShellScreen extends ConsumerWidget {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Text(
-                  'Phase 1 foundation modules are ready.',
+                  'Phase 2 learning modules are now scaffolded.',
                   style: context.typography.bodyLarge,
                 ),
                 SizedBox(height: context.spacing.lg),
+                FilledButton(
+                  onPressed: () => context.go(DashboardRoutes.dashboardPath),
+                  child: const Text('Open Dashboard'),
+                ),
+                SizedBox(height: context.spacing.sm),
+                FilledButton(
+                  onPressed: () => context.go(CoursesRoutes.coursesPath),
+                  child: const Text('Open Courses'),
+                ),
+                SizedBox(height: context.spacing.sm),
                 FilledButton(
                   onPressed: () => context.go(ProfileRoutes.profilePath),
                   child: const Text('Open Profile'),
